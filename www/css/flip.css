@@ -25,28 +25,18 @@ body {
 	background: url("paper.png") no-repeat;
 	display: block;
 	width: 480px;
-	height: 310px;
+	height: 320px;
 	position: absolute;
-	left: 375px;
-	top: 5px;
+	left: 380px;
+	top: 0px;
 	overflow: hidden;
 }
 	#pages section>div {
 		display: block;
 		width: 480px;
-		height: 310px;
+		height: 320px;
 		font-size: 12px;
         background-repeat: no-repeat;
-	}
-
-	#pages section p,
-	#pages section h2 {
-		padding: 3px 35px;
-		line-height: 1.4em;
-		text-align: justify;
-	}
-	#pages section h2{
-		margin: 15px 0 10px;
 	}
 
 #pageflip-canvas {

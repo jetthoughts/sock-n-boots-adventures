@@ -5,7 +5,7 @@
  
  // Dimensions of one page in the book
  var PAGE_WIDTH = 480;
- var PAGE_HEIGHT = 310;
+ var PAGE_HEIGHT = 320;
 	
 	// Vertical spacing between the top edge of the book and the papers
 	var PAGE_Y = ( BOOK_HEIGHT - PAGE_HEIGHT ) / 2;
