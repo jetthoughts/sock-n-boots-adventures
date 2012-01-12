@@ -1,52 +1,29 @@
-body, h2, p {
-	margin: 0;
-	padding: 0;
+#next{
+    background-image:url('../images/iphone/next.png');
+    width: 23px;
+    height:23px;
+    display:block;
+    float:right;
+    z-index: 111;
+    position: absolute;
+    left: 450px;
 }
 
-body {
-	background-color: #444;
-	color: #333;
-	font-family: Helvetica, sans-serif;
+#prev{
+    background-image:url('../images/iphone/back.png');
+    width: 23px;
+    height:23px;
+    display:block;
+    float:left;
+    z-index: 111;
+    position: absolute;
+    
 }
 
-#book {
-	background: url("book.png") no-repeat;
-	position: absolute;
-	width: 830px;
-	height: 460px;
-	left: 50%;
-	top: 50%;
-	margin-left: -400px;
-	margin-top: -125px;
+#main{
+    background-image:url('../images/iphone/cover_Foreground.jpg');
 }
 
-#pages section {
-	background: url("paper.png") no-repeat;
-	display: block;
-	width: 400px;
-	height: 450px;
-	position: absolute;
-	left: 415px;
-	top: 5px;
-	overflow: hidden;
-}
-	#pages section>div {
-		display: block;
-		width: 400px;
-		height: 450px;
-		font-size: 12px;
-	}
-	#pages section p,
-	#pages section h2 {
-		padding: 3px 35px;
-		line-height: 1.4em;
-		text-align: justify;
-	}
-	#pages section h2{
-		margin: 15px 0 10px;
-	}
-
-#pageflip-canvas {
-	position: absolute;
-	z-index: 100;
+#page_1{
+  background-image:url('../images/iphone/1_foreground.jpg');
 }

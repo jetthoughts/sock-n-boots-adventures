@@ -126,3 +126,13 @@ function go_to_homesite(){
     window.location='http://www.larriottheliger.com/2010/ligers-are-real/';
 }
 
+//------------------------------------------
+
+function prevPage(){
+    navigator.notification.alert("PhoneGap is working");
+    console.log("prevPage()");
+}
+
+function nextPage(){
+    console.log("nextPage()");
+}

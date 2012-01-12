@@ -105,6 +105,7 @@ function doRightClick() {
 // mouse over event then mouse down
 //
 function iPadTouchStart(event) {
+    
 	var touches = event.changedTouches,
 		first = touches[0],
 		type = "mouseover",
@@ -140,7 +141,6 @@ function iPadTouchStart(event) {
 		if (first.target == lastTap) {
 			lastTap = null;
 			tapValid = false;
-
 			type = "click";
 			simulatedEvent = document.createEvent("MouseEvent");
 

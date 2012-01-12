@@ -1,6 +1,4 @@
 
-
-(function() {
  // Dimensions of the whole book
  var BOOK_WIDTH = 830;
  var BOOK_HEIGHT = 260;
@@ -50,15 +48,15 @@
 	canvas.height = BOOK_HEIGHT + ( CANVAS_PADDING * 2 );
 	
 	// Offset the canvas so that it's padding is evenly spread around the book
-	canvas.style.top = -CANVAS_PADDING + "px";
+	canvas.style.top =  -CANVAS_PADDING + "px"
 	canvas.style.left = -CANVAS_PADDING + "px";
 	
 	// Render the page flip 60 times a second
 	setInterval( render, 1000 / 60 );
 	
-	document.addEventListener( "touchmove", mouseMoveHandler, false );
-	document.addEventListener( "touchstart", mouseDownHandler, false );
-	document.addEventListener( "touchend", mouseUpHandler, false );
+	canvas.addEventListener( "touchmove", mouseMoveHandler, false );
+	canvas.addEventListener( "touchstart", mouseDownHandler, false );
+	canvas.addEventListener( "touchend", mouseUpHandler, false );
 	
 	function mouseMoveHandler( event ) {
 		// Offset mouse position so that the top of the book spine is 0,0
@@ -84,7 +82,6 @@ var targetEvent =  event.touches.item(0);
 		
 		// Prevents the text selection
 		event.preventDefault();
-         console.log("down");
 	}
 	
 	function mouseUpHandler( event ) {
@@ -220,7 +217,6 @@ var targetEvent =  event.touches.item(0);
 		
 		context.restore();
 	}
-	
-})();
+
 
 
