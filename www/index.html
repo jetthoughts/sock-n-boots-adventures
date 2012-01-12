@@ -17,7 +17,7 @@
         <script type="text/javascript" src="js/jquery-ui.js"></script> 
         <script type='text/javascript' src="js/jquery.ui.ipad.js"></script>
         <script type='text/javascript' src="js/jquery.mobile.carousel.js"></script> 
-
+        <script type='text/javascript' src="js/main.js"></script> 
         
        
       	<link type="text/css" href="css/main.css" rel="stylesheet" media="screen" />
@@ -58,11 +58,28 @@
 	{
         console.log(screen.width);
         console.log(screen.height);
+        init();
 	}
-    
     </script>
   </head>
   <body onload="onBodyLoad()">
-
+     <div style="height: 768px; width: 1024px">
+          <ul id="carousel" style="display: none;">
+              <li>
+                  <span class="active-item" id="main">	
+                      <div id='area0_1' onclick="with_audio();"></div>
+                      <div id='area0_2' onclick="without_audio();"></div>
+                      <img id="frame0" class="images" src="image/cover_Foreground.png" />
+                  </span>
+                  
+              </li>
+              <li>
+                  <div id='area1_1' onclick="play_clip('2');"></div>
+                  <div id='area1_2' onclick="play_clip('3');"></div>
+                  <div id='area1_3' onclick="play_clip('4');"></div>
+                  <img  id="frame1" class="images " src="image/1_foreground.png">
+              </li> 
+          </ul>
+      </div>
   </body>
 </html>
