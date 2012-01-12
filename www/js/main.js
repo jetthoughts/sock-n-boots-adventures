@@ -129,10 +129,10 @@ function go_to_homesite(){
 //------------------------------------------
 
 function prevPage(){
-    navigator.notification.alert("PhoneGap is working");
-    console.log("prevPage()");
+    ToPrevPage();
 }
 
 function nextPage(){
     console.log("nextPage()");
+    ToNextPage();
 }

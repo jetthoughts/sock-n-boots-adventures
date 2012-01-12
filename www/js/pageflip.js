@@ -218,5 +218,26 @@
 		context.restore();
 	}
 
+function ToPrevPage(){
+    if (page <1) return;
+
+    var next = page - 1;
+    flips[page - 1].dragging = true;
+    mouse.x = 300;
+    mouseUpHandler(null);
+    page = next;
+}
+
+function ToNextPage(){
+    if (page >= flips.length-1) return;
+    
+    console.log(page);
+    console.log(flips.length);
+    var next = page +1;
+    flips[page].dragging = true;
+        mouse.x = -300;
+    mouseUpHandler(null);
+    page = next;
+}
 
 
