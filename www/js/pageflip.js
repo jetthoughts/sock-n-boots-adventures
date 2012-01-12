@@ -1,17 +1,17 @@
 
  // Dimensions of the whole book
  var BOOK_WIDTH = 830;
- var BOOK_HEIGHT = 260;
+ var BOOK_HEIGHT = 320;
  
  // Dimensions of one page in the book
- var PAGE_WIDTH = 400;
- var PAGE_HEIGHT = 250;
+ var PAGE_WIDTH = 480;
+ var PAGE_HEIGHT = 310;
 	
 	// Vertical spacing between the top edge of the book and the papers
 	var PAGE_Y = ( BOOK_HEIGHT - PAGE_HEIGHT ) / 2;
 	
 	// The canvas size equals to the book dimensions + this padding
-	var CANVAS_PADDING = 60;
+	var CANVAS_PADDING = 10;
 	
 	var page = 0;
 	
@@ -44,12 +44,12 @@
 	}
 	
 	// Resize the canvas to match the book size
-	canvas.width = BOOK_WIDTH + ( CANVAS_PADDING * 2 );
+	canvas.width = BOOK_WIDTH +( CANVAS_PADDING * 2 );
 	canvas.height = BOOK_HEIGHT + ( CANVAS_PADDING * 2 );
 	
 	// Offset the canvas so that it's padding is evenly spread around the book
 	canvas.style.top =  -CANVAS_PADDING + "px"
-	canvas.style.left = -CANVAS_PADDING + "px";
+	canvas.style.left = (-CANVAS_PADDING )+ "px";
 	
 	// Render the page flip 60 times a second
 	setInterval( render, 1000 / 60 );
@@ -60,7 +60,7 @@
 	
 	function mouseMoveHandler( event ) {
 		// Offset mouse position so that the top of the book spine is 0,0
-var targetEvent =  event.touches.item(0);
+        var targetEvent =  event.touches.item(0);
  
 		mouse.x = targetEvent.clientX - book.offsetLeft - ( BOOK_WIDTH / 2 );
 		mouse.y = targetEvent.clientY - book.offsetTop;

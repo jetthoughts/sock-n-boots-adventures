@@ -15,27 +15,30 @@ body {
 	width: 830px;
 	height: 460px;
 	left: 50%;
-	top: 50%;
-	margin-left: -600px;
-	margin-top: -125px;
+	top: 0;
+	margin-left: -620px;
+	margin-top: 0px;
 }
+
 
 #pages section {
 	background: url("paper.png") no-repeat;
 	display: block;
-	width: 400px;
-	height: 450px;
+	width: 480px;
+	height: 310px;
 	position: absolute;
-	left: 415px;
+	left: 375px;
 	top: 5px;
 	overflow: hidden;
 }
 	#pages section>div {
 		display: block;
-		width: 400px;
-		height: 450px;
+		width: 480px;
+		height: 310px;
 		font-size: 12px;
+        background-repeat: no-repeat;
 	}
+
 	#pages section p,
 	#pages section h2 {
 		padding: 3px 35px;
