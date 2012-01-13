@@ -1,11 +1,19 @@
 
  // Dimensions of the whole book
+ 
  var BOOK_WIDTH = 830;
  var BOOK_HEIGHT = 320;
  
- // Dimensions of one page in the book
  var PAGE_WIDTH = 480;
  var PAGE_HEIGHT = 320;
+
+/*
+var BOOK_WIDTH = 1770;
+var BOOK_HEIGHT = 768;
+
+var PAGE_WIDTH = 1024;
+var PAGE_HEIGHT = 768;
+*/
 	
 	// Vertical spacing between the top edge of the book and the papers
 	var PAGE_Y = ( BOOK_HEIGHT - PAGE_HEIGHT ) / 2;
@@ -64,11 +72,19 @@
  
 		mouse.x = targetEvent.clientX - book.offsetLeft - ( BOOK_WIDTH / 2 );
 		mouse.y = targetEvent.clientY - book.offsetTop;
-         console.log(mouse);
 	}
 	
 	function mouseDownHandler( event ) {
         mouseMoveHandler(event);
+
+        var inCenter = (Math.abs(mouse.x - PAGE_WIDTH/2) < PAGE_WIDTH/3) && (Math.abs(mouse.y - PAGE_HEIGHT/2) < PAGE_HEIGHT/3);
+        if (inCenter) {
+         
+         toggleMenu();
+         
+         return false;
+         }
+        
 		// Make sure the mouse pointer is inside of the book
 		if (Math.abs(mouse.x) < PAGE_WIDTH) {
 			if (mouse.x < 0 && page - 1 >= 0) {
@@ -76,14 +92,10 @@
 				flips[page - 1].dragging = true;
 			}
 			else if (mouse.x > 0 && (page < flips.length-1)) {
-
-                console.log(page);
-                                console.log(flips.length);
 				// We are on the right side, drag the current page
 				flips[page].dragging = true;
 			}
 		}
-		
 		// Prevents the text selection
 		event.preventDefault();
 	}
@@ -105,8 +117,7 @@
 			
 			flips[i].dragging = false;
 		}
-        console.log("up");
-        console.log(page);
+
 	}
 	
 	function render() {

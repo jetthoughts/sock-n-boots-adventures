@@ -25,7 +25,20 @@ function playAudio(src) {
 }
 
 function init(){
-    var t = null;
+
+    $("#auto_play_link").click(function(){
+       
+    });
+
+    $("#story_board_link").click(function(){
+                               
+                               });
+    $("#main_menu_link").click(function(){
+                               
+                               });
+
+
+    /*var t = null;
     $("#carousel").carousel({  
                             afterStop:function(currentPage, list){
                             
@@ -64,7 +77,7 @@ function init(){
                window.audio_ended = false;
                current_audio.play();
                }, 1000);
-    delete init;
+    delete init;*/
 }
 
 function with_audio() {
@@ -127,6 +140,15 @@ function go_to_homesite(){
 }
 
 //------------------------------------------
+
+function showOptions(){
+    $("#options").dialog();
+}
+
+function toggleMenu(){
+    $("#menu").toggle("slow");
+    $("#nav").toggle("slow");
+}
 
 function prevPage(){
     ToPrevPage();

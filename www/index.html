@@ -16,11 +16,20 @@
         <script type='text/javascript' src='js/jquery-1.6.min.js'></script> 
         <script type="text/javascript" src="js/jquery-ui.js"></script> 
         <script type='text/javascript' src="js/jquery.ui.ipad.js"></script>
+        
+       <!-- <script type='text/javascript' src="js/jquery.mobile-1.0.min.js"></script>
+        <link type="text/css" href="css/jquery.mobile-1.0.min.css" rel="stylesheet" />-->
+        
         <script type='text/javascript' src="js/jquery.mobile.carousel.js"></script> 
         <script type='text/javascript' src="js/main.js"></script> 
+      
+        <link type="text/css" href="css/main.css" rel="stylesheet" />
+        <link type="text/css" href="css/flip.css" rel="stylesheet" media="screen" />
         
-       <link type="text/css" href="css/flip.css" rel="stylesheet" media="screen" />
-      	<link type="text/css" href="css/main.css" rel="stylesheet" media="screen" />
+       <link type="text/css" href="css/eggplant/jquery-ui-1.8.17.custom.css" rel="stylesheet" media="screen" />
+      	
+        <link media="only screen and (min-device-width: 320px) and (max-width: 480px)" href="css/iphone.css" type= "text/css" rel="stylesheet">
+        <link media="only screen and (min-device-width: 768px) and (max-device-width: 1024px)" href="css/ipad.css" type= "text/css" rel="stylesheet">
     <script type="text/javascript">
         var WIDTH = 1024;
         var HEIGHT = 768;
@@ -58,21 +67,18 @@
 	{
         console.log(screen.width);
         console.log(screen.height);
-        //init();
+        init();
 	}
-        
-        
-        function showAlert() {
-            console.log("aaasdsadsad");
-        }
-        
+            
     </script>
   </head>
   <body onload="onBodyLoad()">
 
-       <a id="prev" href="#" onclick="prevPage(); return false;" > </a>
-       <a id="next" href="#" onclick="nextPage();" ></a>
-   
+     <div id="nav"> 
+        <a id="prev" href="#" onclick="prevPage(); return false;" > </a>
+        <a id="next" href="#" onclick="nextPage(); return false;" ></a>
+      </div>
+
       <div id="book">
         
           <canvas id="pageflip-canvas"></canvas>
@@ -95,12 +101,32 @@
                   </div>
               </section>
               
-             
-              
           </div>
+          
+        
       </div>
+      <div id="menu" >
+          <span id="main_menu_link"></span>
+          <span id="story_board_link"></span>
+          <span id="auto_play_link"> </span>
+      </div>
+      
+     <!-- <a id="options_link" href="#" onclick="showMenu();" ></a> -->
       <script type="text/javascript" src="js/pageflip.js"></script>
       
+      
+      <div id="options" class='hided'>
+          <h3>Options</h3>
+          <div>
+              <div data-role="fieldcontain">
+                  <fieldset data-role="controlgroup">
+                      <legend>Agree to the terms:</legend>
+                      <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+                      <label for="checkbox-1">I agree</label>
+                  </fieldset>
+              </div>
+          </div>
+      </div>
       
   </body>
 </html>

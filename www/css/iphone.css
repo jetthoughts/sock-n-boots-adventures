@@ -1,0 +1,118 @@
+/* flip */
+#book {
+	background: url("book.png") no-repeat;
+	position: absolute;
+	width: 830px;
+	height: 460px;
+	left: 50%;
+	top: 0;
+	margin-left: -620px;
+	margin-top: 0px;
+}
+
+
+#pages section {
+	background: url("paper.png") no-repeat;
+	display: block;
+	width: 480px;
+	height: 320px;
+	position: absolute;
+	left: 380px;
+	top: 0px;
+	overflow: hidden;
+}
+#pages section>div {
+    display: block;
+    width: 480px;
+    height: 320px;
+    font-size: 12px;
+    background-repeat: no-repeat;
+}
+
+/* END flip*/
+
+/* NAV */
+
+#nav{
+    top:0px;
+    left:0px;
+    width: 480px;
+    display:none;
+    z-index: 111;
+    position: absolute;
+}
+
+#next{
+    background-image:url('../images/iphone/next.png');
+    width: 23px;
+    height:23px;
+    display:block;
+    float:right;
+    position: relative;
+}
+
+#prev{
+    background-image:url('../images/iphone/back.png');
+    width: 23px;
+    height:23px;
+    display:block;
+    float:left;
+}
+/* END NAV*/
+
+
+/*  MENU*/
+#menu{
+    left:0px;
+    width: 480px;
+    top: 270px;
+    height:40px;
+    background-color: blue;
+    z-index: 111;
+    position: absolute;
+    display:none;
+    opacity:0.5;
+}
+
+#story_board_link{
+    background-image:url('../images/iphone/back.png');
+    width: 23px;
+    height:23px;
+    display:block;
+    position: relative;
+    float:right;
+}
+
+#auto_play_link{
+    background-image:url('../images/iphone/back.png');
+    width: 23px;
+    height:23px;
+    display:block;
+    position: relative;
+    left: 50%;
+}
+
+
+#main_menu_link{
+    background-image:url('../images/iphone/back.png');
+    width: 23px;
+    height:23px;
+    display:block;
+}
+
+/*  END MENU*/
+
+
+#main{
+    background-image:url('../images/iphone/cover_Foreground.jpg');
+}
+
+#page_1{
+  background-image:url('../images/iphone/1_foreground.jpg');
+}
+#page_2{
+    background-image:url('../images/iphone/2.jpg');
+}
+#page_3{
+    background-image:url('../images/iphone/3.jpg');
+}
