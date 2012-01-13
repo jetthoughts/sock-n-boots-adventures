@@ -19,3 +19,4 @@ Documentation/keys
 *.xcodeproj/xcuserdata/*
 *.xcodeproj/project.xcworkspace/xcuserdata/*
 .idea/
+SocknBoots.xcodeproj/project.xcworkspace/xcuserdata/

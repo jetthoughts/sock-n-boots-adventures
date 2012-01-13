@@ -34,7 +34,7 @@ function init(){
                                
                                });
     $("#main_menu_link").click(function(){
-                               
+                               console.log("main menu called");
                                });
 
 
