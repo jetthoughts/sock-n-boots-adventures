@@ -1,36 +1,3 @@
-/* flip */
-#book {
-	background: url("book.png") no-repeat;
-	position: absolute;
-	width: 830px;
-	height: 460px;
-	left: 50%;
-	top: 0;
-	margin-left: -620px;
-	margin-top: 0px;
-}
-
-
-#pages section {
-	background: url("paper.png") no-repeat;
-	display: block;
-	width: 480px;
-	height: 320px;
-	position: absolute;
-	left: 380px;
-	top: 0px;
-	overflow: hidden;
-}
-#pages section>div {
-    display: block;
-    width: 480px;
-    height: 320px;
-    font-size: 12px;
-    background-repeat: no-repeat;
-}
-
-/* END flip*/
-
 /* NAV */
 
 #nav{
@@ -98,6 +65,7 @@
     width: 23px;
     height:23px;
     display:block;
+    float:left;
 }
 
 /*  END MENU*/

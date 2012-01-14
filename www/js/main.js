@@ -25,7 +25,10 @@ function playAudio(src) {
 }
 
 function init(){
-
+    var w = $(window).width();
+    var h = $(window).height();
+    initFlip(w, h);
+    
     $("#auto_play_link").click(function(){
        
     });
