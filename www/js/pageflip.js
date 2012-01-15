@@ -34,7 +34,8 @@ var PAGE_HEIGHT = 758;
 	
 	// List of all the page elements in the DOM
     var pages;
-	
+
+   var rightSide;
 	
    function initFlip(w,h){
        
@@ -105,16 +106,18 @@ var PAGE_HEIGHT = 758;
          
          return false;
          }
-        
+
 		// Make sure the mouse pointer is inside of the book
 		if (Math.abs(mouse.x) < PAGE_WIDTH) {
-			if (mouse.x < 0 && page - 1 >= 0) {
+			if (mouse.x < 10 && page - 1 >= 0) {
 				// We are on the left side, drag the previous page
 				flips[page - 1].dragging = true;
+                rightSide = false;
 			}
 			else if (mouse.x > 0 && (page < flips.length-1)) {
 				// We are on the right side, drag the current page
 				flips[page].dragging = true;
+                rightSide = true;
 			}
 		}
 		// Prevents the text selection
@@ -123,17 +126,24 @@ var PAGE_HEIGHT = 758;
 	
 	function mouseUpHandler( event ) {
 		for( var i = 0; i < flips.length; i++ ) {
-			// If this flip was being dragged, animate to its destination
-			if( flips[i].dragging ) {
-				// Figure out which page we should navigate to
-				if( mouse.x < 0 ) {
+
+			
+            
+            if( flips[i].dragging ) {
+			
+                
+                if( mouse.x < 0 ) {
 					flips[i].target = -1;
 					page = Math.min( page + 1, flips.length-1 );
 				}
 				else {
 					flips[i].target = 1;
-					page = Math.max( page - 1, 0 );
-				}
+                    
+                    if (!rightSide){
+					   page = Math.max( page - 1, 0 );
+                    }
+              }
+                    
 			}
 			
 			flips[i].dragging = false;
@@ -259,7 +269,7 @@ function drawFlip( flip ) {
 
 function ToPrevPage(){
     if (page <1) return;
-
+    rightSide = false;
     var next = page - 1;
     flips[page - 1].dragging = true;
     mouse.x = 300;
@@ -269,7 +279,7 @@ function ToPrevPage(){
 
 function ToNextPage(){
     if (page >= flips.length-1) return;
-    
+    rightSide = false;    
     console.log(page);
     console.log(flips.length);
     var next = page +1;
