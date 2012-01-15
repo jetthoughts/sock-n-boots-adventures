@@ -1,6 +1,8 @@
 var current_page = 0;
 var current_story = -1;
-var autoplay = true;
+var autoplay_enabled = true;
+var audio_enabled = true;
+var music_enabled = false;
 var audio_ended = false;
 var current_audio = null;
 
@@ -13,6 +15,7 @@ Media.prototype.stop_audio = function() {
 
 function successCallback() {
 	window.audio_ended = true;  
+    
 }
 
 function playAudio(src) {
@@ -52,20 +55,7 @@ function play_clip(object){
                                      });
 }
 
-function hasClass(ele,cls) {
-	return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-}
 
-function addClass(ele,cls) {
-	if (!this.hasClass(ele,cls)) ele.className += " "+cls;
-}
-
-function removeClass(ele,cls) {
-	if (hasClass(ele,cls)) {
-		var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-		ele.className=ele.className.replace(reg,' ');
-	}
-}
 
 function animalMove() {
     var obj = document.getElementById("figcaption");
@@ -74,25 +64,13 @@ function animalMove() {
 }
 
 
-function pageMove() {
-    var obj = $('ul');
-    obj.animate({left: -1024}, 300);
-    currentPage++; 
-    current_page=1;
-    $("li:nth-child(2)").addClass("active-item").siblings("active-item").removeClass("active-item");	
-}
-
-function go_to_homesite(){
-    window.location='http://www.larriottheliger.com/2010/ligers-are-real/';
-}
-
 //------------------------------------------
 
 function init(){
     var w = $(window).width();
     var h = $(window).height();
 
-    selectStory(0);
+    selectStory(1);
     initFlip(w, h);
     
     /*$("ul").carousel({  
@@ -180,8 +158,10 @@ function init(){
 
 function selectStory(index){
     if (index != current_story){
+        current_story = index;
         setupSubs(index);
         $("ul:last").hide();
+        setPage(0);
     }
 }
 
@@ -190,12 +170,17 @@ function removeSubs(){
 }
 
 function setPage(p){
-    if (p != current_page){
+
         $("ul").hide();
         current_page = p;
         console.log("set page" + p);
+        
+        if (audio_enabled){
+            console.log("play audio");
+            playAudio(_getAudioPath());
+        }
+        
         _currentSub().show();
-    }    
 }
 
 function setupSubs(index){
@@ -239,8 +224,25 @@ function nextPage(){
     ToNextPage();
 }
 
+
 function pageDidChanged(p){
+  if (p != current_page){
     setPage(p);
+  }
+}
+
+function audioDidFinished(){
+    console.log("audio finished");
+    if (autoplay_enabled){
+        nextPage();
+    }
+}
+
+
+function _getAudioPath(){
+    var res = 'stories/'+(current_story)+'/audio/'+(current_page+1)+'.wav';
+    console.log(res);
+    return res;
 }
 
 function _currentSub(){
