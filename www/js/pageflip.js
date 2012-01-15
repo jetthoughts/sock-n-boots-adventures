@@ -138,6 +138,9 @@ var PAGE_HEIGHT = 758;
 			
 			flips[i].dragging = false;
 		}
+        
+        //notify
+        pageDidChanged(page);
 
 	}
 	

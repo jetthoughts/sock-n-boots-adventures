@@ -28,6 +28,27 @@
 
 /* END flip*/
 
+#pages section>div ul{
+    top:75%;
+    left:50%;
+ /*   position: absolute;*/
+    width:100%
+    height:100px;
+    z-index: 211;
+}
+
+#pages section>div ul li{
+   
+    font-size: 30px;
+}
+
+/*  Subs */
+
+
+
+/* END subs  */
+
+
 .hided {
   display: none;
 }
