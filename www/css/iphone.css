@@ -72,15 +72,16 @@
 
 
 #main{
-    background-image:url('../images/iphone/cover_Foreground.jpg');
+    background-image:url('../images/ipad/1.jpg');
 }
 
+
 #page_1{
-  background-image:url('../images/iphone/1_foreground.jpg');
+    background-image:url('../images/ipad/2.jpg');
 }
 #page_2{
-    background-image:url('../images/iphone/2.jpg');
+    background-image:url('../images/ipad/3.jpg');
 }
 #page_3{
-    background-image:url('../images/iphone/3.jpg');
+    background-image:url('../images/ipad/4.jpg');
 }
