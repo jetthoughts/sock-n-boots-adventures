@@ -9,38 +9,23 @@
     position: absolute;
 
 }
-
+/* NAV */
 #next{
-    background-image:url('../images/ipad/next.png');
-    width: 5%;
-    height:100%;
-    display:block;
-    float:right;
-    position: relative;
+    width: 100px;
+    height:100px;
 }
 
 #prev{
-    background-image:url('../images/ipad/back.png');
-    width: 5%;
-    height:100%;
-    display:block;
-    float:left;
+    width: 100px;
+    height:100px;
 }
+
+#auto_play_link{
+    width: 55px;
+    height:55px;
+}
+
 /* END NAV*/
-
-
-
-
-#main{
-    background-image:url('../images/ipad/1.jpg');
-}
-
-#page_1{
-  background-image:url('../images/ipad/2.jpg');
-}
-#page_2{
-    background-image:url('../images/ipad/3.jpg');
-}
-#page_3{
-    background-image:url('../images/ipad/4.jpg');
+.subs span .txt{
+    font-size:35px;
 }

@@ -12,7 +12,7 @@
 	
 	// The canvas size equals to the book dimensions + this padding
 	var CANVAS_PADDING = 60;
-	
+    var flipTimer = null;
 	var page = 0;
 	
 	var canvas;
@@ -28,7 +28,15 @@
     var pages;
 
    var rightSide;
-	
+
+
+   function stopFlip(){
+       if (flipTimer != null) {
+           clearInterval(flipTimer);
+           flipTimer = null;
+       }
+   }
+    
    function initFlip(w,h){
        
        BOOK_WIDTH = w*2 + 30;
@@ -73,7 +81,7 @@
        canvas.style.top =  -CANVAS_PADDING + "px"
        canvas.style.left = (-CANVAS_PADDING )+ "px";
        // Render the page flip 60 times a second
-       setInterval( render, 1000 / 60 );
+       flipTimer = setInterval( render, 1000 / 60 );
        
        canvas.addEventListener( "touchmove", mouseMoveHandler, false );
        canvas.addEventListener( "touchstart", mouseDownHandler, false );

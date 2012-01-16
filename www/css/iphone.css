@@ -1,13 +1,16 @@
 /* NAV */
 
-#nav{
-    top:0px;
-    left:0px;
-    width: 480px;
-    display:none;
-    z-index: 111;
-    position: absolute;
+
+#next{
+    width: 35px;
+    height:35px;
 }
+
+#prev{
+    width: 35px;
+    height:35px;
+}
+/*
 
 #next{
     background-image:url('../images/iphone/next.png');
@@ -24,38 +27,20 @@
     height:23px;
     display:block;
     float:left;
-}
+}*/
 /* END NAV*/
 
 
 /*  MENU*/
-/*
+
 #auto_play_link{
-    background-image:url('../images/iphone/play.png');
+    width: 25px;
+    height:25px;
 }
-
-#main_menu_link{
-    background-image:url('../images/iphone/main_menu.png');
-}
-
-#story_board_link{
-    background-image:url('../images/iphone/story_menu.png');
-}*/
 
 /*  END MENU*/
 
 
-#main{
-    background-image:url('../images/ipad/1.jpg');
-}
-
-
-#page_1{
-    background-image:url('../images/ipad/2.jpg');
-}
-#page_2{
-    background-image:url('../images/ipad/3.jpg');
-}
-#page_3{
-    background-image:url('../images/ipad/4.jpg');
+.subs span .txt{
+    font-size:20px;
 }

@@ -38,6 +38,11 @@ function playAudio(src) {
 
 function playNarration(src) {
     window.audio_ended = false;
+    if (timer != null) {
+        
+      clearInterval(timer);
+        timer = null;
+    }
     if (current_audio) {
         current_audio.stop();
     }
@@ -49,8 +54,9 @@ function playNarration(src) {
     );
     current_audio.play();
 
-    if (timer != null) clearInterval(timer);
+   
     timer = setInterval(function() {
+                    
         if (current_audio != null) {
             current_audio.getCurrentPosition(function(position) {
                                              
@@ -113,11 +119,11 @@ function init() {
     var w = $(window).width();
     var h = $(window).height();
     screen = {width:w, height:h};
-    selectStory(0);
-    initFlip(w, h);
+
+    selectStory(1);
 
     $("#auto_play_link").click(function() {
-
+                               console.log("play link click");
     });
 
     $("#story_board_link").click(function() {
@@ -143,6 +149,7 @@ function selectStory(index) {
         removeStory();
         
         current_story = index;
+
         setupPages();
         setupSubs();
         setPage(0);
@@ -150,6 +157,8 @@ function selectStory(index) {
 }
 
 function removeStory(){
+  stopFlip();
+  $("#pages").remove();
 }
 
 function removeSubs() {
@@ -169,15 +178,22 @@ function setPage(p) {
     current_page = p;
     console.log("set page" + p);
     subIndex=0;
+    showSubs();
     if (audio_enabled) {
         console.log("play audio");
         playNarration(_getAudioPath());
     }
-    showSubs();
 }
 
 function  setupPages(){
-    
+    var pages = $("<div id='pages'/>");
+
+    for(var i=0; i<TEXTS[current_story].length; i++){
+        $(pages).append($("<section />").append("<div id='"+_pageId(i)+"' />")); 
+    }
+
+    $("#pageflip-canvas").after(pages);    
+    initFlip(screen.width, screen.height);
 }
 
 function setupSubs() {
@@ -194,7 +210,7 @@ function setupSubs() {
 
             $(subEl).css("left", x + "px").css("top", y + "px");
 
-            $(subEl).append($("<div />").text(sub.text).addClass('txt'));
+            $(subEl).append($("<div />").html(sub.text).addClass('txt'));
             $(ul).append(subEl);
         }
         $("body").append(ul);
@@ -216,6 +232,7 @@ function nextSub() {
     var cur_sub = $(_currentSub()).find("span:visible:first");
     var next_sub = $(cur_sub).next();
     if (next_sub.length > 0) {
+        subIndex++;
         $(cur_sub).hide();
         $(next_sub).show();
     }
@@ -225,6 +242,7 @@ function prevSub() {
     var cur_sub = $(_currentSub()).find("span:visible:first");
     var next_sub = $(cur_sub).prev();
     if (next_sub.length > 0) {
+        subIndex--;
         $(cur_sub).hide();
         $(next_sub).show();
     }
@@ -253,11 +271,14 @@ function audioDidFinished() {
 }
 
 function positionDidChanged(position){
-
+    
     if (subIndex<0 || subIndex >= TEXTS[current_story][current_page].length) return;
+    console.log(subIndex)
+    console.log("compare "+position + " and "+ TEXTS[current_story][current_page][subIndex].time);
+    console.log(position>=TEXTS[current_story][current_page][subIndex].time);
     if (position>=TEXTS[current_story][current_page][subIndex].time){
+        console.log("move" + position);
         nextSub();
-        subIndex++;
     }
 }
 
@@ -275,5 +296,5 @@ function _currentSub() {
 }
 
 function _pageId(index) {
-    return "#page_" + index;
+    return "page_"+current_story+"_" + index;
 }
