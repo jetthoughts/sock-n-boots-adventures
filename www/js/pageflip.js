@@ -66,8 +66,8 @@
        }
        
        // Resize the canvas to match the book size
-      // canvas.width = BOOK_WIDTH +( CANVAS_PADDING * 2 );
-     //  canvas.height = BOOK_HEIGHT + ( CANVAS_PADDING * 2 );
+       canvas.width = BOOK_WIDTH +( CANVAS_PADDING * 2 );
+       canvas.height = BOOK_HEIGHT + ( CANVAS_PADDING * 2 );
        
        // Offset the canvas so that it's padding is evenly spread around the book
        canvas.style.top =  -CANVAS_PADDING + "px"
@@ -76,7 +76,7 @@
        setInterval( render, 1000 / 60 );
        
        canvas.addEventListener( "touchmove", mouseMoveHandler, false );
-       //canvas.addEventListener( "touchstart", mouseDownHandler, false );
+       canvas.addEventListener( "touchstart", mouseDownHandler, false );
        canvas.addEventListener( "touchend", mouseUpHandler, false );
   }
 

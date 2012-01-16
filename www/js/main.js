@@ -217,7 +217,7 @@ function setupSubs(){
             $(subEl).append($("<div />").text(sub.text).addClass('txt'));
             $(ul).append( subEl);
         }
-        $(_pageId(i)).append(ul);
+        $("body").append(ul);
     }
 }
 
@@ -280,7 +280,9 @@ function _getAudioPath(){
 }
 
 function _currentSub(){
-    return $(_pageId(current_page)).find(".subs");
+    //return $(_pageId(current_page)).find(".subs");
+    return $(".subs:nth("+current_page+")");
+
 }
 
 function _pageId(index){
