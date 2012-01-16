@@ -10,76 +10,26 @@
 
 }
 
-/* NAV */
-
-#nav{
-  top:0px;
-  left:0px;
-  width: 1024px;
-  display:none;
-  z-index: 111;
-  position: absolute;
-}
-
 #next{
-    background-image:url('../images/iphone/next.png');
-    width: 23px;
-    height:23px;
+    background-image:url('../images/ipad/next.png');
+    width: 5%;
+    height:100%;
     display:block;
     float:right;
     position: relative;
 }
 
 #prev{
-    background-image:url('../images/iphone/back.png');
-    width: 23px;
-    height:23px;
+    background-image:url('../images/ipad/back.png');
+    width: 5%;
+    height:100%;
     display:block;
     float:left;
 }
 /* END NAV*/
 
-/*  MENU*/
-#menu{
-    left:0px;
-    width: 1024px;
-    top: 700px;
-    height:68px;
-    background-color: blue;
-    z-index: 111;
-    position: absolute;
-    display:none;
-    opacity:0.5;
-}
-
-#story_board_link{
-    background-image:url('../images/ipad/story_menu.png');
-    width: 152px;
-    height:53px;
-
-    position: relative;
-    float:right;
-}
-
-#auto_play_link{
-    background-image:url('../images/ipad/play.png');
-    width: 62px;
-    height:63px;
-    display:block;
-    position: relative;
-    left: 50%;
-}
 
 
-#main_menu_link{
-    background-image:url('../images/ipad/main_menu.png');
-    width: 152px;
-    height:53px;
-    display:block;
-    float:left;
-}
-
-/*  END MENU*/
 
 #main{
     background-image:url('../images/ipad/1.jpg');

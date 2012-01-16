@@ -13,7 +13,7 @@ var music_enabled = false;
 
 
 var timer = null;
-
+var subIndex;
 
 Media.prototype.stop_audio = function() {
     this.stop();
@@ -53,13 +53,15 @@ function playNarration(src) {
     timer = setInterval(function() {
         if (current_audio != null) {
             current_audio.getCurrentPosition(function(position) {
+                                             
+                                             console.log(position);
                 if (position == -1) {
                                            
                     clearInterval(timer);
                     audioDidFinished();
                 }
                 else {
-
+                                             positionDidChanged(position);
                 }
             });
         }
@@ -69,7 +71,7 @@ function playNarration(src) {
     }, 1000);
 }
 
-
+/*
 function with_audio() {
     current_audio.stop_audio();
     playAudio('audio/1-1.wav');
@@ -82,7 +84,7 @@ function without_audio() {
     current_audio.stop_audio();
     autoplay = false;
     pageMove();
-}
+}*/
 
 function play_clip(object) {
     //Check if this object placed on the current page
@@ -134,12 +136,20 @@ function init() {
     });
 }
 
+
+
 function selectStory(index) {
     if (index != current_story) {
+        removeStory();
+        
         current_story = index;
+        setupPages();
         setupSubs();
         setPage(0);
     }
+}
+
+function removeStory(){
 }
 
 function removeSubs() {
@@ -158,12 +168,16 @@ function setPage(p) {
     hideSubs();
     current_page = p;
     console.log("set page" + p);
-
+    subIndex=0;
     if (audio_enabled) {
         console.log("play audio");
         playNarration(_getAudioPath());
     }
     showSubs();
+}
+
+function  setupPages(){
+    
 }
 
 function setupSubs() {
@@ -235,6 +249,15 @@ function audioDidFinished() {
     console.log("audio finished");
     if (autoplay_enabled) {
         nextPage();
+    }
+}
+
+function positionDidChanged(position){
+
+    if (subIndex<0 || subIndex >= TEXTS[current_story][current_page].length) return;
+    if (position>=TEXTS[current_story][current_page][subIndex].time){
+        nextSub();
+        subIndex++;
     }
 }
 
