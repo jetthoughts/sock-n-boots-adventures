@@ -7,14 +7,6 @@
  var PAGE_WIDTH;
  var PAGE_HEIGHT;
 
-/*
-var BOOK_WIDTH = 2048+30;
-var BOOK_HEIGHT = 768;
-
-var PAGE_WIDTH = 1025;
-var PAGE_HEIGHT = 758;
-*/
-	
 	// Vertical spacing between the top edge of the book and the papers
 	var PAGE_Y;
 	
@@ -74,8 +66,8 @@ var PAGE_HEIGHT = 758;
        }
        
        // Resize the canvas to match the book size
-       canvas.width = BOOK_WIDTH +( CANVAS_PADDING * 2 );
-       canvas.height = BOOK_HEIGHT + ( CANVAS_PADDING * 2 );
+      // canvas.width = BOOK_WIDTH +( CANVAS_PADDING * 2 );
+     //  canvas.height = BOOK_HEIGHT + ( CANVAS_PADDING * 2 );
        
        // Offset the canvas so that it's padding is evenly spread around the book
        canvas.style.top =  -CANVAS_PADDING + "px"
@@ -84,7 +76,7 @@ var PAGE_HEIGHT = 758;
        setInterval( render, 1000 / 60 );
        
        canvas.addEventListener( "touchmove", mouseMoveHandler, false );
-       canvas.addEventListener( "touchstart", mouseDownHandler, false );
+       //canvas.addEventListener( "touchstart", mouseDownHandler, false );
        canvas.addEventListener( "touchend", mouseUpHandler, false );
   }
 

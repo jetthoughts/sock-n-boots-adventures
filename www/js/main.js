@@ -1,3 +1,5 @@
+var screen;
+
 var current_page = 0;
 var current_story = -1;
 var autoplay_enabled = true;
@@ -69,10 +71,11 @@ function animalMove() {
 function init(){
     var w = $(window).width();
     var h = $(window).height();
-
-    selectStory(1);
+    screen = {width:w, height:h};
+    selectStory(0);
     initFlip(w, h);
-    
+
+
     /*$("ul").carousel({  
                      afterStop:function(currentPage, list){
                      
@@ -112,6 +115,15 @@ function init(){
     $("#main_menu_link").click(function(){
                                nextSub();
                                });
+    
+    
+    $(".subs span .txt").live("click", function(e){
+                    
+                              (e.offsetX > e.currentTarget.clientWidth/2) ? nextSub() : prevSub();
+                              
+        
+                              
+                              });
     
     
     /*var t = null;
@@ -159,19 +171,25 @@ function init(){
 function selectStory(index){
     if (index != current_story){
         current_story = index;
-        setupSubs(index);
-        $("ul:last").hide();
+        setupSubs();
         setPage(0);
     }
 }
 
 function removeSubs(){
-    $("ul").remove();
+  $(".subs").remove();
+}
+
+function hideSubs(){
+    $(_currentSub()).find("span").hide();
+}
+
+function showSubs(){
+    $(_currentSub()).find("span:first").show();
 }
 
 function setPage(p){
-
-        $("ul").hide();
+        hideSubs();
         current_page = p;
         console.log("set page" + p);
         
@@ -179,22 +197,28 @@ function setPage(p){
             console.log("play audio");
             playAudio(_getAudioPath());
         }
-        
-        _currentSub().show();
+    showSubs();
 }
 
-function setupSubs(index){
+function setupSubs(){
     removeSubs();
-    var texts = TEXTS[index];
+    var texts = TEXTS[current_story];
     for (var i=0; i<texts.length; i++){
-        var ul = $("<ul />");
+        var ul = $("<span />").addClass('subs');
         var pageTexts = texts[i];
         for (var j=0; j<pageTexts.length; j++){
-            $(ul).append("<li>" + pageTexts[j] + "</li>");
+            var sub = pageTexts[j];
+            var subEl = $("<span />");
+            var x =  sub.x * screen.width / 100;
+            var y =  sub.y * screen.height / 100;
+            
+            $(subEl).css("left",x+"px" ).css("top",y+"px" );
+            
+            $(subEl).append($("<div />").text(sub.text).addClass('txt'));
+            $(ul).append( subEl);
         }
         $(_pageId(i)).append(ul);
     }
-    $("ul").carousel();
 }
 
 
@@ -209,11 +233,21 @@ function toggleMenu(){
 }
 
 function nextSub(){
-    $(_currentSub()).animate({left: "+=1024px"}, 300);
+    var cur_sub = $(_currentSub()).find("span:visible:first");
+    var next_sub = $(cur_sub).next();
+    if (next_sub.length > 0){
+        $(cur_sub).hide();
+        $(next_sub).show();
+    }
 }
 
 function prevSub(){
-    $(_currentSub()).animate({left: "-=1024px"}, 300);
+    var cur_sub = $(_currentSub()).find("span:visible:first");
+    var next_sub = $(cur_sub).prev();
+    if (next_sub.length > 0){
+        $(cur_sub).hide();
+        $(next_sub).show();
+    }
 }
 
 function prevPage(){
@@ -240,13 +274,13 @@ function audioDidFinished(){
 
 
 function _getAudioPath(){
-    var res = 'stories/'+(current_story)+'/audio/'+(current_page+1)+'.wav';
+    var res = 'stories/'+(current_story+1)+'/audio/'+(current_page+1)+'.wav';
     console.log(res);
     return res;
 }
 
 function _currentSub(){
-    return $(_pageId(current_page)).find("ul");
+    return $(_pageId(current_page)).find(".subs");
 }
 
 function _pageId(index){
