@@ -20,9 +20,13 @@
     height:100px;
 }
 
+#menu > *{
+    margin-top: 6px;
+}
+
 #auto_play_link{
-    width: 55px;
-    height:55px;
+    width: 35px;
+    height:35px;
 }
 
 /* END NAV*/
