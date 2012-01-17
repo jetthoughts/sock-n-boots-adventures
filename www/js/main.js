@@ -154,9 +154,12 @@ function selectStory(index) {
         
         current_story = index;
 
-        setupPages();
-        setupSubs();
-        setPage(0);
+        setupPages( function(){
+           initFlip(screen.width, screen.height);
+           setupSubs();
+           setPage(0);         
+        } );
+ 
     }
 }
 
@@ -183,31 +186,40 @@ function setPage(p) {
     subIndex=0;
     showSubs();
     if (audio_enabled) {
-        setTimeout(function(){
-          playNarration(_getAudioPath());
-        },50);
-
+        playNarration(_getAudioPath());
     }
 }
 
-function  setupPages(){
+function  setupPages(pagesLoadedHandler){
     var pages = $("<div id='pages'/>");
    
     
     console.log("loading....");
+    var imagesLoadedCount = 0;
     var images = new Array();
     for(var i=0; i<TEXTS[current_story].length; i++){
-      images = new Image(); 
-      images.src= "url(stories/"+(current_story+1)+"/images/"+(i+1)+".jpg)"; 
+      images[i] = new Image(); 
+      images[i].src= "stories/"+(current_story+1)+"/images/"+(i+1)+".jpg"; 
+      images[i].onload = function() { 
+          imagesLoadedCount++;
+          if (imagesLoadedCount==TEXTS[current_story].length){
+              console.log("start create dom");
+              console.log("stop loading....");
+              
+              for(var i=0; i<TEXTS[current_story].length; i++){
+                  var page = $("<div id='"+_pageId(i)+"' />").css("background-image", "url(stories/"+(current_story+1)+"/images/"+(i+1)+".jpg)");
+                  $(pages).append($("<section />").append(page)); 
+              }
+              $("#pageflip-canvas").after(pages);    
+              
+
+              pagesLoadedHandler();
+              
+          }
+      
+      }; 
     }
-    console.log("stop loading....");
-    
-    for(var i=0; i<TEXTS[current_story].length; i++){
-        var page = $("<div id='"+_pageId(i)+"' />").css("background-image", "url(stories/"+(current_story+1)+"/images/"+(i+1)+".jpg)");
-        $(pages).append($("<section />").append(page)); 
-    }
-    $("#pageflip-canvas").after(pages);    
-    initFlip(screen.width, screen.height);
+
 }
 
 function setupSubs() {
@@ -308,7 +320,6 @@ function _getAudioPath() {
 }
 
 function _currentSub() {
-    //return $(_pageId(current_page)).find(".subs");
     return $(".subs:nth(" + current_page + ")");
 
 }
