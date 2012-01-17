@@ -1,3 +1,7 @@
+var MENU_ANIMATION_DURATION = 1000;
+var LIST_PAGE_DELAY = 1000;
+var NARRATION_START_DELAY = 1000;
+
 var screen;
 
 var audio_ended = false;
@@ -8,12 +12,17 @@ var current_story = -1;
 
 //---------- options
 var autoplay_enabled = true;
-var audio_enabled = false;
+var audio_enabled = true;
 var music_enabled = false;
 
 
 var timer = null;
+var narTimeout = null;
+
 var subIndex;
+
+var menuAnimating = false;
+var pageAnimating = false;
 
 Media.prototype.stop_audio = function() {
   this.stop();
@@ -42,8 +51,10 @@ function stopNarration() {
     timer = null;
   }
 
-  if (current_audio) {
+  if (current_audio!=null) {
     current_audio.stop();
+    current_audio.release();
+    current_audio = null;
   }
 }
 
@@ -179,13 +190,22 @@ function showSubs() {
 }
 
 function setPage(p) {
+  stopNarration()
   hideSubs();
   current_page = p;
   subIndex = 0;
   showSubs();
   if (audio_enabled) {
-    playNarration(_getAudioPath());
-  }
+      if (narTimeout!=null){
+          clearTimeout(narTimeout);
+      }
+          narTimeout = setTimeout(function(){
+             console.log("page audio started" + p);
+             playNarration(_getAudioPath());
+
+                
+        }, NARRATION_START_DELAY);
+   }
 }
 
 function setupPages(pagesLoadedHandler) {
@@ -244,21 +264,25 @@ function showOptions() {
 }
 
 function toggleMenu() {
+  if (menuAnimating) return;
+    
   var dir;
 
-  if ($("#menu").css("opacity")!=0) {
-    $("#menu").animate({opacity:0}, 1000);  
-    $("#nav a").animate({opacity:0}, 1000);
+  if ($("#menu").css("opacity")==1) {
+    $("#menu").animate({opacity:0}, MENU_ANIMATION_DURATION);  
+    $("#nav a").animate({opacity:0}, MENU_ANIMATION_DURATION);
     dir = "+=";
   }
-  else {
-    $("#menu").animate({opacity:1}, 1000);
-    $("#nav a").animate({opacity:1}, 1000);
+  else if ($("#menu").css("opacity")==0) {
+    $("#menu").animate({opacity:1}, MENU_ANIMATION_DURATION);
+    $("#nav a").animate({opacity:1}, MENU_ANIMATION_DURATION);
     dir = "-=";
   }
 
   var delta = dir + $("#menu").height() + "px";
-  $(".subs span").animate({top:delta}, 1000);
+  $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
+  menuAnimating = true;
+    setTimeout("menuAnimating=false", MENU_ANIMATION_DURATION*2);  
 }
 
 function nextSub() {
@@ -282,13 +306,26 @@ function prevSub() {
 }
 
 function prevPage() {
+  if (pageAnimating) return;
+  
   stopNarration();
-  ToPrevPage();
+  ToPrevPage(); 
+  
+  pageAnimating = true;
+  setTimeout("pageAnimating=false", LIST_PAGE_DELAY);
+  
 }
 
 function nextPage() {
+  if (pageAnimating) return;
+
   stopNarration();
-  ToNextPage();
+  ToNextPage(); 
+    
+  pageAnimating = true;
+  setTimeout("pageAnimating=false", LIST_PAGE_DELAY); 
+    
+
 }
 
 

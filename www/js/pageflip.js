@@ -162,8 +162,6 @@ function mouseUpHandler(event) {
         }
 
       }
-        
-        console.log(page);
 
     }
 
