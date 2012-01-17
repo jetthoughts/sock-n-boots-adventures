@@ -35,17 +35,21 @@ function playAudio(src) {
     current_audio.play();
 }
 
-
-function playNarration(src) {
+function stopNarration(){
     window.audio_ended = false;
     if (timer != null) {
         
-      clearInterval(timer);
+        clearInterval(timer);
         timer = null;
     }
+    
     if (current_audio) {
         current_audio.stop();
     }
+}
+
+function playNarration(src) {
+    stopNarration();
     current_audio = new Media(src, function() {
             successCallback();
         }, function() {
@@ -261,10 +265,12 @@ function prevSub() {
 }
 
 function prevPage() {
+    stopNarration();
     ToPrevPage();
 }
 
-function nextPage() {
+function nextPage() {    
+    stopNarration();
     ToNextPage();
 }
 
