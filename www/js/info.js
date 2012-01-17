@@ -1,4 +1,4 @@
-var DEFAULT_Y = 80;
+var DEFAULT_Y = 85;
 var DEFAULT_X = 0;
 
 TEXTS = [

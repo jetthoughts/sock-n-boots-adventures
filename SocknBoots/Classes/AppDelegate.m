@@ -35,8 +35,9 @@
     {
         self.invokeString = [url absoluteString];
 		NSLog(@"SocknBoots launchOptions = %@",url);
-    }    
-		
+    }
+    [[UIApplication sharedApplication] setStatusBarHidden:TRUE withAnimation:FALSE];
+  
 	return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
