@@ -176,18 +176,28 @@ function showSubs() {
 function setPage(p) {
     hideSubs();
     current_page = p;
-    console.log("set page" + p);
     subIndex=0;
     showSubs();
     if (audio_enabled) {
-        console.log("play audio");
-        playNarration(_getAudioPath());
+        setTimeout(function(){
+          playNarration(_getAudioPath());
+        },50);
+
     }
 }
 
 function  setupPages(){
     var pages = $("<div id='pages'/>");
    
+    
+    console.log("loading....");
+    var images = new Array();
+    for(var i=0; i<TEXTS[current_story].length; i++){
+      images = new Image(); 
+      images.src= "url(stories/"+(current_story+1)+"/images/"+(i+1)+".jpg)"; 
+    }
+    console.log("stop loading....");
+    
     for(var i=0; i<TEXTS[current_story].length; i++){
         var page = $("<div id='"+_pageId(i)+"' />").css("background-image", "url(stories/"+(current_story+1)+"/images/"+(i+1)+".jpg)");
         $(pages).append($("<section />").append(page)); 
