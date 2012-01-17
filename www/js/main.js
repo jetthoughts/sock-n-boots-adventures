@@ -187,11 +187,11 @@ function setPage(p) {
 
 function  setupPages(){
     var pages = $("<div id='pages'/>");
-
+   
     for(var i=0; i<TEXTS[current_story].length; i++){
-        $(pages).append($("<section />").append("<div id='"+_pageId(i)+"' />")); 
+        var page = $("<div id='"+_pageId(i)+"' />").css("background-image", "url(stories/"+(current_story+1)+"/images/"+(i+1)+".jpg)");
+        $(pages).append($("<section />").append(page)); 
     }
-
     $("#pageflip-canvas").after(pages);    
     initFlip(screen.width, screen.height);
 }
@@ -225,7 +225,9 @@ function showOptions() {
 function toggleMenu() {
     $("#menu").toggle();
     $("#nav").toggle();
-
+    var dir = ($("#menu").is(":visible")) ? "-=" : "+=";
+    var delta  = dir+$("#menu").height()+"px";
+    $(".subs span").animate({top: delta}, 1000);
 }
 
 function nextSub() {
