@@ -141,15 +141,15 @@
     vertical-align: middle;
 }
 #main_menu_link{
-    background-image:url('../images/ipad/main_menu.png');
+    background-image:url('../images/main_menu.png');
 }
 
 #auto_play_link{
-    background-image:url('../images/ipad/play.png');
+    background-image:url('../images/play.png');
 }
 
 #story_board_link{
-    background-image:url('../images/ipad/story_menu.png');
+    background-image:url('../images/story_menu.png');
 }
 /*  END MENU*/
 
