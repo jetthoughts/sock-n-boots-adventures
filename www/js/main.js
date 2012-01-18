@@ -12,7 +12,7 @@ var current_story = -1;
 
 //---------- options
 var autoplay_enabled = true;
-var audio_enabled = false;
+var audio_enabled = true;
 var music_enabled = false;
 
 
@@ -61,7 +61,17 @@ function stopNarration() {
 function seekNarration(sec){
   console.log("seeking to " + sec);
   if (current_audio!=null){
-    current_audio.seekTo(sec*1000);
+    if (timer != null) {
+      
+      clearInterval(timer);
+      timer = null;
+    }
+    current_audio.pause();
+    setTimeout( function(){
+      current_audio.seekTo(sec*1000);
+               current_audio.play();
+               startNarrationTimer();
+               }, 500);
   }
   
 }
@@ -69,14 +79,19 @@ function seekNarration(sec){
 function playNarration(src) {
   stopNarration();
   current_audio = new Media(src, function() {
+                          
                             successCallback();
                             }, function() {
                             console.log("fail");
                             }
                             );
   current_audio.play();
-  
-  
+  startNarrationTimer();
+}
+
+
+
+function startNarrationTimer(){
   timer = setInterval(function() {
                       
                       if (current_audio != null) {
@@ -140,7 +155,9 @@ function init() {
           if (subIndex >=0 && subIndex < pageSubs.length){
                  seekNarration(pageSubs[subIndex].time);
             }
+                            
            nextSub(); 
+                            
           }
          else {
                             
@@ -317,7 +334,7 @@ function prevPage() {
   if (pageAnimating) return;
   
   stopNarration();
-  ToPrevPage(); 
+  ttt.prevPage(); 
   
   pageAnimating = true;
   setTimeout("pageAnimating=false", LIST_PAGE_DELAY);
@@ -328,7 +345,7 @@ function nextPage() {
   if (pageAnimating) return;
   
   stopNarration();
-  ToNextPage(); 
+  ttt.nextPage(); 
   
   pageAnimating = true;
   setTimeout("pageAnimating=false", LIST_PAGE_DELAY); 

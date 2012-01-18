@@ -1,3 +1,4 @@
+var ttt;
 /*
  * jFlip plugin for jQuery v0.4 (28/2/2009)
  * 
@@ -97,7 +98,6 @@
         
         if(mousedown && onCorner && (sideLeft && (index>0) || (!sideLeft && index< images.length-1) ) ) {
           if(!dragging) {
-                  console.log("draggin "+dragging);
             dragging = true;
             window.clearInterval(animationTimer);
           }
@@ -114,15 +114,12 @@
            sideLeft = (( (lastmX-off.left)<width/2 && index>0) || index==images.length-1);
           //cornersTop = (lastmY-off.top)<height/2;
         }
-                  console.log((lastmX-off.left)>basemX);
-                                    console.log((lastmX-off.left));
-                                    console.log(basemX);
+
         if(!flipping && 
           ( (!sideLeft &&(lastmX-off.left)>basemX) || ( sideLeft && (lastmX-off.left)<(width-basemX))) && 
           ((cornersTop && (lastmY-off.top)<basemY) || (!cornersTop))
            ) {
           if(!onCorner) {
-                  console.log("corner "+onCorner);
             onCorner= true;
             c.css("cursor","pointer");          
           }
@@ -189,11 +186,56 @@
 
         return false;
       });
-  var test = function(){
-  console.log("test");
+  this.nextPage = function(){
+  mousedown = false;
+  sideLeft = false;
+  if((sideLeft && (index>0) || (!sideLeft && index< images.length-1) )) {
+  flipping = true;
+  c.triggerHandler("mousemove");
+  window.clearInterval(animationTimer);
+  startDate = new Date().getTime();
+  baseFlipX = mX;
+  baseFlipY = mY;
+  animationTimer = window.setInterval(flip,10);
+  index += sideLeft?-1:1;
+  if(index<0) {
+  index = 0;
+  }
+  if(index==images.length) {
+  
+  index = images.length - 1;
+  
+  }
+  el.trigger("flip.jflip",[index,images.length]);
   };
+  };
+  this.prevPage = function(){
+  mousedown = false;
+  sideLeft = true;
+  if((sideLeft && (index>0) || (!sideLeft && index< images.length-1) )) {
+  flipping = true;
+  c.triggerHandler("mousemove");
+  window.clearInterval(animationTimer);
+  startDate = new Date().getTime();
+  baseFlipX = mX;
+  baseFlipY = mY;
+  animationTimer = window.setInterval(flip,10);
+  index += sideLeft?-1:1;
+  if(index<0) {
+  index = 0;
+  }
+  if(index==images.length) {
+  
+  index = images.length - 1;
+  
+  }
+  el.trigger("flip.jflip",[index,images.length]);
+  };
+  };
+  
+  
       var flip = function() {
-  console.log("flip");
+ 
         var date = new Date(),delta = date.getTime()-startDate;
         if(delta>=flipDuration) {
           window.clearInterval(animationTimer);
@@ -401,21 +443,18 @@
         }   
       }
     }
+  
+  
+  $.fn.jFlip = function(width,height,opts){
 
-    $.fn.jFlip = function(width,height,opts){
-  console.log(width);
-  console.log(typeof(this));
-  if (width=="1"){
-   this.test();
-  }
-  else 
       return this.each(function() {
         $(this).wrap("<div class='flip_gallery'>");
         var images = $(this).find("img");
         //cannot hide because explorer does not give the image dimensions if hidden
         var canvas = $(document.createElement("canvas")).attr({width:width,height:height}).css({margin:0,width:width+"px",height:height+"px"})
         $(this).css({position:"absolute",left:"-9000px",top:"-9000px"}).after(canvas);
-        new Flip($(this).next(),width || 300,height || 300,images,opts);
+        ttt = new Flip($(this).next(),width || 300,height || 300,images,opts);
+                       return ttt;
       });
     };
     

@@ -19,9 +19,9 @@ TEXTS = [
     /* Story 2*/
     [
         [
-            {text:"At 8 o'clock Sock's house gets dark", x:DEFAULT_X, y:DEFAULT_Y, time:4},
+            {text:"At 8 o'clock Sock's house gets dark", x:DEFAULT_X, y:DEFAULT_Y, time:5},
 
-            {text:"The birds don't sing, and the dogs don't bark", x:DEFAULT_X, y:DEFAULT_Y, time:11},
+            {text:"The birds don't sing, and the dogs don't bark", x:DEFAULT_X, y:DEFAULT_Y, time:10},
             {text:"<b>T</b>he whole neigborhood turns out their lights,", x:DEFAULT_X, y:DEFAULT_Y, time:13},
             {text:"and they all go to sleep at night.", x:DEFAULT_X, y:DEFAULT_Y, time:15}
         ],
@@ -37,7 +37,7 @@ TEXTS = [
         [
             {text:"He pulls his covers up to his head,", x:DEFAULT_X, y:DEFAULT_Y, time:2},
             {text:"and lies there shaking in his bed.", x:DEFAULT_X, y:DEFAULT_Y, time:6},
-            {text:"\"I'm scared, I'm scared\" Sock begins to shout.", x:DEFAULT_X, y:DEFAULT_Y, time:12},
+            {text:"\"I'm scared, I'm scared\" Sock begins to shout.", x:DEFAULT_X, y:DEFAULT_Y, time:11.5},
             {text:"\"I don't like when the lights go out\"", x:DEFAULT_X, y:DEFAULT_Y, time:16}
         ],
 
