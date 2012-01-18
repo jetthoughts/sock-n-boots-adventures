@@ -12,7 +12,7 @@ var current_story = -1;
 
 //---------- options
 var autoplay_enabled = true;
-var audio_enabled = true;
+var audio_enabled = false;
 var music_enabled = false;
 
 
@@ -117,6 +117,12 @@ function init() {
                                
                                
                                });
+  $("#menu_trigger").click(function() {
+                             
+                           toggleMenu();    
+                             
+                             
+                             });
   
   $("#main_menu_link").click(function() {
                              
@@ -159,8 +165,13 @@ function selectStory(index) {
     
     current_story = index;
     
-    setupPages(function() {
-               initFlip(screen.width, screen.height);
+    setupPages(function() {  
+               console.log("dsfdsfsdf");
+               $("#book ul").jFlip(screen.width,screen.height,{background:"green",cornersTop:false}).
+               bind("flip.jflip",function(event,index,total){
+                    pageDidChanged(index);
+                    });
+               
                setupSubs();
                setPage(0);
                });
@@ -205,7 +216,7 @@ function setPage(p) {
 }
 
 function setupPages(pagesLoadedHandler) {
-  var pages = $("<div id='pages'/>");
+  var pages = $("<ul id='pages'/>");
   
   var imagesLoadedCount = 0;
   var images = new Array();
@@ -218,10 +229,11 @@ function setupPages(pagesLoadedHandler) {
         
         
         for (var i = 0; i < TEXTS[current_story].length; i++) {
-          var page = $("<div id='" + _pageId(i) + "' />").css("background-image", "url(" + _pageImage(i) + ")");
-          $(pages).append($("<section />").append(page));
+          var page = $("<img />").attr("src", _pageImage(i));
+          $(pages).append($("<li id='" + _pageId(i) + "' />").append(page));
         }
-        $("#pageflip-canvas").after(pages);
+        
+        $("#book").append(pages);
         
         
         pagesLoadedHandler();

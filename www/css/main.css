@@ -3,6 +3,17 @@
   background-size: 100% 100%;
 }
 
+#menu_trigger{
+  z-index:20;
+  position:absolute;
+  left:25%;
+  top:25%;
+  width: 50%;
+  height:50%;
+  background-color:red;
+  opacity:0;
+}
+
 /* flip */
 #book {
   position: absolute;
@@ -35,7 +46,8 @@
 
 .subs {
   position: absolute;
-  width: 100%;
+  width: 90%;
+  text-align:center;
 }
 
 .subs span {
@@ -46,7 +58,7 @@
 }
 
 .subs span .txt {
-  width: 100%;
+  width:100%;
   text-align:center;
   font-weight: bold;
   position: absolute;
