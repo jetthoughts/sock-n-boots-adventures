@@ -48,6 +48,7 @@
   position: absolute;
   width: 90%;
   text-align:center;
+  left:5%;  
 }
 
 .subs span {
@@ -109,7 +110,7 @@
   left: 0px;
   text-align: center;
   width: 100%;
-  top: 70%;
+  top: 80%;
   height: 15%;
   z-index: 111;
   position: absolute;
@@ -190,11 +191,26 @@
 }
 
 #auto_play_link {
-  background-image: url('../images/play.png');
+  background-image: url('../images/main_menu.png');
 }
 
 #story_board_link {
   background-image: url('../images/story_menu.png');
+}
+
+#play_link {
+    background-image: url('../images/play.png');
+}
+
+#without_audio_link{
+  background-image: url('../images/story_menu.png');
+}
+
+#with_audio_link{
+    background-image: url('../images/story_menu.png');
+}
+#m_story_board_link {
+    background-image: url('../images/story_menu.png');
 }
 
 /*  END MENU*/
@@ -213,7 +229,9 @@
   height:100%;
 }
 
-#book_area{
-  /*display:none;*/
+#story_area{
+  display:none;
+  width:100%;
+  height:100%;
 }
 
