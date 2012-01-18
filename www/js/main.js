@@ -12,7 +12,7 @@ var current_story = -1;
 
 //---------- options
 var autoplay_enabled = true;
-var audio_enabled = true;
+var audio_enabled = false;
 var music_enabled = false;
 
 
@@ -59,7 +59,6 @@ function stopNarration() {
 }
 
 function seekNarration(sec){
-  console.log("seeking to " + sec);
   if (current_audio!=null){
     if (timer != null) {
       
@@ -120,15 +119,16 @@ function init() {
   var w = $(window).width();
   var h = $(window).height();
   screen = {width:w, height:h};
-  
   selectStory(1);
-  
   $("#auto_play_link").click(function() {
                              console.log("play link click");
                              });
   
   $("#story_board_link").click(function() {
-                               prevSub();
+                               $("#pages_area").hide();
+                               $("#menu_area").show();
+                               removeStory();
+                               return false;
                                
                                
                                });
@@ -183,7 +183,6 @@ function selectStory(index) {
     current_story = index;
     
     setupPages(function() {  
-               console.log("dsfdsfsdf");
                $("#book ul").jFlip(screen.width,screen.height,{background:"green",cornersTop:false}).
                bind("flip.jflip",function(event,index,total){
                     pageDidChanged(index);
@@ -197,8 +196,9 @@ function selectStory(index) {
 }
 
 function removeStory() {
-  stopFlip();
-  $("#pages").remove();
+  stopNarration();
+  current_story = -1;
+  $("#book").html('');
 }
 
 function removeSubs() {
@@ -214,7 +214,7 @@ function showSubs() {
 }
 
 function setPage(p) {
-  stopNarration()
+  stopNarration();
   hideSubs();
   current_page = p;
   subIndex = 0;
@@ -224,7 +224,7 @@ function setPage(p) {
       clearTimeout(narTimeout);
     }
     narTimeout = setTimeout(function(){
-                            console.log("page audio started" + p);
+                         
                             playNarration(_getAudioPath());
                             
                             
@@ -237,6 +237,7 @@ function setupPages(pagesLoadedHandler) {
   
   var imagesLoadedCount = 0;
   var images = new Array();
+  
   for (var i = 0; i < TEXTS[current_story].length; i++) {
     images[i] = new Image();
     images[i].src = _pageImage(i);
@@ -249,7 +250,7 @@ function setupPages(pagesLoadedHandler) {
           var page = $("<img />").attr("src", _pageImage(i));
           $(pages).append($("<li id='" + _pageId(i) + "' />").append(page));
         }
-        
+
         $("#book").append(pages);
         
         
@@ -276,10 +277,11 @@ function setupSubs() {
       
       $(subEl).css("left", x + "px").css("top", y + "px");
       
+
       $(subEl).append($("<div />").html(sub.text).addClass('txt'));
       $(ul).append(subEl);
     }
-    $("body").append(ul);
+    $("#pages_area").append(ul);
   }
 }
 
@@ -361,7 +363,7 @@ function pageDidChanged(p) {
 }
 
 function audioDidFinished() {
-  console.log("audio finished");
+
   if (autoplay_enabled) {
     nextPage();
   }
@@ -378,7 +380,6 @@ function positionDidChanged(position) {
 
 function _getAudioPath() {
   var res = 'stories/' + (current_story + 1) + '/audio/' + (current_page + 1) + '.wav';
-  console.log(res);
   return res;
 }
 
@@ -392,7 +393,7 @@ function _pageId(index) {
 }
 
 function _pageImage(index) {
-  return "stories/" + (current_story + 1) + "/images/" + (index + 1) + ".jpg";
+  return "stories/" + (current_story + 1) + "/images/" +_device()+ "/"+ (index + 1) + ".jpg";
 }
 
 function _device() {
