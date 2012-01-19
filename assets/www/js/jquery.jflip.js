@@ -84,7 +84,6 @@ var ttt;
           return positionDiv();
       })():canvas;
       c.mousemove(function(e){
-          console.log("mouse MOVE@@@");
         //track the mouse
         /*
         if(!off) off = canvas.offset(); //safari can't calculate correctly offset at DOM ready
@@ -104,7 +103,6 @@ var ttt;
                
           mX = !sideLeft?e.pageX-off.left:width-(e.pageX-off.left);
           mY = cornersTop?e.pageY-off.top:height-(e.pageY-off.top);
-          console.log("draw");
           window.setTimeout(draw,0);
           return false;        
         }
@@ -113,7 +111,6 @@ var ttt;
         if(!flipping) {
                 
            sideLeft = (( (lastmX-off.left)<width/2 && index>0) || index==images.length-1);
-           console.log("left side" + sideLeft);
           //cornersTop = (lastmY-off.top)<height/2;
         }
 
@@ -151,22 +148,11 @@ var ttt;
       }).click(function(){
      
       }).mousedown(function(e){
-                  /* console.log("mouse down");
-                   console.log(e);
-                   lastmX = e.pageX||lastmX, lastmY = e.pageY||lastmY;
-                   if(!flipping) {
-                   console.log("set left side" + (lastmX-off.left)<width/2);
-                   console.log(lastmX-off.left);
-                   console.log(width/2);
-                   sideLeft = (lastmX-off.left)<width/2;
-                   
-                   }*/
-                   console.log("mouse down");
+
         dragging = false;
         mousedown = true;
         return false;
       }).mouseup(function(){
-      console.log("mouse up" + onCorner);
                  mousedown = false;
                  if(onCorner && !flipping && (sideLeft && (index>0) || (!sideLeft && index< images.length-1) )) {
                  flipping = true;
@@ -422,8 +408,6 @@ var ttt;
           if($.browser.msie) {
             //excanvas does not support clip
 
-
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             ctx.fillStyle = sideLeft?patterns[patterns.length-1]:patterns[1];
             //hack to scale the pattern on IE (modified excanvas)
             ctx.fillStyle.width2 = ctx.fillStyle.width*r;

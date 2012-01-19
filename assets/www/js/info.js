@@ -21,9 +21,9 @@ TEXTS = [
         [
             {text:"At 8 o'clock Sock's house gets dark", x:DEFAULT_X, y:DEFAULT_Y, time:5},
 
-            {text:"The birds don't sing, and the dogs don't bark", x:DEFAULT_X, y:DEFAULT_Y, time:10},
-            {text:"<b>T</b>he whole neigborhood turns out their lights,", x:DEFAULT_X, y:DEFAULT_Y, time:13},
-            {text:"and they all go to sleep at night.", x:DEFAULT_X, y:DEFAULT_Y, time:15}
+            {text:"The birds don't sing, and the dogs don't bark", x:DEFAULT_X, y:DEFAULT_Y, time:11},
+            {text:"<b>T</b>he whole neigborhood turns out their lights,", x:DEFAULT_X, y:DEFAULT_Y, time:14},
+            {text:"and they all go to sleep at night.", x:DEFAULT_X, y:DEFAULT_Y, time:17}
         ],
 
         [
@@ -35,25 +35,25 @@ TEXTS = [
         ],
 
         [
-            {text:"He pulls his covers up to his head,", x:DEFAULT_X, y:DEFAULT_Y, time:2},
-            {text:"and lies there shaking in his bed.", x:DEFAULT_X, y:DEFAULT_Y, time:6},
+            {text:"He pulls his covers up to his head,", x:DEFAULT_X, y:DEFAULT_Y, time:3},
+            {text:"and lies there shaking in his bed.", x:DEFAULT_X, y:DEFAULT_Y, time:6.5},
             {text:"\"I'm scared, I'm scared\" Sock begins to shout.", x:DEFAULT_X, y:DEFAULT_Y, time:11.5},
             {text:"\"I don't like when the lights go out\"", x:DEFAULT_X, y:DEFAULT_Y, time:16}
         ],
 
         [
-            {text:"Sock doesn't like to turn out the light,", x:DEFAULT_X, y:DEFAULT_Y, time:3},
+            {text:"Sock doesn't like to turn out the light,", x:DEFAULT_X, y:DEFAULT_Y, time:4},
 
-            {text:"because the house makes scary noise at night.", x:DEFAULT_X, y:DEFAULT_Y, time:7},
+            {text:"because the house makes scary noise at night.", x:DEFAULT_X, y:DEFAULT_Y, time:8},
             {text:"Now it's dark inside Sock's room,", x:DEFAULT_X, y:DEFAULT_Y, time:11},
-            {text:"except for the light from the shining moon", x:DEFAULT_X, y:DEFAULT_Y, time:14}
+            {text:"except for the light from the shining moon", x:DEFAULT_X, y:DEFAULT_Y, time:17}
         ],
 
         [
-            {text:"Squeak.....squeak....... goes the floor.", x:DEFAULT_X, y:DEFAULT_Y, time:4},
+            {text:"Squeak.....squeak....... goes the floor.", x:DEFAULT_X, y:DEFAULT_Y, time:5.5},
 
-            {text:"Is that a noise coming from the closet door?", x:DEFAULT_X, y:DEFAULT_Y, time:7},
-            {text:"The very thought gives Sock a really big scare.", x:DEFAULT_X, y:DEFAULT_Y, time:11},
+            {text:"Is that a noise coming from the closet door?", x:DEFAULT_X, y:DEFAULT_Y, time:8},
+            {text:"The very thought gives Sock a really big scare.", x:DEFAULT_X, y:DEFAULT_Y, time:12},
             {text:"Could it be something hiding in there?", x:DEFAULT_X, y:DEFAULT_Y, time:15}
         ],
 

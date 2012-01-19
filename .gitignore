@@ -20,3 +20,4 @@ Documentation/keys
 *.xcodeproj/project.xcworkspace/xcuserdata/*
 .idea/
 SocknBoots.xcodeproj/project.xcworkspace/xcuserdata/
+active_phonegp/
