@@ -16,8 +16,6 @@ strong {
 }
 
 .coverflow .hproducts {
-  height: 80px;
-  padding: 30px;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -35,9 +33,7 @@ strong {
 }
 
 .hproducts .hproduct {
-  width: 170px;
   float: left;
-  margin: 5px;
   position: relative;
   text-align: center;
 }
@@ -57,21 +53,14 @@ strong {
 
 .coverflow .info {
   position: absolute;
-  top: 190px;
   left: 0px;
   z-index: 10000;
   text-align: center;
   width: 100%;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .hproducts .hproduct {
-    height: 225px;
-  }
-}
-
 .description {
-  max-width: 400px;
+  max-width: 300px;
   padding: 1em;
   float: left;
 }

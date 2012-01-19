@@ -1,3 +1,6 @@
+body{
+    margin:0;
+}
 * {
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -97,12 +100,9 @@
 }
 
 .page_header{
-  height:5%;
   background-image: -webkit-linear-gradient(bottom, rgb(161,190,212) 19%, rgb(124,173,207) 60%, rgb(125,185,237) 78%);
   text-align:center;
-  margin-bottom: 20px;
   vertical-align: middle;
-  font-size: 200%;
 }
 
 
@@ -169,7 +169,7 @@
   vertical-align: middle;
 }
 
-#auto_play_link {
+#play_link {
 
   position: relative;
   display: inline-block;

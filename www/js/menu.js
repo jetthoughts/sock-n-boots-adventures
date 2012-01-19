@@ -1,11 +1,24 @@
+var screen;
+
 $(document).ready(function() {
+
+                  var w = $(window).width();
+                  var h = $(window).height();
+                  screen = {width:w, height:h};
+
   $("div.hproducts").coverflow();
   $(".media > a").live("click", function(){
                        $("#menu_area").hide();
                        $("#story_area").show();
                        selectStory(parseInt($(this).attr("rel")));
+                    
                        return false;
                   });
+                  
+                  $(".media > a").each(function(){
+
+                                       $(this).find("img").attr('src', "stories/"+(parseInt($(this).attr('rel'))+1)+"/images/" + _device() +"/cover_thumb.jpg");
+                                       });
      
         $("#m_story_board_link").live("click", function(){
             $("#story_area").hide();

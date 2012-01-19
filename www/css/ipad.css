@@ -9,6 +9,13 @@
     position: absolute;
 
 }
+
+.page_header{
+    height:5%;
+    margin-bottom: 20px;
+    font-size: 200%;
+}
+
 /* NAV */
 #next{
     width: 100px;
@@ -24,7 +31,7 @@
     margin-top: 6px;
 }
 
-#auto_play_link{
+#play_link{
     width: 35px;
     height:35px;
 }
@@ -33,3 +40,31 @@
 .subs span .txt{
     font-size:35px;
 }
+
+/* STORY LIST */
+.coverflow .hproducts {
+    height: 200px;
+    padding: 30px;
+}
+
+.hproducts .hproduct {
+    width: 250px;
+}
+
+.coverflow .info {
+    top: 400px;
+    font-size: 300%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .hproducts .hproduct {
+        height: 400px;
+    }
+}
+.hproducts .hproduct {
+    margin: 20px;
+}
+.mod {
+    margin-top:50px;
+}
+/* STORY LIST END*/

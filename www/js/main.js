@@ -2,7 +2,7 @@ var MENU_ANIMATION_DURATION = 1000;
 var LIST_PAGE_DELAY = 1000;
 var NARRATION_START_DELAY = 1000;
 
-var screen;
+
 
 var audio_ended = false;
 var current_audio = null;
@@ -116,9 +116,7 @@ function startNarrationTimer(){
 //------------------------------------------
 
 function init() {
-  var w = $(window).width();
-  var h = $(window).height();
-  screen = {width:w, height:h};
+
   selectStory(1);
   $("#auto_play_link").click(function() {
                              console.log("play link click");
@@ -126,6 +124,7 @@ function init() {
   
   $("#story_board_link").click(function() {
                                $("#pages_area").hide();
+                               setMenuOpacity(0,0);
                                $("#menu_area").show();
                                removeStory();
                                return false;
@@ -140,9 +139,11 @@ function init() {
                              });
   
   $("#main_menu_link").click(function() {
-                             
-                             
-                             
+                             hideSubs();
+                             stopNarration();
+                             current_page = -1;
+                             $("#pages_area").hide(); 
+                             $("#story_area").show();                             
                              
                              });
   
@@ -181,6 +182,7 @@ function selectStory(index) {
     removeStory();
     
     current_story = index;
+    $("#story_area").css('background-image',"url("+_pageImage('cover')+")");
     
     setupPages(function() {  
                $("#book ul").jFlip(screen.width,screen.height,{background:"green",cornersTop:false}).
@@ -198,6 +200,7 @@ function selectStory(index) {
 function removeStory() {
   stopNarration();
   current_story = -1;
+  $("#story_area").css('background-image',"url("+_pageImage('cover')+")");  
   $("#book").html('');
 }
 
@@ -240,14 +243,14 @@ function setupPages(pagesLoadedHandler) {
   
   for (var i = 0; i < TEXTS[current_story].length; i++) {
     images[i] = new Image();
-    images[i].src = _pageImage(i);
+    images[i].src = _pageImage(i+1);
     images[i].onload = function() {
       imagesLoadedCount++;
       if (imagesLoadedCount == TEXTS[current_story].length) {
         
         
         for (var i = 0; i < TEXTS[current_story].length; i++) {
-          var page = $("<img />").attr("src", _pageImage(i));
+          var page = $("<img />").attr("src", _pageImage(i+1));
           $(pages).append($("<li id='" + _pageId(i) + "' />").append(page));
         }
 
@@ -274,7 +277,6 @@ function setupSubs() {
       var subEl = $("<span />");
       var x = sub.x * screen.width / 100;
       var y = sub.y * screen.height / 100;
-      
       $(subEl).css("left", x + "px").css("top", y + "px");
       
 
@@ -290,19 +292,22 @@ function showOptions() {
   $("#options").dialog();
 }
 
+function setMenuOpacity(val, dur){
+    $("#menu").animate({opacity:val},  dur);  
+    $("#nav a").animate({opacity:val}, dur);
+}
+
 function toggleMenu() {
   if (menuAnimating) return;
   
   var dir;
   
   if ($("#menu").css("opacity")==1) {
-    $("#menu").animate({opacity:0}, MENU_ANIMATION_DURATION);  
-    $("#nav a").animate({opacity:0}, MENU_ANIMATION_DURATION);
+    setMenuOpacity(0, MENU_ANIMATION_DURATION);
     dir = "+=";
   }
   else if ($("#menu").css("opacity")==0) {
-    $("#menu").animate({opacity:1}, MENU_ANIMATION_DURATION);
-    $("#nav a").animate({opacity:1}, MENU_ANIMATION_DURATION);
+    setMenuOpacity(1, MENU_ANIMATION_DURATION);
     dir = "-=";
   }
   
@@ -393,7 +398,7 @@ function _pageId(index) {
 }
 
 function _pageImage(index) {
-  return "stories/" + (current_story + 1) + "/images/" +_device()+ "/"+ (index + 1) + ".jpg";
+  return "stories/" + (current_story + 1) + "/images/" +_device()+ "/"+index+ ".jpg";
 }
 
 function _device() {
