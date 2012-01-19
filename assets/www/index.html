@@ -1,0 +1,194 @@
+<html>
+<head>
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;"/>
+    <meta charset="utf-8">
+
+    <link type="text/css" href="css/main.css" rel="stylesheet"/>
+    <link type="text/css" href="css/flip.css" rel="stylesheet" media="screen"/>
+
+    <link type="text/css" href="css/eggplant/jquery-ui-1.8.17.custom.css" rel="stylesheet" media="screen"/>
+
+    <link media="only screen and (min-device-width: 320px) and (max-device-width: 480px)" href="css/iphone.css" type="text/css"
+          rel="stylesheet">
+    <link media="only screen and (min-device-width: 768px) and (max-device-width: 1024px)" href="css/ipad.css"
+          type="text/css" rel="stylesheet">
+
+    <script type="text/javascript">
+
+        function onBodyLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        /* When this function is called, PhoneGap has been initialized and is ready to roll */
+        /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+         see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+         for more details -jm */
+        function onDeviceReady() {
+
+        var mouseEventTypes = {
+    touchstart : "mousedown",
+    touchmove : "mousemove",
+    touchend : "mouseup"
+};
+
+for (originalType in mouseEventTypes) {
+    document.addEventListener(originalType, function(originalEvent) {
+        event = document.createEvent("MouseEvents");
+        touch = originalEvent.changedTouches[0];
+        event.initMouseEvent(mouseEventTypes[originalEvent.type], true, true,
+                window, 0, touch.screenX, touch.screenY, touch.clientX,
+                touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
+                touch.metaKey, 0, null);
+        originalEvent.target.dispatchEvent(event);
+    });
+}
+            init();
+        }
+
+    </script>
+</head>
+<body onload="onBodyLoad()">
+   <!--
+<div id="menu_area">
+
+  <div class='page_header'>
+    Story Book
+  </div>
+  
+    <div class="mod inventory-featured-default type-1">
+
+        <div class="inner">
+            <div class="inner2">
+
+                <div class="bd">
+                    <div class="bd2">
+                        <div class="hproducts">
+                            <div class="hproduct auto">
+                                <div class="">
+                                    <div class="media">
+                                        <a rel="1" href=
+                                                "#"><img class="photo thumb" /></a>
+                                    </div>
+
+                                    <h1 class="fn h3"><a href=
+                                                                 "#" rel=
+                                            "product" class="url">Share</a></h1>
+
+
+                                </div>
+                            </div>
+
+                            <div class="hproduct auto">
+                                <div class="">
+                                    <div class="media">
+                                        <a rel="1" href=
+                                                "#"><img class="photo thumb" /></a>
+                                    </div>
+
+                                    <h1 class="fn h3"><a href=
+                                                                 "#" rel=
+                                            "product" class="url">Afraid of the Dark</a></h1>
+
+                                </div>
+                            </div>
+
+
+                            <div class="hproduct auto">
+                                <div class="">
+                                    <div class="media">
+                                        <a rel="2" href=
+                                                "#"><img class="photo thumb" /></a>
+                                    </div>
+
+                                    <h1 class="fn h3"><a href=
+                                                                 "#" rel=
+                                            "product" class="url">Play it safe</a></h1>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  <div id="storybook_menu">
+    <div id="s_main_menu_link"></div>
+    <div id="s_options_link"></div>
+    <div id="s_buy_link"></div>
+    
+  </div>
+  
+ </div>
+          -->
+  <div id="story_area">
+      <div id="storybook_menu">
+        <!--   <div id="m_story_board_link"></div>  -->
+          <div id="without_audio_link"></div>
+          <div id="with_audio_link"></div>
+        <!--  <div id="auto_play_link"></div>  -->
+      </div>
+      
+  </div>  
+
+  <div id="pages_area">
+    <div id="nav">
+        <a id="prev" href="#" onclick="prevPage(); return false;"> </a>
+        <a id="next" href="#" onclick="nextPage(); return false;"></a>
+    </div>
+
+    <div id="book">
+    </div>
+    <div id="menu">
+        <div id="main_menu_link"></div>
+        <div id="play_link"></div>
+        <div id="story_board_link"></div>
+
+    </div>
+
+    <div id="menu_trigger">
+
+    </div>
+    <div id="options" class='hided'>
+        <h3>Options</h3>
+
+        <div>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <legend>Agree to the terms:</legend>
+                    <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom"/>
+                    <label for="checkbox-1">I agree</label>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" charset="utf-8" src="js/active_phonegap/phonegap-1.3.0.js"></script>>
+    <script type="text/javascript" charset="utf-8" src="js/active_phonegap/actions.js"></script>>
+
+    <script type='text/javascript' src='js/vendor/jquery-1.6.min.js'></script>
+    <script type='text/javascript' src="js/vendor/jquery.ui.ipad.js"></script>
+    <script type="text/javascript" src="js/jquery.jflip.js"></script>
+
+    <script type="text/javascript" src="js/vendor/ui.core.js"></script>
+    <script type="text/javascript" src="js/vendor/ui.js"></script>
+    <script type="text/javascript" src="js/vendor/effects.js"></script>
+    <script type="text/javascript" src="js/vendor/ui.coverflow.js"></script>
+    <script type="text/javascript" src="js/vendor/modernizr-1.7.min.js"></script>
+
+    <script type='text/javascript' src="js/info.js"></script>
+    <script type='text/javascript' src="js/main.js"></script>
+    <script type='text/javascript' src="js/menu.js"></script>
+
+
+</body>
+</html>
