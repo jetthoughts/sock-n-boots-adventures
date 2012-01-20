@@ -44,7 +44,6 @@
 /*  MENU*/
 
 #menu > *{
-  margin-top: -5px;
   padding:0;
 }
 
@@ -57,7 +56,7 @@
 
 
 .subs span .txt{
-    font-size:12px;
+    font-size:16pt;
 }
 
 /* STORY LIST */
