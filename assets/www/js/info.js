@@ -59,7 +59,7 @@ TEXTS = [
 
 
         [
-            {text:"Sock says, \"there's a monster in my room,", x:DEFAULT_X, y:DEFAULT_Y, time:2},
+            {text:"Sock says, \"there's a monster in my room,", x:DEFAULT_X, y:DEFAULT_Y, time:3.5},
 
             {text:"and I know he'll try to eat me soon.\"", x:DEFAULT_X, y:DEFAULT_Y, time:6},
             {text:"All is quiet from celing to floor.", x:DEFAULT_X, y:DEFAULT_Y, time:11},
@@ -67,9 +67,9 @@ TEXTS = [
         ],
 
         [
-            {text:"Sock is as curious as can be,", x:DEFAULT_X, y:DEFAULT_Y, time:2},
+            {text:"Sock is as curious as can be,", x:DEFAULT_X, y:DEFAULT_Y, time:3},
 
-            {text:"so he hops out of bed to go and see.", x:DEFAULT_X, y:DEFAULT_Y, time:5},
+            {text:"so he hops out of bed to go and see.", x:DEFAULT_X, y:DEFAULT_Y, time:6},
             {text:"He opens the close and turns on the light,", x:DEFAULT_X, y:DEFAULT_Y, time:10},
             {text:"and there are no monsters anywhere in sight.", x:DEFAULT_X, y:DEFAULT_Y, time:20}
         ],
@@ -77,16 +77,16 @@ TEXTS = [
         [
             {text:"Just to be sure Sock looks all around,", x:DEFAULT_X, y:DEFAULT_Y, time:5},
 
-            {text:"then he hops back in bed to sleep safe and sound.", x:DEFAULT_X, y:DEFAULT_Y, time:10},
-            {text:"\"I'm glad I checked for myself,\" says Sock.", x:DEFAULT_X, y:DEFAULT_Y, time:13},
+            {text:"then he hops back in bed to sleep safe and sound.", x:DEFAULT_X, y:DEFAULT_Y, time:11},
+            {text:"\"I'm glad I checked for myself,\" says Sock.", x:DEFAULT_X, y:DEFAULT_Y, time:15},
             {text:"\"Now I won't be afraid when it turns 8 o'clock. \"", x:DEFAULT_X, y:DEFAULT_Y, time:17}
         ],
 
         [
-            {text:"So when Sock is afraid of the dark at night,", x:DEFAULT_X, y:DEFAULT_Y, time:3},
+            {text:"So when Sock is afraid of the dark at night,", x:DEFAULT_X, y:DEFAULT_Y, time:3.5},
 
-            {text:"he just checks his whole room when he turns on the light.", x:DEFAULT_X, y:DEFAULT_Y, time:7},
-            {text:"Now Sock can sleep without a care,", x:DEFAULT_X, y:DEFAULT_Y, time:11},
+            {text:"he just checks his whole room when he turns on the light.", x:DEFAULT_X, y:DEFAULT_Y, time:9},
+            {text:"Now Sock can sleep without a care,", x:DEFAULT_X, y:DEFAULT_Y, time:13},
             {text:"because he knows there are no monsters there.", x:DEFAULT_X, y:DEFAULT_Y, time:17}
         ]
     ]

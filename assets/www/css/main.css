@@ -86,16 +86,12 @@ body{
 }
 
 #next {
-  margin:5px;
-  background-image: url('../images/next.png');
   display: block;
   float: right;
   opacity: 0;
 }
 
 #prev {
-  margin:5px;
-  background-image: url('../images/back.png');
   display: block;
   float: left;
   opacity: 0;
@@ -122,8 +118,8 @@ body{
 #storybook_menu > div{
   margin-left: 20px;
   margin-right: 20px;
-  width: 35%;
-  height: 80%;
+  width: 25%;
+  height: 50%;
   display: inline-block;
   vertical-align: middle; 
 }
@@ -189,27 +185,27 @@ body{
 }
 
 #main_menu_link {
-  background-image: url('../images/main_menu.png');
+  background-image: url('../images/high/main_menu.png');
 }
 
 #auto_play_link {
-  background-image: url('../images/main_menu.png');
+  background-image: url('../images/high/main_menu.png');
 }
 
 #story_board_link {
-  background-image: url('../images/story_menu.png');
+  background-image: url('../images/high/story_menu.png');
 }
 
 #play_link {
-    background-image: url('../images/play.png');
+    background-image: url('../images/high/play.png');
 }
 
 #without_audio_link{
-  background-image: url('../images/read_myself.png');
+  background-image: url('../images/high/read_myself.png');
 }
 
 #with_audio_link{
-    background-image: url('../images/read_to_me.png');
+    background-image: url('../images/high/read_to_me.png');
 }
 #m_story_board_link {
     background-image: url('../images/story_menu.png');
