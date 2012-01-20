@@ -151,6 +151,7 @@ body{
   margin-left: 0px;
   margin-right: 0px;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.34, rgb(40, 35, 46)), color-stop(0.96, rgb(252, 249, 252)));
+  padding: 1%;
 }
 
 #menu > div {
@@ -177,7 +178,7 @@ body{
 #main_menu_link {
 
   width: 15%;
-  height: 75%;
+  height: 70%;
   
   position: relative;
   display: inline-block;

@@ -1,7 +1,8 @@
 var screen;
 
-$(document).ready(function() {
 
+
+$(document).ready(function() {                         
     var w = $(window).width();
     var h = $(window).height();
     screen = {width:w, height:h};
