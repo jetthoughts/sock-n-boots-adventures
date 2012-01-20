@@ -88,6 +88,8 @@ TEXTS = [
             {text:"he just checks his whole room when he turns on the light.", x:DEFAULT_X, y:DEFAULT_Y, time:9},
             {text:"Now Sock can sleep without a care,", x:DEFAULT_X, y:DEFAULT_Y, time:13},
             {text:"because he knows there are no monsters there.", x:DEFAULT_X, y:DEFAULT_Y, time:17}
-        ]
+        ],
+       [
+       ]
     ]
 ]

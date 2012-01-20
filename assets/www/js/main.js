@@ -221,7 +221,7 @@ function setPage(p) {
     subIndex = 0;
     showSubs();
     console.log("play audio " + audio_enabled);
-    if (audio_enabled) {
+    if (audio_enabled && hasSubs()) {
         if (narTimeout != null) {
             clearTimeout(narTimeout);
         }
@@ -314,6 +314,10 @@ function toggleMenu() {
     $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
     menuAnimating = true;
     setTimeout("menuAnimating=false", MENU_ANIMATION_DURATION * 2);
+}
+
+function hasSubs(){
+  return (_currentSub()).find("span").length > 0;
 }
 
 function nextSub() {
