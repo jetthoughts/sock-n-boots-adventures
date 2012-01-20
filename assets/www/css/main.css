@@ -1,5 +1,5 @@
 body{
-    margin:0;
+  margin:0;
 }
 * {
   background-repeat: no-repeat;
@@ -144,14 +144,15 @@ body{
   text-align: center;
   width: 100%;
   top: 90%;
-  height: 10%;
+  height: 9%;
+  padding-top: 1%;
   z-index: 111;
   position: absolute;
   opacity: 0;
   margin-left: 0px;
   margin-right: 0px;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.34, rgb(40, 35, 46)), color-stop(0.96, rgb(252, 249, 252)));
-  padding: 1%;
+
 }
 
 #menu > div {

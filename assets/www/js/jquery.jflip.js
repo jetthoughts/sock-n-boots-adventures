@@ -60,7 +60,7 @@
         onCorner = false,
         curlDuration=400,curling = false,
         animationTimer,startDate,
-        flipDuration=300,flipping = false,baseFlipX,baseFlipY,
+        flipDuration=200,flipping = false,baseFlipX,baseFlipY,
         lastmX,lastmY,
         inCanvas = true,
         mousedown = true,

@@ -29,7 +29,6 @@ $(document).ready(function() {
      });   */
 
     $("#with_audio_link").live("click", function() {
-        console.log("with_audio_link");
         $("#story_area").hide();
         $("#pages_area").show();
         audio_enabled = true;
@@ -37,7 +36,6 @@ $(document).ready(function() {
         return false;
     });
     $("#without_audio_link").live("click", function() {
-        console.log("without_audio_link");
         $("#story_area").hide();
         $("#pages_area").show();
         audio_enabled = false;
@@ -46,7 +44,6 @@ $(document).ready(function() {
     });
 
     $("#auto_play_link").live("click", function() {
-        console.log("without_audio_link");
         $("#story_area").hide();
         $("#pages_area").show();
         audio_enabled = true;
