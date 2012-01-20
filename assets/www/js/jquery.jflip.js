@@ -1,4 +1,4 @@
-var ttt;
+;var ttt;
 /*
  * jFlip plugin for jQuery v0.4 (28/2/2009)
  * 
@@ -12,7 +12,7 @@ var ttt;
 ;(function($){
     var Flip = function(canvas,width,height,images,opts) {
       //private vars
-      opts = $.extend({background:"green",cornersTop:true,scale:"noresize"},opts);
+      opts = $.extend({background:"green",cornersTop:true,scale:"fit"},opts);
       var obj = this,
       el = canvas.prev(),
       index = 0,
@@ -316,8 +316,8 @@ var ttt;
         ctx.fillRect(0,0,width,height);
         var img = images[0], r = $(img).data("flip.scale");
        
-       ctx.drawImage(img,(width-img.width*r)/2,(height-img.height*r)/2,img.width*r,img.height*r);
-        
+       //ctx.drawImage(img,(width-img.width*r)/2,(height-img.height*r)/2,img.width*r,img.height*r);
+        ctx.drawImage(img,0,0,width,height);
         
         if(mY && mX!=width) {
           
@@ -424,9 +424,9 @@ var ttt;
               ctx.translate(-tx,-ty);
             }            
 
-            ctx.drawImage(img,(width-img.width*r)/2,(height-img.height*r)/2,img.width*r,img.height*r);
-
-            //ctx.drawImage(img,(width-img.width)/2,(height-img.height)/2);
+            //ctx.drawImage(img,(width-img.width*r)/2,(height-img.height*r)/2,img.width*r,img.height*r);
+            ctx.drawImage(img,0,0,width,height);
+           
             ctx.restore();
             if($.browser.safari || $.browser.opera) 
               ctx.restore()

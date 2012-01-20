@@ -174,13 +174,13 @@ function init() {
     });
 }
 
-
 function selectStory(index) {
     if (index != current_story) {
         removeStory();
 
         current_story = index;
-        $("#story_area").css('background-image', "url(" + _pageImage('cover') + ")");
+      console.log(_coverImage('cover'));
+        $("#story_area").css('background-image', "url(" + _coverImage('cover') + ")");
 
         setupPages(function() {
             $("#book ul").jFlip(screen.width, screen.height, {background:"green", cornersTop:false}).
@@ -198,7 +198,7 @@ function selectStory(index) {
 function removeStory() {
     stopNarration();
     current_story = -1;
-    $("#story_area").css('background-image', "url(" + _pageImage('cover') + ")");
+    $("#story_area").css('background-image', "");
     $("#book").html('');
 }
 
@@ -395,6 +395,6 @@ function _pageImage(index) {
 }
 
 function _device() {
-    if (screen.width == 1024) return "ipad";
+    if (screen.width > 480) return "ipad";
     else return "iphone";
 }
