@@ -160,11 +160,11 @@ TEXTS = [
            ],
           
           [
-           {text:"So when Sock is afraid of the dark at night,", time:3.5},
+           {text:"\"There it is\" Boots starts to shout.", time:3.5},
            
-           {text:"he just checks his whole room when he turns on the light.", time:9},
-           {text:"Now Sock can sleep without a care,", time:13},
-           {text:"because he knows there are no monsters there.", time:17}
+           {text:"He runs to the wall and yanks the plug out.", time:9},
+           {text:"The washing machine stops and the door unlocks.", time:13},
+           {text:"Boots has saved his best friend Sock.", time:17}
            ],
           [
           ]
