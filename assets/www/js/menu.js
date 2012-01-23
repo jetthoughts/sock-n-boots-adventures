@@ -1,11 +1,11 @@
-var screen;
+var screenSize;
 
 
 
 $(document).ready(function() {                         
     var w = $(window).width();
     var h = $(window).height();
-    screen = {width:w, height:h};
+    screenSize = {width:w, height:h};
 
     /*$("div.hproducts").coverflow();
      $(".media > a").live("click", function(){

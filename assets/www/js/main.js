@@ -114,7 +114,6 @@ function startNarrationTimer() {
 //------------------------------------------
 
 function init() {
-
     selectStory(1);
     $("#auto_play_link").click(function() {
         console.log("play link click");
@@ -183,7 +182,7 @@ function selectStory(index) {
         $("#story_area").css('background-image', "url(" + _coverImage('cover') + ")");
 
         setupPages(function() {
-            $("#book ul").jFlip(screen.width, screen.height, {background:"green", cornersTop:false}).
+            $("#book ul").jFlip(screenSize.width, screenSize.height, {background:"green", cornersTop:false}).
                 bind("flip.jflip", function(event, index, total) {
                     pageDidChanged(index);
                 });
@@ -274,8 +273,8 @@ function setupSubs() {
         for (var j = 0; j < pageTexts.length; j++) {
             var sub = pageTexts[j];
             var subEl = $("<span />");
-            var x = sub.x * screen.width / 100;
-            var y = sub.y * screen.height / 100;
+            var x = sub.x * screenSize.width / 100;
+            var y = sub.y * screenSize.height / 100;
             $(subEl).css("left", x + "px").css("top", y + "px");
 
 
@@ -399,6 +398,6 @@ function _pageImage(index) {
 }
 
 function _device() {
-    if (screen.width > 480) return "ipad";
+    if (screenSize.width > 480) return "ipad";
     else return "iphone";
 }
