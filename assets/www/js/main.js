@@ -136,11 +136,12 @@ function init() {
     });
 
     $("#main_menu_link").click(function() {
-        /* hideSubs();
+         hideSubs();
          stopNarration();
-         current_page = -1;
+         current_page = 0;
+         ttt.toFirstPage();                      
          $("#pages_area").hide();
-         $("#story_area").show(); */
+         $("#story_area").show();
         return false;
     });
 

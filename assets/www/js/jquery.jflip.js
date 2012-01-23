@@ -155,73 +155,58 @@
       }).mouseup(function(){
                  mousedown = false;
                  if(onCorner && !flipping && (sideLeft && (index>0) || (!sideLeft && index< images.length-1) )) {
-                 flipping = true;
-                 c.triggerHandler("mousemove");
-                 window.clearInterval(animationTimer);
-                 startDate = new Date().getTime();
-                 baseFlipX = mX;
-                 baseFlipY = mY;
-                 animationTimer = window.setInterval(flip,10);
-                 index += sideLeft?-1:1;
-                 if(index<0) {
-                   index = 0;
-                 }
-                 if(index==images.length) {
-                 
-                   index = images.length - 1;
-                
-                 }
-                 el.trigger("flip.jflip",[index,images.length]);
+                 _startFlip();
         }
 
         return false;
       });
+
+  this.toFirstPage = function(){
+
+    while(index > 0){
+      images.unshift(images.pop());
+      patterns.unshift(patterns.pop());
+      index--; 
+    }
+    draw();
+    flipping = false;
+  };
+
+  var _startFlip = function(){
+  flipping = true;
+  c.triggerHandler("mousemove");
+  window.clearInterval(animationTimer);
+  startDate = new Date().getTime();
+  baseFlipX = mX;
+  baseFlipY = mY;
+  animationTimer = window.setInterval(flip,10);
+  index += sideLeft?-1:1;
+  if(index<0) {
+  index = 0;
+  }
+  if(index==images.length) {
+  
+  index = images.length - 1;
+  
+  }
+  el.trigger("flip.jflip",[index,images.length]);
+  };
+  
   this.nextPage = function(){
   mousedown = false;
   sideLeft = false;
   if((sideLeft && (index>0) || (!sideLeft && index< images.length-1) )) {
-  flipping = true;
-  c.triggerHandler("mousemove");
-  window.clearInterval(animationTimer);
-  startDate = new Date().getTime();
-  baseFlipX = mX;
-  baseFlipY = mY;
-  animationTimer = window.setInterval(flip,10);
-  index += sideLeft?-1:1;
-  if(index<0) {
-  index = 0;
-  }
-  if(index==images.length) {
-  
-  index = images.length - 1;
-  
-  }
-  el.trigger("flip.jflip",[index,images.length]);
+    _startFlip();
   };
   };
+  
   this.prevPage = function(){
   mousedown = false;
   sideLeft = true;
   if((sideLeft && (index>0) || (!sideLeft && index< images.length-1) )) {
-  flipping = true;
-  c.triggerHandler("mousemove");
-  window.clearInterval(animationTimer);
-  startDate = new Date().getTime();
-  baseFlipX = mX;
-  baseFlipY = mY;
-  animationTimer = window.setInterval(flip,10);
-  index += sideLeft?-1:1;
-  if(index<0) {
-  index = 0;
-  }
-  if(index==images.length) {
-  
-  index = images.length - 1;
-  
-  }
-  el.trigger("flip.jflip",[index,images.length]);
+    _startFlip();
   };
-  };
+};
   
   
       var flip = function() {
