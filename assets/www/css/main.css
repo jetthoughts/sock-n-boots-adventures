@@ -53,20 +53,22 @@ body{
     position: absolute;
     width: 70%;
     text-align:center; 
-    margin: 0 15%;
-    height: 50px;
-    bottom: 5%;
+    margin-left: 15%;
+    height: 2%;
+    bottom: 22%;
     z-index: 111;
+    vertical-align: middle;
 }
 
-.subs span {
+.subs > span {
   position: absolute;
   display: none;
   width: 100%;
   text-align: center;
 }
 
-.subs span .txt {
+.txt {
+  display:block;
   font-weight: bold;
   color: yellow;
 }
