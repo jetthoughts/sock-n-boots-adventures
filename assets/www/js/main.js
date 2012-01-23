@@ -315,17 +315,17 @@ function setupSubs() {
     removeSubs();
     var texts = TEXTS[current_story];
     for (var i = 0; i < texts.length; i++) {
-        var ul = $("<span />").addClass('subs');
+        var ul = $("<div />").addClass('subs');
         var pageTexts = texts[i];
         for (var j = 0; j < pageTexts.length; j++) {
             var sub = pageTexts[j];
             var subEl = $("<span />");
             var x = sub.x * screenSize.width / 100;
             var y = sub.y * screenSize.height / 100;
-            $(subEl).css("left", x + "px").css("top", y + "px");
+//            $(subEl).css("left", x + "px").css("top", y + "px");
 
 
-            $(subEl).append($("<div />").html(sub.text).addClass('txt'));
+            $(subEl).append($("<span />").html(sub.text).addClass('txt'));
             $(ul).append(subEl);
         }
         $("#pages_area").append(ul);

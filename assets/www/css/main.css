@@ -50,10 +50,13 @@ body{
 /*  Subs */
 
 .subs {
-  position: absolute;
-  width: 90%;
-  text-align:center;
-  left:5%;  
+    position: absolute;
+    width: 70%;
+    text-align:center; 
+    margin: 0 15%;
+    height: 50px;
+    bottom: 5%;
+    z-index: 111;
 }
 
 .subs span {
@@ -64,12 +67,8 @@ body{
 }
 
 .subs span .txt {
-  width:100%;
-  text-align:center;
   font-weight: bold;
-  position: absolute;
   color: yellow;
-  z-index: 111;
 }
 
 /* END subs  */
