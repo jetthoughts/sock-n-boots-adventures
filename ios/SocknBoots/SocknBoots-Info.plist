@@ -31,13 +31,15 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>jetthoughts.SocknBoots</string>
+	<string>com.jetthoughts.SocknBoots</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>

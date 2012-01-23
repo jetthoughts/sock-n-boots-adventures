@@ -32,7 +32,7 @@ function successCallback() {
     window.audio_ended = true;
 
 }
-
+/*
 function playAudio(src) {
     window.audio_ended = false;
     if (current_audio) {
@@ -40,39 +40,48 @@ function playAudio(src) {
     }
     current_audio = new Media(src, successCallback);
     current_audio.play();
-}
+}*/
 
 function stopNarration() {
-    window.audio_ended = false;
-    if (timer != null) {
-
-        clearInterval(timer);
-        timer = null;
-    }
+  window.audio_ended = false;
+  stopNarrationTimer();
 
     if (current_audio != null) {
         current_audio.stop();
         current_audio.release();
         current_audio = null;
     }
+  _setPlayLink();
+}
+
+function pauseNarration(){
+  if (current_audio == null) return false;
+  stopNarrationTimer();
+  current_audio.pause();
+  _setPlayLink();
+  return true;
+}
+
+function resumeNarration(){
+  if (current_audio == null) playNarration();
+  else {
+    current_audio.play();
+    _setPauseLink();
+    startNarrationTimer();  
+  }
 }
 
 function seekNarration(sec) {
-    if (current_audio != null) {
-        if (timer != null) {
 
-            clearInterval(timer);
-            timer = null;
-        }
-        current_audio.pause();
+  if (pauseNarration()){
         setTimeout(function() {
             current_audio.seekTo(sec * 1000);
-            current_audio.play();
-            startNarrationTimer();
+            resumeNarration();
         }, 500);
-    }
+  }
 
 }
+
 
 function playNarration(src) {
     stopNarration();
@@ -85,19 +94,29 @@ function playNarration(src) {
     );
     current_audio.play();
     startNarrationTimer();
+      _setPauseLink();
 }
 
+function stopNarrationTimer(){
+  if (timer != null) {
+    clearInterval(timer);
+    timer = null;
+  }
+}
 
 function startNarrationTimer() {
     timer = setInterval(function() {
 
-        if (current_audio != null) {
+        if (current_audio == null) {
+                        stopNarrationTimer();
+            }          
+          else{
             current_audio.getCurrentPosition(function(position) {
 
                 console.log(position);
                 if (position < 0) {
 
-                    clearInterval(timer);
+                    stopNarrationTimer();
                     audioDidFinished();
                 }
                 else {
@@ -105,18 +124,43 @@ function startNarrationTimer() {
                 }
             });
         }
-        else {
-            clearInterval(timer);
-        }
     }, 1000);
 }
 
 //------------------------------------------
 
+
+
 function init() {
+  
+  var mouseEventTypes = {
+    touchstart : "mousedown",
+    touchmove : "mousemove",
+    touchend : "mouseup"
+  };
+  
+  for (originalType in mouseEventTypes) {
+    document.addEventListener(originalType, function(originalEvent) {
+                              event = document.createEvent("MouseEvents");
+                              touch = originalEvent.changedTouches[0];
+                              event.initMouseEvent(mouseEventTypes[originalEvent.type], true, true,
+                                                   window, 0, touch.screenX, touch.screenY, touch.clientX,
+                                                   touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
+                                                   touch.metaKey, 0, null);
+                              originalEvent.target.dispatchEvent(event);
+                              });
+  }
+  
     selectStory(1);
-    $("#auto_play_link").click(function() {
+    $("#play_link.play").live("click", function() {
+                                     resumeNarration();
+                                                             
         console.log("play link click");
+    });
+  
+    $("#play_link.pause").live("click", function() {
+                        pauseNarration();
+        console.log("pause link click");
     });
 
     $("#story_board_link").click(function() {
@@ -384,6 +428,16 @@ function positionDidChanged(position) {
         nextSub();
     }
 }
+
+function _setPauseLink(){
+  $("#play_link.play").removeClass('play').addClass('pause');
+}
+
+function _setPlayLink(){
+  $("#play_link.pause").removeClass('pause').addClass('play');
+}
+
+
 
 function _currentSub() {
     return $(".subs:nth(" + current_page + ")");

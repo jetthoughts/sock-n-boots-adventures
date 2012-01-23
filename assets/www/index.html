@@ -27,24 +27,6 @@
          see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
          for more details -jm */
         function onDeviceReady() {
-
-        var mouseEventTypes = {
-    touchstart : "mousedown",
-    touchmove : "mousemove",
-    touchend : "mouseup"
-};
-
-for (originalType in mouseEventTypes) {
-    document.addEventListener(originalType, function(originalEvent) {
-        event = document.createEvent("MouseEvents");
-        touch = originalEvent.changedTouches[0];
-        event.initMouseEvent(mouseEventTypes[originalEvent.type], true, true,
-                window, 0, touch.screenX, touch.screenY, touch.clientX,
-                touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
-                touch.metaKey, 0, null);
-        originalEvent.target.dispatchEvent(event);
-    });
-}
             init();
         }
 
@@ -151,7 +133,7 @@ for (originalType in mouseEventTypes) {
    
     <div id="menu">
         <div id="main_menu_link"></div>
-        <div id="play_link"></div>
+        <div id="play_link" class="play" ></div>
         <div id="story_board_link"></div>
 
     </div>

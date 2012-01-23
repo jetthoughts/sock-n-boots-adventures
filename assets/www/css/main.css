@@ -165,7 +165,7 @@ body{
 #story_board_link {
 
   width: 15%;
-  height: 75%;
+  height: 70%;
   display: inline-block;
   vertical-align: middle;
 }
@@ -191,16 +191,16 @@ body{
   background-image: url('../images/high/main_menu.png');
 }
 
-#auto_play_link {
-  background-image: url('../images/high/main_menu.png');
-}
-
 #story_board_link {
   background-image: url('../images/high/story_menu.png');
 }
 
-#play_link {
-    background-image: url('../images/high/play.png');
+#play_link.play {
+  background-image: url('../images/high/play.png');
+}
+
+#play_link.pause {
+    background-image: url('../images/high/pause.png');
 }
 
 #without_audio_link{
