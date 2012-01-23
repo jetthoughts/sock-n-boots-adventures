@@ -151,7 +151,7 @@ function init() {
                               });
   }
   
-    selectStory(1);
+    //selectStory(1);
     $("#play_link.play").live("click", function() {
                                      resumeNarration();
                                                              
