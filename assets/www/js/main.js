@@ -1,5 +1,5 @@
 var MENU_ANIMATION_DURATION = 1000;
-var LIST_PAGE_DELAY = 1000;
+var LIST_PAGE_DELAY = 500;
 var NARRATION_START_DELAY = 1000;
 
 
@@ -164,10 +164,12 @@ function init() {
     });
 
     $("#story_board_link").click(function() {
-        /*$("#pages_area").hide();
-         setMenuOpacity(0,0);
-         $("#menu_area").show();
-         removeStory();*/
+                                 hideSubs();
+                                 stopNarration();
+                                 current_page = 0;
+                                 ttt.toFirstPage();                      
+                                 $("#pages_area").hide();
+                                 $("#story_area").show();
         return false;
 
 
@@ -180,12 +182,12 @@ function init() {
     });
 
     $("#main_menu_link").click(function() {
-         hideSubs();
-         stopNarration();
-         current_page = 0;
-         ttt.toFirstPage();                      
-         $("#pages_area").hide();
-         $("#story_area").show();
+                               hideSubs();
+                               stopNarration(); 
+                               current_page = 0;
+                               ttt.toFirstPage();
+                               $("#pages_area").hide();
+                               $("#main_menu_area").show();
         return false;
     });
 
