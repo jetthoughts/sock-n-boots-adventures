@@ -3,8 +3,10 @@ var LIST_PAGE_DELAY = 500;
 var NARRATION_START_DELAY = 1000;
 
 
-var audio_ended = false;
+//var audio_ended = false;
+
 var current_audio = null;
+var audio_is_play = false;
 
 var current_page = 0;
 var current_story = -1;
@@ -22,14 +24,16 @@ var subIndex;
 
 var menuAnimating = false;
 var pageAnimating = false;
+var audioStarting = false;
 
+/*
 Media.prototype.stop_audio = function() {
     this.stop();
     window.audio_ended = true;
-}
+}*/
 
 function successCallback() {
-    window.audio_ended = true;
+    //window.audio_ended = true;
 
 }
 /*
@@ -43,7 +47,7 @@ function playAudio(src) {
 }*/
 
 function stopNarration() {
-  window.audio_ended = false;
+  //window.audio_ended = false;
   stopNarrationTimer();
 
     if (current_audio != null) {
@@ -63,7 +67,7 @@ function pauseNarration(){
 }
 
 function resumeNarration(){
-  if (current_audio == null) playNarration();
+  if (current_audio == null) return; //playNarration();
   else {
     current_audio.play();
     _setPauseLink();
@@ -72,11 +76,13 @@ function resumeNarration(){
 }
 
 function seekNarration(sec) {
-
+  if (audioStarting) return;
   if (pauseNarration()){
+    audioStarting = true;
         setTimeout(function() {
             current_audio.seekTo(sec * 1000);
             resumeNarration();
+                   audioStarting = false;
         }, 500);
   }
 
@@ -98,22 +104,21 @@ function playNarration(src) {
 }
 
 function stopNarrationTimer(){
-  if (timer != null) {
-    clearInterval(timer);
-    timer = null;
-  }
+  if (timer == null) return;
+  
+  clearInterval(timer);
+  timer = null;
 }
 
 function startNarrationTimer() {
     timer = setInterval(function() {
 
-        if (current_audio == null) {
+        if (current_audio == null || !audio_is_play) {
                         stopNarrationTimer();
             }          
           else{
             current_audio.getCurrentPosition(function(position) {
-
-                console.log(position);
+                                             
                 if (position < 0) {
 
                     stopNarrationTimer();
@@ -151,7 +156,6 @@ function init() {
                               });
   }
   
-    //selectStory(1);
     $("#play_link.play").live("click", function() {
                                      resumeNarration();
                                                              
@@ -194,6 +198,9 @@ function init() {
 
     $(".subs span .txt").live("click", function(e) {
         var pageSubs = TEXTS[current_story][current_page];
+                            
+                          
+                                     console.log("----------------");
         if (e.offsetX > e.currentTarget.clientWidth / 2) {
 
 
@@ -223,9 +230,8 @@ function init() {
 function selectStory(index) {
     if (index != current_story) {
         removeStory();
-
+        setMenuOpacity(0,0);
         current_story = index;
-      console.log(_coverImage('cover'));
         $("#story_area").css('background-image', "url(" + _coverImage('cover') + ")");
 
         setupPages(function() {
@@ -235,7 +241,6 @@ function selectStory(index) {
                 });
 
             setupSubs();
-            setPage(0);
         });
 
     }
@@ -266,7 +271,6 @@ function setPage(p) {
     current_page = p;
     subIndex = 0;
     showSubs();
-    console.log("play audio " + audio_enabled);
     if (audio_enabled && hasSubs()) {
         if (narTimeout != null) {
             clearTimeout(narTimeout);
@@ -326,11 +330,6 @@ function setupSubs() {
         }
         $("#pages_area").append(ul);
     }
-}
-
-
-function showOptions() {
-    $("#options").dialog();
 }
 
 function setMenuOpacity(val, dur) {
@@ -428,10 +427,12 @@ function positionDidChanged(position) {
 }
 
 function _setPauseLink(){
+  audio_is_play = true;
   $("#play_link.play").removeClass('play').addClass('pause');
 }
 
 function _setPlayLink(){
+  audio_is_play = false;
   $("#play_link.pause").removeClass('pause').addClass('play');
 }
 
