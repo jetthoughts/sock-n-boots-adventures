@@ -5,7 +5,7 @@ var NARRATION_START_DELAY = 1000;
 
 //var audio_ended = false;
 
-var current_audio = null;
+
 var audio_is_play = false;
 
 var current_page = 0;
@@ -14,10 +14,11 @@ var current_story = -1;
 //---------- options
 var autoplay_enabled = true;
 var audio_enabled = true;
+
 var music_enabled = false;
 
 
-var timer = null;
+
 var narTimeout = null;
 
 var subIndex;
@@ -26,110 +27,42 @@ var menuAnimating = false;
 var pageAnimating = false;
 var audioStarting = false;
 
-/*
-Media.prototype.stop_audio = function() {
-    this.stop();
-    window.audio_ended = true;
-}*/
-
-function successCallback() {
-    //window.audio_ended = true;
-
-}
-/*
-function playAudio(src) {
-    window.audio_ended = false;
-    if (current_audio) {
-        current_audio.stop();
-    }
-    current_audio = new Media(src, successCallback);
-    current_audio.play();
-}*/
+var player = null;
 
 function stopNarration() {
-  //window.audio_ended = false;
-  stopNarrationTimer();
-
-    if (current_audio != null) {
-        current_audio.stop();
-        current_audio.release();
-        current_audio = null;
-    }
+ if (player!=null) player.stopNarration();
   _setPlayLink();
 }
 
 function pauseNarration(){
-  if (current_audio == null) return false;
-  stopNarrationTimer();
-  current_audio.pause();
-  _setPlayLink();
-  return true;
+ if (player==null) return false;
+  
+ if (player.pauseNarration()){
+    _setPlayLink();
+     return true;
+  }
+
 }
 
 function resumeNarration(){
-  if (current_audio == null) return; //playNarration();
-  else {
-    current_audio.play();
-    _setPauseLink();
-    startNarrationTimer();  
-  }
+  if (player == null) return false;
+  
+  if (player.resumeNarration()){
+      _setPauseLink();
+      return true;
+   }
+ 
 }
 
 function seekNarration(sec) {
-  if (audioStarting) return;
-  if (pauseNarration()){
-    audioStarting = true;
-        setTimeout(function() {
-            current_audio.seekTo(sec * 1000);
-            resumeNarration();
-                   audioStarting = false;
-        }, 500);
-  }
-
+  if (player == null) return false;
+  player.seekNarration(sec);
 }
 
 
 function playNarration(src) {
-    stopNarration();
-    current_audio = new Media(src, function() {
-
-            successCallback();
-        }, function() {
-            console.log("fail");
-        }
-    );
-    current_audio.play();
-    startNarrationTimer();
-      _setPauseLink();
-}
-
-function stopNarrationTimer(){
-  if (timer == null) return;
-  
-  clearInterval(timer);
-  timer = null;
-}
-
-function startNarrationTimer() {
-    timer = setInterval(function() {
-
-        if (current_audio == null || !audio_is_play) {
-                        stopNarrationTimer();
-            }          
-          else{
-            current_audio.getCurrentPosition(function(position) {
-                                             
-                if (position < 0) {
-
-                    stopNarrationTimer();
-                    audioDidFinished();
-                }
-                else {
-                    positionDidChanged(position);
-                }
-            });
-        }
-    }, 1000);
+  if (player!=null) player.playNarration(src);
+   _setPauseLink();
 }
 
 //------------------------------------------
@@ -211,14 +144,15 @@ function init() {
 
 
     $(".subs span .txt").live("click", function(e) {
-        if (audioStarting) return;
+                              console.log("cliciked");
+        if (player.audioStarting) return;
         if (autoplay_enabled) return;
 
         var pageSubs = TEXTS[current_story][current_page];
                             
         if (e.offsetX > e.currentTarget.clientWidth / 2) {
 
-
+                              console.log("seek");
             if (subIndex >= 0 && subIndex < pageSubs.length) {
                 seekNarration(pageSubs[subIndex].time);
             }
@@ -249,6 +183,7 @@ function showStory(){
   
   $("#story_area").hide();
   $("#pages_area").show();
+  player = new PagePlayer();
   setPage(0);
 }
 
