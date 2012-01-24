@@ -197,10 +197,10 @@ function init() {
 
 
     $(".subs span .txt").live("click", function(e) {
+        if (audioStarting) return;
+
         var pageSubs = TEXTS[current_story][current_page];
                             
-                          
-                                     console.log("----------------");
         if (e.offsetX > e.currentTarget.clientWidth / 2) {
 
 

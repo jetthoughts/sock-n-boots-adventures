@@ -96,6 +96,14 @@ TEXTS = [
          /* Story 3*/
          [
           [
+           {text:"Should you be careful where you play?", time:3},
+           
+           {text:"Sock and Boots want to show you why you should be careful.", time:8},
+       
+       
+           ],
+          
+          [
            {text:"There are so many places to play in the house.", time:3.5},
            
            {text:"Even under the bed like a tiny mouse.", time:8},
@@ -156,6 +164,13 @@ TEXTS = [
            {text:"He runs to the wall and yanks the plug out.", time:6},
            {text:"The washing machine stops and the door unlocks.", time:12},
            {text:"Boots has saved his best friend Sock.", time:13}
+           ],
+          [
+           
+           {text:"Now Sock is safe, and he learned today,", time:3},
+           {text:"that he s hould only play where it is safe to play.", time:9},
+           {text:"Can you think of places that are not safe for you to play?", time:12},
+          
            ],
           [
           ]
