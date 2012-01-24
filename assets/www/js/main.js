@@ -15,43 +15,38 @@ var current_story = -1;
 var autoplay_enabled = true;
 var audio_enabled = true;
 
-var music_enabled = false;
-
-
-
 var narTimeout = null;
 
 var subIndex;
 
 var menuAnimating = false;
 var pageAnimating = false;
-var audioStarting = false;
 
 var player = null;
 
 function stopNarration() {
- if (player!=null) player.stopNarration();
+  if (player != null) player.stopNarration();
   _setPlayLink();
 }
 
-function pauseNarration(){
- if (player==null) return false;
-  
- if (player.pauseNarration()){
+function pauseNarration() {
+  if (player == null) return false;
+
+  if (player.pauseNarration()) {
     _setPlayLink();
-     return true;
+    return true;
   }
 
 }
 
-function resumeNarration(){
+function resumeNarration() {
   if (player == null) return false;
-  
-  if (player.resumeNarration()){
-      _setPauseLink();
-      return true;
-   }
- 
+
+  if (player.resumeNarration()) {
+    _setPauseLink();
+    return true;
+  }
+
 }
 
 function seekNarration(sec) {
@@ -61,357 +56,375 @@ function seekNarration(sec) {
 
 
 function playNarration(src) {
-  if (player!=null) player.playNarration(src);
-   _setPauseLink();
+  if (player != null) player.playNarration(src);
+  _setPauseLink();
 }
 
 //------------------------------------------
 
 
-
 function init() {
-  
+
   var mouseEventTypes = {
-    touchstart : "mousedown",
-    touchmove : "mousemove",
-    touchend : "mouseup"
+    touchstart:"mousedown",
+    touchmove:"mousemove",
+    touchend:"mouseup"
   };
-  
+
   for (originalType in mouseEventTypes) {
     document.addEventListener(originalType, function(originalEvent) {
-                              event = document.createEvent("MouseEvents");
-                              touch = originalEvent.changedTouches[0];
-                              event.initMouseEvent(mouseEventTypes[originalEvent.type], true, true,
-                                                   window, 0, touch.screenX, touch.screenY, touch.clientX,
-                                                   touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
-                                                   touch.metaKey, 0, null);
-                              originalEvent.target.dispatchEvent(event);
-                              });
+      event = document.createEvent("MouseEvents");
+      touch = originalEvent.changedTouches[0];
+      event.initMouseEvent(mouseEventTypes[originalEvent.type], true, true,
+        window, 0, touch.screenX, touch.screenY, touch.clientX,
+        touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
+        touch.metaKey, 0, null);
+      originalEvent.target.dispatchEvent(event);
+    });
   }
-  
-    $("#play_link.play").live("click", function() {
-                                     resumeNarration();
-                                                             
-        console.log("play link click");
-    });
-  
-    $("#play_link.pause").live("click", function() {
-                        pauseNarration();
-        console.log("pause link click");
-    });
 
-    $("#story_board_link").click(function() {
-                                 hideSubs();
-                                 stopNarration();
-                                 current_page = 0;
-                                 ttt.toFirstPage();                      
-                                 $("#pages_area").hide();
-                                 $("#story_area").show();
-        return false;
+  $("#play_link.play").live("click", function() {
+    resumeNarration();
+
+    console.log("play link click");
+  });
+
+  $("#play_link.pause").live("click", function() {
+    pauseNarration();
+    console.log("pause link click");
+  });
+
+  $("#story_board_link").click(function() {
+    hideSubs();
+    stopNarration();
+    current_page = 0;
+    ttt.toFirstPage();
+    $("#pages_area").hide();
+    $("#story_area").show();
+    return false;
 
 
-    });
-    $("#menu_trigger").click(function() {
-
-        toggleMenu();
-        return false;
-    });
-  
+  });
   $("#menu_trigger").click(function() {
-                           
-                           toggleMenu();
-                           return false;
-                           });
+
+    toggleMenu();
+    return false;
+  });
+
+  $("#menu_trigger").click(function() {
+
+    toggleMenu();
+    return false;
+  });
   $("#next").click(function() {
-                           
-                           if (!autoplay_enabled) nextPage();
-                           return false;
-                           });
+
+    if (!autoplay_enabled) nextPage();
+    return false;
+  });
   $("#prev").click(function() {
-                   if (!autoplay_enabled) prevPage();
-                   return false;
-                   });
+    if (!autoplay_enabled) prevPage();
+    return false;
+  });
 
-    $("#main_menu_link").click(function() {
-                               hideSubs();
-                               stopNarration(); 
-                               current_page = 0;
-                               ttt.toFirstPage();
-                               $("#pages_area").hide();
-                               $("#main_menu_area").show();
-        return false;
-    });
+  $("#main_menu_link").click(function() {
+    hideSubs();
+    stopNarration();
+    current_page = 0;
+    ttt.toFirstPage();
+    $("#pages_area").hide();
+    $("#main_menu_area").show();
+    return false;
+  });
 
 
-    $(".subs span .txt").live("click", function(e) {
-                              console.log("cliciked");
-        if (player.audioStarting) return;
-        if (autoplay_enabled) return;
+  $(".subs span .txt").live("click", function(e) {
+    if (player.audioStarting) return;
+    if (autoplay_enabled) return;
 
-        var pageSubs = TEXTS[current_story][current_page];
-                            
-        if (e.offsetX > e.currentTarget.clientWidth / 2) {
+    var pageSubs = TEXTS[current_story][current_page];
 
-                              console.log("seek");
-            if (subIndex >= 0 && subIndex < pageSubs.length) {
-                seekNarration(pageSubs[subIndex].time);
-            }
+    if (e.offsetX > e.currentTarget.clientWidth / 2) {
 
-            nextSub();
+      if (subIndex >= 0 && subIndex < pageSubs.length) {
+        seekNarration(pageSubs[subIndex].time);
+      }
 
-        }
-        else {
+      nextSub();
 
-            prevSub();
+    }
+    else {
 
-            var prevIndex = subIndex - 1;
-            if (prevIndex < 0 || prevIndex >= pageSubs.length) {
-                seekNarration(0.001);
-            }
-            else {
-                seekNarration(pageSubs[prevIndex].time);
-            }
-        }
-                              
+      prevSub();
 
-    });
+      var prevIndex = subIndex - 1;
+      if (prevIndex < 0 || prevIndex >= pageSubs.length) {
+        seekNarration(0.001);
+      }
+      else {
+        seekNarration(pageSubs[prevIndex].time);
+      }
+    }
+
+
+  });
 }
 
-function showStory(){
-  
+function initPlayer() {
+  if (autoplay_enabled) {
+    if (options.audio_enabled){
+    player = new StoryPlayer(options.music_enabled, function() {
+        return {offset: DURATIONS[current_story][current_page], limit:DURATIONS[current_story][current_page+1]}
+    });
+    }
+    else{
+      player = new NullPlayer();
+    }
+  }
+  else {
+    player = new PagePlayer();
+  }
+}
+
+function showStory() {
+
   ttt.setDisabled(autoplay_enabled);
-  
+
   $("#story_area").hide();
   $("#pages_area").show();
-  player = new PagePlayer();
+  initPlayer();
   setPage(0);
 }
 
 function selectStory(index) {
-    if (index != current_story) {
-        removeStory();
-        setMenuOpacity(0,0);
-        current_story = index;
-        $("#story_area").css('background-image', "url(" + _coverImage('cover') + ")");
+  if (index != current_story) {
+    removeStory();
+    setMenuOpacity(0, 0);
+    current_story = index;
+    $("#story_area").css('background-image', "url(" + _coverImage('cover') + ")");
 
-        setupPages(function() {
-            $("#book ul").jFlip(screenSize.width, screenSize.height, {background:"green", cornersTop:false}).
-                bind("flip.jflip", function(event, index, total) {
-                    pageDidChanged(index);
-                });
-
-            setupSubs();
+    setupPages(function() {
+      $("#book ul").jFlip(screenSize.width, screenSize.height, {background:"green", cornersTop:false}).
+        bind("flip.jflip", function(event, index, total) {
+          pageDidChanged(index);
         });
 
-    }
+      setupSubs();
+    });
+
+  }
 }
 
 function removeStory() {
-    stopNarration();
-    current_story = -1;
-    $("#story_area").css('background-image', "");
-    $("#book").html('');
+  stopNarration();
+  current_story = -1;
+  $("#story_area").css('background-image', "");
+  $("#book").html('');
 }
 
 function removeSubs() {
-    $(".subs").remove();
+  $(".subs").remove();
 }
 
 function hideSubs() {
-    $(_currentSub()).find("span").hide();
+  $(_currentSub()).find("span").hide();
 }
 
 function showSubs() {
-    $(_currentSub()).find("span:first").show();
+  $(_currentSub()).find("span:first").show();
 }
 
 function setPage(p) {
-    stopNarration();
-    hideSubs();
-    current_page = p;
-    subIndex = 0;
-    showSubs();
-    if (audio_enabled && hasSubs()) {
-        if (narTimeout != null) {
-            clearTimeout(narTimeout);
-        }
-        narTimeout = setTimeout(function() {
-
-            playNarration(_getAudioPath());
-
-
-        }, NARRATION_START_DELAY);
+  stopNarration();
+  hideSubs();
+  current_page = p;
+  subIndex = 0;
+  showSubs();
+  if (audio_enabled && hasSubs()) {
+    if (narTimeout != null) {
+      clearTimeout(narTimeout);
     }
+    narTimeout = setTimeout(function() {
+
+     playNarration(_getAudioPath());
+
+                            }, autoplay_enabled ? 0 : NARRATION_START_DELAY);
+  }
 }
 
 function setupPages(pagesLoadedHandler) {
-    var pages = $("<ul id='pages'/>");
+  var pages = $("<ul id='pages'/>");
 
-    var imagesLoadedCount = 0;
-    var images = new Array();
+  var imagesLoadedCount = 0;
+  var images = new Array();
 
-    for (var i = 0; i < TEXTS[current_story].length; i++) {
-        images[i] = new Image();
-        images[i].src = _pageImage(i + 1);
-        images[i].onload = function() {
-            imagesLoadedCount++;
-            if (imagesLoadedCount == TEXTS[current_story].length) {
-
-
-                for (var i = 0; i < TEXTS[current_story].length; i++) {
-                    var page = $("<img />").attr("src", _pageImage(i + 1));
-                    $(pages).append($("<li id='" + _pageId(i) + "' />").append(page));
-                }
-
-                $("#book").append(pages);
+  for (var i = 0; i < TEXTS[current_story].length; i++) {
+    images[i] = new Image();
+    images[i].src = _pageImage(i + 1);
+    images[i].onload = function() {
+      imagesLoadedCount++;
+      if (imagesLoadedCount == TEXTS[current_story].length) {
 
 
-                pagesLoadedHandler();
+        for (var i = 0; i < TEXTS[current_story].length; i++) {
+          var page = $("<img />").attr("src", _pageImage(i + 1));
+          $(pages).append($("<li id='" + _pageId(i) + "' />").append(page));
+        }
 
-            }
+        $("#book").append(pages);
 
-        };
-    }
+
+        pagesLoadedHandler();
+
+      }
+
+    };
+  }
 
 }
 
 function setupSubs() {
-    removeSubs();
-    var texts = TEXTS[current_story];
-    for (var i = 0; i < texts.length; i++) {
-        var ul = $("<div />").addClass('subs');
-        var pageTexts = texts[i];
-        for (var j = 0; j < pageTexts.length; j++) {
-            var sub = pageTexts[j];
-            var subEl = $("<span />");
+  removeSubs();
+  var texts = TEXTS[current_story];
+  for (var i = 0; i < texts.length; i++) {
+    var ul = $("<div />").addClass('subs');
+    var pageTexts = texts[i];
+    for (var j = 0; j < pageTexts.length; j++) {
+      var sub = pageTexts[j];
+      var subEl = $("<span />");
 
-          $(subEl).append($("<p />").html(sub.text).addClass('txt'));
-            $(ul).append(subEl);
-        }
-        $("#pages_area").append(ul);
+      $(subEl).append($("<p />").html(sub.text).addClass('txt'));
+      $(ul).append(subEl);
     }
+    $("#pages_area").append(ul);
+  }
 }
 
 function setMenuOpacity(val, dur) {
-    $("#menu").animate({opacity:val}, dur);
-    $("#nav a").animate({opacity:val}, dur);
+  $("#menu").animate({opacity:val}, dur);
+  $("#nav a").animate({opacity:val}, dur);
 }
 
 function toggleMenu() {
-    if (menuAnimating) return;
+  if (menuAnimating) return;
 
-    var dir;
+  var dir;
 
-    if ($("#menu").css("opacity") == 1) {
-        setMenuOpacity(0, MENU_ANIMATION_DURATION);
-        dir = "+=";
-    }
-    else if ($("#menu").css("opacity") == 0) {
-        setMenuOpacity(1, MENU_ANIMATION_DURATION);
-        dir = "-=";
-    }
+  if ($("#menu").css("opacity") == 1) {
+    setMenuOpacity(0, MENU_ANIMATION_DURATION);
+    dir = "+=";
+  }
+  else if ($("#menu").css("opacity") == 0) {
+    setMenuOpacity(1, MENU_ANIMATION_DURATION);
+    dir = "-=";
+  }
 
-    var delta = dir + $("#menu").height() + "px";
-    $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
-    menuAnimating = true;
-    setTimeout("menuAnimating=false", MENU_ANIMATION_DURATION * 2);
+  var delta = dir + $("#menu").height() + "px";
+  $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
+  menuAnimating = true;
+  setTimeout("menuAnimating=false", MENU_ANIMATION_DURATION * 2);
 }
 
-function hasSubs(){
+function hasSubs() {
   return (_currentSub()).find("span").length > 0;
 }
 
 function nextSub() {
-    var cur_sub = $(_currentSub()).find("span:visible:first");
-    var next_sub = $(cur_sub).next();
-    if (next_sub.length > 0) {
-        subIndex++;
-        $(cur_sub).hide();
-        $(next_sub).show();
-    }
+  var cur_sub = $(_currentSub()).find("span:visible:first");
+  var next_sub = $(cur_sub).next();
+  var isAvailable = next_sub.length > 0;
+  if (isAvailable) {
+    subIndex++;
+    $(cur_sub).hide();
+    $(next_sub).show();
+  }
+  return isAvailable;
 }
 
 function prevSub() {
-    var cur_sub = $(_currentSub()).find("span:visible:first");
-    var next_sub = $(cur_sub).prev();
-    if (next_sub.length > 0) {
-        subIndex--;
-        $(cur_sub).hide();
-        $(next_sub).show();
-    }
+  var cur_sub = $(_currentSub()).find("span:visible:first");
+  var next_sub = $(cur_sub).prev();
+  var isAvailable = next_sub.length > 0;
+  if (isAvailable) {
+    subIndex--;
+    $(cur_sub).hide();
+    $(next_sub).show();
+  }
+  return isAvailable;
 }
 
 function prevPage() {
-  
-   if (pageAnimating) return;
 
-    stopNarration();
-    ttt.prevPage();
+  if (pageAnimating) return;
 
-    pageAnimating = true;
-    setTimeout("pageAnimating=false", LIST_PAGE_DELAY);
+  stopNarration();
+  ttt.prevPage();
+
+  pageAnimating = true;
+  setTimeout("pageAnimating=false", LIST_PAGE_DELAY);
 
 }
 
 function nextPage() {
-    if (pageAnimating) return;
+  if (pageAnimating) return;
 
-    stopNarration();
-    ttt.nextPage();
+  stopNarration();
+  ttt.nextPage();
 
-    pageAnimating = true;
-    setTimeout("pageAnimating=false", LIST_PAGE_DELAY);
-
-
+  pageAnimating = true;
+  setTimeout("pageAnimating=false", LIST_PAGE_DELAY);
 }
 
 
 function pageDidChanged(p) {
-    if (p != current_page) {
-        setPage(p);
-    }
+  if (p != current_page) {
+    setPage(p);
+  }
 }
 
 function audioDidFinished() {
-    if (autoplay_enabled) {
-        nextPage();
-    }
+  if (autoplay_enabled) {
+    nextPage();
+  }
 }
 
 function positionDidChanged(position) {
-    var pageSubs = TEXTS[current_story][current_page];
-    if (subIndex < 0 || subIndex >= pageSubs.length) return;
-    if (position >= pageSubs[subIndex].time) {
-        nextSub();
-    }
+  var pageSubs = TEXTS[current_story][current_page];
+  if (subIndex < 0 || subIndex >= pageSubs.length) return;
+  if (position >= pageSubs[subIndex].time) {
+    nextSub();
+  }
 }
 
-function _setPauseLink(){
+function _setPauseLink() {
   audio_is_play = true;
   $("#play_link.play").removeClass('play').addClass('pause');
 }
 
-function _setPlayLink(){
+function _setPlayLink() {
   audio_is_play = false;
   $("#play_link.pause").removeClass('pause').addClass('play');
 }
 
 
-
 function _currentSub() {
-    return $(".subs:nth(" + current_page + ")");
+  return $(".subs:nth(" + current_page + ")");
 
 }
 
 function _pageId(index) {
-    return "page_" + current_story + "_" + index;
+  return "page_" + current_story + "_" + index;
 }
 
 function _pageImage(index) {
-    return "stories/" + (current_story + 1) + "/images/" + _device() + "/" + index + ".jpg";
+  return "stories/" + (current_story + 1) + "/images/" + _device() + "/" + index + ".jpg";
+}
+
+function _getAudioPath() {
+  var res =  _getAudioRoot() + (current_page + 1) + '.wav';
+  return res;
 }
 
 function _device() {
-    if (screenSize.width > 480) return "ipad";
-    else return "iphone";
+  if (screenSize.width > 480) return "ipad";
+  else return "iphone";
 }

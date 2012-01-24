@@ -1,5 +1,5 @@
-function _getAudioPath() {
-  var res = 'stories/' + (current_story + 1) + '/audio/' + (current_page + 1) + '.wav';
+function _getAudioRoot() {
+  var res = 'stories/' + (current_story + 1) + '/audio/';
   return res;
 }
 

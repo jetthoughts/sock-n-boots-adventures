@@ -1,5 +1,5 @@
-function _getAudioPath() {
-  var res = '/android_asset/www/stories/' + (current_story + 1) + '/audio/' + (current_page + 1) + '.wav';
+function _getAudioRoot() {
+  var res = '/android_asset/www/stories/' + (current_story + 1) + '/audio/';
   return res;
 }
 
