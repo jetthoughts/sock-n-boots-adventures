@@ -18,7 +18,7 @@ var NullPlayer = function() {
       }
 
     }, AUTOPLAY_SUB_INTERVAL);
-  }
+  };
 
   this.playNarration = function(src) {
     this.startNarrationTimer();
@@ -27,21 +27,22 @@ var NullPlayer = function() {
 
   this.stopNarration = function() {
     this.stopNarrationTimer();
-  }
+  };
 
   this.pauseNarration = function() {
     this.stopNarrationTimer();
     return true;
-  }
+  };
 
   this.resumeNarration = function() {
     this.startNarrationTimer();
     return true;
-  }
+  };
 
   this.seekNarration = function(sec) {
-  }
-
+  };
+  this.release = function(){
+  };
 };
 
 var PagePlayer = function() {
@@ -75,7 +76,7 @@ var PagePlayer = function() {
         });
       }
     }, 1000);
-  }
+  };
 
   this.playNarration = function(src) {
     this.stopNarration();
@@ -98,14 +99,18 @@ var PagePlayer = function() {
       this.current_audio.release();
       this.current_audio = null;
     }
-  }
+  };
+  
+  this.release = function(){
+    this.stopNarration();
+  };
 
   this.pauseNarration = function() {
     if (this.current_audio == null) return false;
     this.stopNarrationTimer();
     this.current_audio.pause();
     return true;
-  }
+  };
 
   this.resumeNarration = function() {
     if (this.current_audio == null) return false;
@@ -114,7 +119,7 @@ var PagePlayer = function() {
       this.startNarrationTimer();
       return true
     }
-  }
+  };
 
   this.seekNarration = function(sec) {
     if (this.audioStarting) return;
@@ -225,6 +230,11 @@ var StoryPlayer = function(with_music, info) {
       return true;
     }
   }
+  
+  this.release = function(){
+   /* this.player.release();
+    this.player = null;*/
+  };
 
   this.seekNarration = function(sec) {
     if (this.audioStarting) return;
@@ -232,7 +242,6 @@ var StoryPlayer = function(with_music, info) {
       this.audioStarting = true;
       var self = this;
       setTimeout(function() {
-        console.log("seek to" + sec);
         self.current_audio.seekTo(sec * 1000);
         self.resumeNarration();
         self.audioStarting = false;

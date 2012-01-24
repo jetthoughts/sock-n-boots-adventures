@@ -1,5 +1,5 @@
-function _getAudioRoot() {
-  var res = '/android_asset/www/stories/' + (current_story + 1) + '/audio/';
+function _getRoot() {
+  var res = '/android_asset/www/';
   return res;
 }
 

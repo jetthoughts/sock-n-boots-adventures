@@ -30,6 +30,11 @@
          for more details -jm */
         function onDeviceReady() {
             init();
+          home_audio = new Media(_getRoot() + "home_page_music.wav", function(){}, function(){
+                                 home_audio = null;
+                                 });
+          playHomeAudio();
+          
         }
 
     </script>

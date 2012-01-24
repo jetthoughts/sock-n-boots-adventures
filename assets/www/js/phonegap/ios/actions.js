@@ -1,5 +1,5 @@
-function _getAudioRoot() {
-  var res = 'stories/' + (current_story + 1) + '/audio/';
+function _getRoot() {
+  var res = '';
   return res;
 }
 

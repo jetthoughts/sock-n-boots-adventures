@@ -1,6 +1,21 @@
 var screenSize;
 var options = { audio_enabled: false, music_enabled:false};
+var home_audio = null;
 
+function stopHomeAudio(){
+  if (home_audio!=null) home_audio.stop();
+}  
+function playHomeAudio(){
+  if (home_audio!=null) home_audio.play();
+} 
+function hideMainMenu(){
+  stopHomeAudio();
+  $("#main_menu_area").hide();
+}  
+function showMainMenu(){
+  playHomeAudio();
+  $("#main_menu_area").show();
+}
 
 $(document).ready(function() {
   var w = $(window).width();
@@ -9,8 +24,11 @@ $(document).ready(function() {
 
 
   //------------- Main menu
+  
+                  
+                  
   $("#storybook_link").bind("click", function() {
-    $("#main_menu_area").hide();
+    hideMainMenu();
     $("#menu_area").show();
     if (!$(".inventory-featured-default").hasClass("coverflow")) {
       $("div.hproducts").coverflow();
@@ -20,8 +38,8 @@ $(document).ready(function() {
 
 
   $("#help_link").bind("click", function() {
-    $("#menu_area").hide();
-    $("#main_menu_area").show();
+                       hideMainMenu();
+    $("#help_area").show();
 
     return false;
   });
@@ -47,7 +65,7 @@ $(document).ready(function() {
 
   $("#s_main_menu_link").bind("click", function() {
     $("#menu_area").hide();
-    $("#main_menu_area").show();
+                              showMainMenu();
 
     return false;
   });
@@ -93,7 +111,7 @@ $(document).ready(function() {
     audio_enabled = true;
     autoplay_enabled = false;
 
-    showStory();
+    showPages();
     return false;
   });
 
@@ -101,14 +119,13 @@ $(document).ready(function() {
 
     audio_enabled = false;
     autoplay_enabled = false;
-    showStory();
+    showPages();
     return false;
   });
 
   $("#auto_play_link").bind("click", function() {
     autoplay_enabled = true;
-
-    showStory();
+    showPages();
     return false;
   });
 

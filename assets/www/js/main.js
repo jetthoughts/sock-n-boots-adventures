@@ -95,11 +95,7 @@ function init() {
   });
 
   $("#story_board_link").click(function() {
-    hideSubs();
-    stopNarration();
-    current_page = 0;
-    ttt.toFirstPage();
-    $("#pages_area").hide();
+    hidePages(); 
     $("#story_area").show();
     return false;
 
@@ -127,14 +123,13 @@ function init() {
   });
 
   $("#main_menu_link").click(function() {
-    hideSubs();
-    stopNarration();
-    current_page = 0;
-    ttt.toFirstPage();
-    $("#pages_area").hide();
+   
+     hidePages();                         
+                             
     $("#main_menu_area").show();
     return false;
   });
+
 
 
   $(".subs span .txt").live("click", function(e) {
@@ -169,6 +164,12 @@ function init() {
   });
 }
 
+function  releasePlayer(){
+  if (player!=null){
+    player.release();
+  }
+}
+
 function initPlayer() {
   if (autoplay_enabled) {
     if (options.audio_enabled){
@@ -185,7 +186,16 @@ function initPlayer() {
   }
 }
 
-function showStory() {
+
+function hidePages(){
+  hideSubs();
+  releasePlayer();
+  current_page = 0;
+  ttt.toFirstPage();
+  $("#pages_area").hide();
+}
+
+function showPages() {
 
   ttt.setDisabled(autoplay_enabled);
 
@@ -417,6 +427,11 @@ function _pageId(index) {
 
 function _pageImage(index) {
   return "stories/" + (current_story + 1) + "/images/" + _device() + "/" + index + ".jpg";
+}
+
+function _getAudioRoot() {
+  var res = _getRoot() + 'stories/' + (current_story + 1) + '/audio/';
+  return res;
 }
 
 function _getAudioPath() {
