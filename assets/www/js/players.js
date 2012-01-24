@@ -203,7 +203,7 @@ var StoryPlayer = function(with_music, info) {
     this.pauseNarration();
   }
 
-  this.releaseNarration = function() {
+  this.release = function() {
     this.stopNarrationTimer();
 
     if (this.current_audio != null) {
@@ -230,11 +230,7 @@ var StoryPlayer = function(with_music, info) {
       return true;
     }
   }
-  
-  this.release = function(){
-   /* this.player.release();
-    this.player = null;*/
-  };
+
 
   this.seekNarration = function(sec) {
     if (this.audioStarting) return;
