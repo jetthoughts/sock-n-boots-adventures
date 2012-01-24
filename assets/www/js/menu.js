@@ -99,27 +99,26 @@ $(document).ready(function() {
                   
                   //------ Story menu
     $("#with_audio_link").bind("click", function() {
-        $("#story_area").hide();
-        $("#pages_area").show();
+     
         audio_enabled = true;
-        setPage(0);
+        autoplay_enabled = false;
+
+        showStory();
         return false;
     });
                   
     $("#without_audio_link").bind("click", function() {
-        $("#story_area").hide();
-        $("#pages_area").show();
+  
         audio_enabled = false;
-        setPage(0);
+autoplay_enabled = false;
+                                   showStory();
         return false;
     });
 
     $("#auto_play_link").bind("click", function() {
-        $("#story_area").hide();
-        $("#pages_area").show();
-        audio_enabled = true;
-        autoplay_link = true;
-        setPage(0);
+        autoplay_enabled = true;                      
+    
+        showStory();
         return false;
     });
                   

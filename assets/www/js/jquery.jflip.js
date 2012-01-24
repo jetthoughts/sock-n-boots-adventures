@@ -64,6 +64,7 @@
         lastmX,lastmY,
         inCanvas = true,
         mousedown = true,
+        disabled = false,
         dragging = false;
       
       $(window).scroll(function(){
@@ -84,15 +85,8 @@
           return positionDiv();
       })():canvas;
       c.mousemove(function(e){
-        //track the mouse
-        /*
-        if(!off) off = canvas.offset(); //safari can't calculate correctly offset at DOM ready
-        mX = e.clientX-off.left;
-        mY = e.clientY-off.top;
-        window.setTimeout(draw,0);
-        return;
-        */
-        if(!off)
+      if (disabled) return;
+      if(!off)
           off = canvas.offset(); //safari can't calculate correctly offset at DOM ready
         
         if(mousedown && onCorner && (sideLeft && (index>0) || (!sideLeft && index< images.length-1) ) ) {
@@ -132,18 +126,9 @@
       }).bind("mouseenter",function(e){
         inCanvas = true;
         if(flipping) return;
-        /*window.clearInterval(animationTimer);
-        startDate = new Date().getTime();
-        animationTimer = window.setInterval(cornerCurlIn,10);*/
         return false;
       }).bind("mouseleave",function(e){
-        /*inCanvas = false;
-        dragging = false;
-        mousedown = false;
-        if(flipping) return;
-        window.clearInterval(animationTimer);
-        startDate = new Date().getTime();
-        animationTimer = window.setInterval(cornerCurlOut,10);*/
+        
         return false;
       }).click(function(){
      
@@ -160,6 +145,10 @@
 
         return false;
       });
+  
+  this.setDisabled = function(val){
+    disabled = val;
+  },
 
   this.toFirstPage = function(){
 

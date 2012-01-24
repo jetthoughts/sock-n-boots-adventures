@@ -13,7 +13,7 @@ var current_story = -1;
 
 //---------- options
 var autoplay_enabled = true;
-var audio_enabled = false;
+var audio_enabled = true;
 var music_enabled = false;
 
 
@@ -181,9 +181,23 @@ function init() {
     $("#menu_trigger").click(function() {
 
         toggleMenu();
-
-
+        return false;
     });
+  
+  $("#menu_trigger").click(function() {
+                           
+                           toggleMenu();
+                           return false;
+                           });
+  $("#next").click(function() {
+                           
+                           if (!autoplay_enabled) nextPage();
+                           return false;
+                           });
+  $("#prev").click(function() {
+                   if (!autoplay_enabled) prevPage();
+                   return false;
+                   });
 
     $("#main_menu_link").click(function() {
                                hideSubs();
@@ -198,6 +212,7 @@ function init() {
 
     $(".subs span .txt").live("click", function(e) {
         if (audioStarting) return;
+        if (autoplay_enabled) return;
 
         var pageSubs = TEXTS[current_story][current_page];
                             
@@ -223,8 +238,18 @@ function init() {
                 seekNarration(pageSubs[prevIndex].time);
             }
         }
+                              
 
     });
+}
+
+function showStory(){
+  
+  ttt.setDisabled(autoplay_enabled);
+  
+  $("#story_area").hide();
+  $("#pages_area").show();
+  setPage(0);
 }
 
 function selectStory(index) {
@@ -382,7 +407,8 @@ function prevSub() {
 }
 
 function prevPage() {
-    if (pageAnimating) return;
+  
+   if (pageAnimating) return;
 
     stopNarration();
     ttt.prevPage();
@@ -412,7 +438,6 @@ function pageDidChanged(p) {
 }
 
 function audioDidFinished() {
-
     if (autoplay_enabled) {
         nextPage();
     }
