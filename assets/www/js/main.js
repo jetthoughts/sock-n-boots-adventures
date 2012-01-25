@@ -51,7 +51,9 @@ function resumeNarration() {
 
 function seekNarration(sec) {
   if (player == null) return false;
-  player.seekNarration(sec);
+  if (player.seekNarration(sec)){
+    _setPauseLink();
+    }
 }
 
 
@@ -133,18 +135,19 @@ function init() {
 
 
   $(".subs span .txt").live("click", function(e) {
-    if (player.audioStarting) return;
+    if (player!=null && player.audioStarting) return;
     if (autoplay_enabled) return;
 
     var pageSubs = TEXTS[current_story][current_page];
 
     if (e.offsetX > e.currentTarget.clientWidth / 2) {
 
-      if (subIndex >= 0 && subIndex < pageSubs.length) {
+      if (subIndex >= 0 && subIndex < pageSubs.length-1) {
         seekNarration(pageSubs[subIndex].time);
+                
       }
-
-      nextSub();
+       nextSub();
+      
 
     }
     else {
@@ -153,7 +156,7 @@ function init() {
 
       var prevIndex = subIndex - 1;
       if (prevIndex < 0 || prevIndex >= pageSubs.length) {
-        seekNarration(0.001);
+        seekNarration(getStartTime());
       }
       else {
         seekNarration(pageSubs[prevIndex].time);
@@ -164,6 +167,11 @@ function init() {
   });
 }
 
+function getStartTime(){
+    var prevSubs = TEXTS[current_story][current_page-1] || [{time:0}];
+    return prevSubs[prevSubs.length-1].time + 0.001;
+}
+
 function  releasePlayer(){
   if (player!=null){
     player.release();
@@ -171,18 +179,10 @@ function  releasePlayer(){
 }
 
 function initPlayer() {
-  if (autoplay_enabled) {
-    if (options.audio_enabled){
-    player = new StoryPlayer(options.music_enabled, function() {
-        return {offset: DURATIONS[current_story][current_page], limit:DURATIONS[current_story][current_page+1]}
+  if (audio_enabled)  {
+    player = new StoryPlayer(true, function() {
+                             return {start_time: getStartTime()};
     });
-    }
-    else{
-      player = new NullPlayer();
-    }
-  }
-  else {
-    player = new PagePlayer();
   }
 }
 
@@ -257,7 +257,7 @@ function setPage(p) {
 
      playNarration(_getAudioPath());
 
-                            }, autoplay_enabled ? 0 : NARRATION_START_DELAY);
+                            }, p ?  NARRATION_START_DELAY : 0);
   }
 }
 
@@ -342,6 +342,7 @@ function nextSub() {
   var cur_sub = $(_currentSub()).find("span:visible:first");
   var next_sub = $(cur_sub).next();
   var isAvailable = next_sub.length > 0;
+
   if (isAvailable) {
     subIndex++;
     $(cur_sub).hide();
@@ -392,8 +393,11 @@ function pageDidChanged(p) {
 }
 
 function audioDidFinished() {
-  if (autoplay_enabled) {
+  if (true || autoplay_enabled) {
     nextPage();
+  }
+  else{
+      player.stopNarration();
   }
 }
 
@@ -401,8 +405,12 @@ function positionDidChanged(position) {
   var pageSubs = TEXTS[current_story][current_page];
   if (subIndex < 0 || subIndex >= pageSubs.length) return;
   if (position >= pageSubs[subIndex].time) {
-    nextSub();
-  }
+      if (!nextSub()){
+        audioDidFinished();
+          
+      }
+  } 
+    
 }
 
 function _setPauseLink() {

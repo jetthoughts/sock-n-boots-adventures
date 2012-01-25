@@ -173,13 +173,9 @@ var StoryPlayer = function(with_music, info) {
             //audioDidFinished();
           }
           else {
-           var info = self.bookInfo();
-           if (position>info.limit-2){
-               audioDidFinished();
-           }
-          else{
-              positionDidChanged(position - info.offset);
-           }
+
+              positionDidChanged(position);
+           
                                               
           }
         });
@@ -188,14 +184,9 @@ var StoryPlayer = function(with_music, info) {
   }
 
   this.playNarration = function(src) {
-    /*
-    
-    this.stopNarration();
-
-    this.current_audio.play();
-    this.startNarrationTimer();
-     */
-    this.resumeNarration();
+    var info = this.bookInfo();  
+      console.log(info.start_time);
+    this.seekNarration(info.start_time);
 
   };
 
@@ -233,7 +224,7 @@ var StoryPlayer = function(with_music, info) {
 
 
   this.seekNarration = function(sec) {
-    if (this.audioStarting) return;
+    if (this.audioStarting) return false;
     if (this.pauseNarration()) {
       this.audioStarting = true;
       var self = this;
@@ -242,7 +233,8 @@ var StoryPlayer = function(with_music, info) {
         self.resumeNarration();
         self.audioStarting = false;
       }, 500);
+        return true;
     }
-
+      return false;
   }
 };
