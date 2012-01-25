@@ -36,6 +36,7 @@ strong {
   float: left;
   position: relative;
   text-align: center;
+  -webkit-transition-property: -webkit-transform;
 }
 
 .hproduct img {

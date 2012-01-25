@@ -128,7 +128,7 @@
 				
 				var before = (i > from && i != to);
 				
-				var webTransform = "rotateY("+(side === "right"? 55 : -55 )+"deg) scale("+(1+((1-mod)*0.1))+")";
+				var webTransform = "scale("+(1+((1-mod)*0.1))+") rotate3d(0,1,0,"+(side === "right"? 55 : -55 )+"deg)";
 				if(i === self.current) {
 					webTransform = "scale(1.3)";
 					mozTransform = "scale(1.3)";
@@ -136,9 +136,8 @@
 				} else {
 					mozTransform = "scale(1)";
 				}
-				
 				$(this).css({
-					webkitTransform: webTransform,
+					"-webkit-transform": webTransform,
 					"-moz-transform": mozTransform,
 					left: (
 						(-i * (self.itemWidth/2))

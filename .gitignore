@@ -24,3 +24,5 @@ active_phonegap/
 xcuserdata/
 ios/www/
 Android/out
+Android/Android.iml
+xcuserdata/
