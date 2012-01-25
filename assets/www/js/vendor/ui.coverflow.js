@@ -128,7 +128,7 @@
 				
 				var before = (i > from && i != to);
 				
-				var webTransform = "scale("+(1+((1-mod)*0.1))+") rotate3d(0,1,0,"+(side === "right"? 55 : -55 )+"deg)";
+				var webTransform = "scale("+(1+((1-mod)*0.1))+")  matrix(1, " + (side === "right" ? -0.1 : 0.1 ) + ", 0, 1, 0, 0)";
 				if(i === self.current) {
 					webTransform = "scale(1.3)";
 					mozTransform = "scale(1.3)";
