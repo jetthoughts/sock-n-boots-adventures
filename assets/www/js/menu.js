@@ -8,14 +8,39 @@ function stopHomeAudio(){
 function playHomeAudio(){
   if (home_audio!=null) home_audio.play();
 } 
+
 function hideMainMenu(){
   stopHomeAudio();
   $("#main_menu_area").hide();
+  $("body").removeClass("main_menu");
 }  
+
 function showMainMenu(){
-  playHomeAudio();
+  $("body").addClass("main_menu");
   $("#main_menu_area").show();
+  playHomeAudio();
 }
+
+function hideStorybook(){
+    $("#menu_area").hide();
+    $("body").removeClass("story_book");
+}  
+
+function showStorybook(){
+    $("body").addClass("story_book");
+    $("#menu_area").show();
+}
+
+function  hideStoryMenu(){
+    $("#story_area").hide();
+    $("body").removeClass("story_menu");
+}
+
+function showStoryMenu(){
+    $("body").addClass("story_menu");
+    $("#story_area").show();
+}
+
 
 $(document).ready(function() {
   var w = $(window).width();
@@ -29,11 +54,11 @@ $(document).ready(function() {
                   
   $("#storybook_link").bind("click", function() {
     hideMainMenu();
-    $("#menu_area").show();
+                            showStorybook();
     if (!$(".inventory-featured-default").hasClass("coverflow")) {
       $("div.hproducts").coverflow({onSelectedFunc: function(page){
-                                   $("#menu_area").hide();
-                                   $("#story_area").show();
+                                   hideStorybook();
+                                   showStoryMenu();
                                    selectStory(Math.max(page,1));
                                    
                                    return false;
@@ -44,8 +69,8 @@ $(document).ready(function() {
 
 
   $("#help_link").bind("click", function() {
-                       hideMainMenu();
-    $("#help_area").show();
+    //                   hideMainMenu();
+    //$("#help_area").show();
 
     return false;
   });
@@ -61,7 +86,7 @@ $(document).ready(function() {
 
 
   $("#s_main_menu_link").bind("click", function() {
-    $("#menu_area").hide();
+                              hideStorybook();
                               showMainMenu();
 
     return false;
@@ -80,10 +105,10 @@ $(document).ready(function() {
     console.log("s_buy_link clicked");
     return false;
   });
-
+                  
   $("#m_story_board_link").bind("click", function() {
-    $("#story_area").hide();
-    $("#menu_area").show();
+                                hideStoryMenu();
+                                showStorybook();
     removeStory();
     return false;
   });
