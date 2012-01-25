@@ -18,7 +18,7 @@ function hideMainMenu(){
 function showMainMenu(){
   $("body").addClass("main_menu");
   $("#main_menu_area").show();
-  //playHomeAudio();
+  setTimeout("playHomeAudio()", 1000);
 }
 
 function hideStorybook(){
