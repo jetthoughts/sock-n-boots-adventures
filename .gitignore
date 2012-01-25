@@ -24,3 +24,4 @@ active_phonegap/
 xcuserdata/
 ios/www/
 Android/out
+.bundle/
