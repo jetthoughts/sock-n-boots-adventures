@@ -5,10 +5,21 @@
 			$(".inventory-featured-default").addClass("coverflow");
 			
 			var self = this;
-			
+    
+            this.callback = this.options.onSelectedFunc;
 			this.items = $(this.options.items, this.element).bind("click", function() {
+                                                            
+                 if ($(this).attr("rel") == self.current){
+                                                                
+                 if (self.callback!=null){
+                    self.callback(self.current);
+                 }
+               }
+            else{          
+
 				self.moveTo(this);
 				$("div.slider").slider("moveTo", self.current, null, true);
+              }
 			});
 			this.itemWidth = this.items.outerWidth(true);
 			
@@ -27,15 +38,7 @@
 			});
 			
 			document.ontouchend = function() {
-				//swipe left
-				if( self.swipeLeft && self.swipe ) { 
-					self.moveTo(self.current-1);
-					$("div.slider").slider("moveTo", self.current, null, true);					
-				//swipe right
-				} else if(self.swipe) {
-					self.moveTo(self.current+1);
-					$("div.slider").slider("moveTo", self.current, null, true);
-				}				
+						
 			}
 			
 			document.ontouchmove = function(e){
@@ -46,6 +49,20 @@
 						self.swipeLeft = false;
 					}
 					self.swipe = true;
+
+             if( self.swipeLeft && self.swipe ) { 
+             
+             self.moveTo( Math.max(self.current-1, 0));
+             $("div.slider").slider("moveTo", self.current, null, true);					
+             //swipe right
+             } else if(self.swipe) {
+             self.moveTo(Math.min(self.current+1,2));
+             $("div.slider").slider("moveTo", self.current, null, true);
+             }
+             self.startX = e.touches[0].pageX;
+             self.swipe = false;
+             
+             
 				}
 			}
 			
@@ -140,7 +157,8 @@
 	
 	$.extend($.ui.coverflow, {
 		defaults: {
-			items: "> *"
+			items: "> *",
+            onSelectedFunc : null
 		}
 	});
 	

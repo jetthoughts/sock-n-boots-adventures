@@ -17,10 +17,6 @@
         return this.each(function() {
             if (this.tagName.toLowerCase() != "ul") return;
                          
-                         this.test = function(){
-                         console.log("gggg");
-                         }             
-                         
             var originalList = $(this);
             var pages = originalList.children();
             var width = originalList.parent().width();

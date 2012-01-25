@@ -31,7 +31,13 @@ $(document).ready(function() {
     hideMainMenu();
     $("#menu_area").show();
     if (!$(".inventory-featured-default").hasClass("coverflow")) {
-      $("div.hproducts").coverflow();
+      $("div.hproducts").coverflow({onSelectedFunc: function(page){
+                                   $("#menu_area").hide();
+                                   $("#story_area").show();
+                                   selectStory(Math.max(page,1));
+                                   
+                                   return false;
+      }});
     }
     return false;
   });
@@ -48,16 +54,7 @@ $(document).ready(function() {
 
   //----- Story list
 
-
-  $(".media > a").bind("click", function() {
-    $("#menu_area").hide();
-    $("#story_area").show();
-    selectStory(parseInt($(this).attr("rel")));
-
-    return false;
-  });
-
-  $(".media > a").each(function() {
+  $(".hproduct").each(function() {
 
     $(this).find("img:first").attr('src', "stories/" + (parseInt($(this).attr('rel')) + 1) + "/images/" + _device() + "/cover_thumb.jpg");
   });
