@@ -6,6 +6,7 @@ body{
   background-size: 100% 100%;
   border:none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    overflow:none;
 }
 
 #menu_trigger{
@@ -109,7 +110,7 @@ body{
   left: 0px;
   text-align: center;
   width: 100%;
-  top: 80%;
+  top: 79%;
   height: 20%;
   z-index: 111;
   position: absolute;
