@@ -72,3 +72,11 @@
     margin-top:50px;
 }
 /* STORY LIST END*/
+
+/* HELP*/
+
+body.help{
+  background: url('../images/high/help.jpg') 0 0 no-repeat;
+}
+
+/* HELP END*/
