@@ -42,6 +42,16 @@ function showStoryMenu(){
     $("#story_area").show();
 }
 
+function  hideHelp(){
+    $("#help_area").hide();
+    $("body").removeClass("help");
+}
+
+function showHelp(){
+    $("body").addClass("help");
+    $("#help_area").show();
+}
+
 
 $(document).ready(function() {
   var w = $(window).width();
@@ -70,8 +80,8 @@ $(document).ready(function() {
 
 
   $("#help_link").bind("click", function() {
-    //                   hideMainMenu();
-    //$("#help_area").show();
+    hideMainMenu();
+    showHelp();
 
     return false;
   });
