@@ -137,6 +137,10 @@ $(document).ready(function() {
 
   //----- Story list end
 
+   $("body.help").live("click", function(){
+                       hideHelp();
+                       showMainMenu();
+                       });                 
 
   //------ Story menu
   $("#with_audio_link").bind("click", function() {

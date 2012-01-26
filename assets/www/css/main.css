@@ -336,3 +336,12 @@ body{
   font-style: italic;
   font-weight: bold;
 }
+
+#close_help_link{
+  width:25%;
+  height:25%;
+  border: 1px solid red;
+  left: 25%;
+  top: 25%;
+  position: absolute;
+}
