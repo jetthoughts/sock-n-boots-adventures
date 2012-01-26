@@ -9,9 +9,9 @@
             this.callback = this.options.onSelectedFunc;
 			this.items = $(this.options.items, this.element).bind("click", function() {
                                                             
-                 if ($(this).attr("rel") == self.current){
-                                                                
+                 if ($(this).attr("rel") == self.current && !self.swipe){
                  if (self.callback!=null){
+                                                    
                     self.callback(self.current);
                  }
                }
@@ -37,8 +37,7 @@
 						
 			});
 			
-			document.ontouchend = function() {
-						
+			document.ontouchend = function(e) {
 			}
 			
 			document.ontouchmove = function(e){
@@ -60,7 +59,7 @@
              $("div.slider").slider("moveTo", self.current, null, true);
              }
              self.startX = e.touches[0].pageX;
-             self.swipe = false;
+             
              
              
 				}
