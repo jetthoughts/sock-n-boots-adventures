@@ -5,14 +5,18 @@ require 'fileutils'
 
 
 namespace :assets do
+
+  task :generate, [:platform] => [:clean, :jam] do
+    puts "Generate resources"
+  end
+
   desc 'Clean up assets'
   task :clean do
     puts "remove generated files....."
-    ['javascripts', 'css', 'images'].each do |folder_name|
-      puts folder_name
-      FileUtils.rm_rf File.join(File.dirname(__FILE__), '..', 'assets', 'www', folder_name)
+    ['gen'].each do |file_name|
+      puts file_name
+      FileUtils.rm_rf File.join(File.dirname(__FILE__), '..', 'assets', 'www', file_name)
     end
-    FileUtils.rm_rf File.join(File.dirname(__FILE__), '..', 'assets', 'www', 'index.html')
 
   end
 

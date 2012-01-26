@@ -3,14 +3,14 @@
 
 #next{
     margin: 10px;
-    background-image:url('../images/low/next.png');
+    background-image:url(../images/low/next.png);
     width: 35px;
     height:35px;
 }
 
 #prev{
     margin: 10px;
-    background-image:url('../images/low/back.png');
+    background-image:url("../images/low/back.png");
     width: 35px;
     height:35px;
 }
