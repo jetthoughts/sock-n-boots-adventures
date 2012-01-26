@@ -314,9 +314,25 @@ body{
 }
 
 .story_book{
+  background: -webkit-linear-gradient(top, #7db9e8 0%,#2989d8 50%,#7db9e8 100%);
+  background: linear-gradient(top, #7db9e8 0%,#2989d8 50%,#7db9e8 100%);
+}
+.story_book .page_header{
+  background: -webkit-linear-gradient(top, #2989d8 0%,#7db9e8 50%,#2989d8 100%); /* Chrome10+,Safari5.1+ */
+  background: linear-gradient(top, #2989d8 0%,#7db9e8 50%,#2989d8 100%); /* W3C */
+  color: white;
+  font-style: italic;
+  font-weight: bold;
 }
 
-.main_menu{
-    
+.story_book h1 a{
+  color: white;
+  font-style: italic;
+  font-weight: bold;
 }
 
+.info{
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+}
