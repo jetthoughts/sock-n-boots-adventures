@@ -76,7 +76,7 @@ TEXTS = [
 
       {text:"so he hops out of bed to go and see.", time:107+6},
       {text:"He opens the close and turns on the light,", time:107+10},
-      {text:"and there are no monsters anywhere in sight.", time:121.5}
+      {text:"and there are no monsters anywhere in sight.", time:121.3}
     ],
 
     [

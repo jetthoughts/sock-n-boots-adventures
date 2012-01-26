@@ -1,7 +1,7 @@
 var screenSize;
 var options = { audio_enabled: false, music_enabled:false};
 var home_audio = null;
-
+var homeAudioTimeout = null; 
 function stopHomeAudio(){
   if (home_audio!=null) home_audio.stop();
 }  
@@ -10,6 +10,7 @@ function playHomeAudio(){
 } 
 
 function hideMainMenu(){
+  clearTimeout(homeAudioTimeout);
   stopHomeAudio();
   $("#main_menu_area").hide();
   $("body").removeClass("main_menu");
@@ -18,7 +19,7 @@ function hideMainMenu(){
 function showMainMenu(){
   $("body").addClass("main_menu");
   $("#main_menu_area").show();
-  setTimeout("playHomeAudio()", 1000);
+  homeAudioTimeout = setTimeout("playHomeAudio()", 1000);
 }
 
 function hideStorybook(){

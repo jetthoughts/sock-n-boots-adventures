@@ -7,22 +7,21 @@
 
     <link type="text/css" href="css/main.css" rel="stylesheet"/>
     <link type="text/css" href="css/flip.css" rel="stylesheet" media="screen"/>
+    <link type="text/css" href="css/jquery.mobile-1.0.min.css" rel="stylesheet" media="screen"/>
 
-    
- <link type="text/css" href="css/jquery.mobile-1.0.min.css" rel="stylesheet" media="screen"/>
-    
-      
-      <link media="only screen and (min-device-width: 240px) and (max-device-width: 480px)" href="css/low.css" type="text/css"
-        rel="stylesheet">
-        <link media="only screen and (min-device-width: 481px) and (max-device-width:1000px)" href="css/middle.css"
+
+    <link media="only screen and (min-device-width: 240px) and (max-device-width: 480px)" href="css/low.css"
+          type="text/css"
+          rel="stylesheet">
+    <link media="only screen and (min-device-width: 481px) and (max-device-width:1000px)" href="css/middle.css"
           type="text/css" rel="stylesheet">
-          <link media="only screen and (min-device-width: 768px) and (max-device-width: 2048px)" href="css/high.css"
-            type="text/css" rel="stylesheet">
+    <link media="only screen and (min-device-width: 768px) and (max-device-width: 2048px)" href="css/high.css"
+          type="text/css" rel="stylesheet">
 
     <script type="text/javascript">
-      function onBodyLoad() {
+        function onBodyLoad() {
             document.addEventListener("deviceready", onDeviceReady, false);
-      }
+        }
 
         /* When this function is called, PhoneGap has been initialized and is ready to roll */
         /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
@@ -30,57 +29,60 @@
          for more details -jm */
         function onDeviceReady() {
             init();
-          home_audio = new Media(_getRoot() + "home_page_music.wav", function(){}, function(){
-                                 home_audio = null;
-                                 });
+            home_audio = new Media(_getRoot() + "home_page_music.wav", function() {
+            }, function() {
+                home_audio = null;
+            });
             showMainMenu();
-          
+
         }
 
     </script>
 </head>
 <body onload="onBodyLoad()">
 
-  <div id="options_area" data-role="page">
-    
-		<div data-role="header" data-theme="d">
-			<h1>Options</h1>
-      
-		</div>
-    
-		<div data-role="content" data-theme="c">
-	    <div data-role="fieldcontain">
-        <fieldset data-role="controlgroup">
-          <legend>You can enable or disable some audio feature</legend>
-          <input type="checkbox" name="option_audio" id="option_audio"/>
-          <label for="option_audio">Enable Narration</label>
-          <input type="checkbox" name="option_music" id="option_music"/>
-          <label for="option_music">Enable Music</label>
+<div id="options_area" data-role="page">
+
+    <div data-role="header" data-theme="d">
+        <h1>Options</h1>
+
+    </div>
+
+    <div data-role="content" data-theme="c">
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <legend>You can enable or disable some audio feature</legend>
+                <input type="checkbox" name="option_audio" id="option_audio"/>
+                <label for="option_audio">Enable Narration</label>
+                <input type="checkbox" name="option_music" id="option_music"/>
+                <label for="option_music">Enable Music</label>
+            </fieldset>
+        </div>
+        <fieldset class="ui-grid-a">
+            <div id="options_ok" class="ui-block-b">
+                <button type="submit" data-theme="a">OK</button>
+            </div>
         </fieldset>
-      </div>
-			<fieldset class="ui-grid-a">
-				<div id="options_ok" class="ui-block-b"><button type="submit" data-theme="a">OK</button></div>
-	    </fieldset>      
-		</div>
-	</div>
-  
+    </div>
+</div>
+
 <div id="main_menu_area">
-  <div>
-   <div id="storybook_link"></div>
-   <div id="help_link"></div>
-  </div>
+    <div>
+        <div id="storybook_link"></div>
+        <div id="help_link"></div>
+    </div>
 </div>
 
 <div id="help_area">
-  
+
 </div>
-  
+
 <div id="menu_area">
 
-  <div class='page_header'>
-    Story Book
-  </div>
-  
+    <div class='page_header'>
+        Story Book
+    </div>
+
     <div class="mod inventory-featured-default type-1">
 
         <div class="inner">
@@ -93,7 +95,7 @@
                                 <div class="">
                                     <div class="media">
                                         <a href=
-                                                "#"><img class="photo thumb" /></a>
+                                                   "#"><img class="photo thumb"/></a>
                                     </div>
 
                                     <h1 class="fn h3"><a href=
@@ -108,7 +110,7 @@
                                 <div class="">
                                     <div class="media">
                                         <a href=
-                                                "#"><img class="photo thumb" /></a>
+                                                   "#"><img class="photo thumb"/></a>
                                     </div>
 
                                     <h1 class="fn h3"><a href=
@@ -123,7 +125,7 @@
                                 <div class="">
                                     <div class="media">
                                         <a href=
-                                                "#"><img class="photo thumb" /></a>
+                                                   "#"><img class="photo thumb"/></a>
                                     </div>
 
                                     <h1 class="fn h3"><a href=
@@ -143,29 +145,28 @@
         </div>
 
 
-      
     </div>
 
-  <div id="storybook_menu">
-    <div id="s_main_menu_link"></div>
-  <!--   <div id="s_options_link"></div>-->
-    <div id="s_buy_link"></div>
-    
-  </div>
-  
- </div>
+    <div id="storybook_menu">
+        <div id="s_main_menu_link"></div>
+        <!--   <div id="s_options_link"></div>-->
+        <div id="s_buy_link"></div>
 
-  <div id="story_area">
-      <div id="story_menu">
-          <div id="m_story_board_link"></div> 
-          <div id="without_audio_link"></div>
-          <div id="with_audio_link"></div>
+    </div>
+
+</div>
+
+<div id="story_area">
+    <div id="story_menu">
+        <div id="m_story_board_link"></div>
+        <div id="without_audio_link"></div>
+        <div id="with_audio_link"></div>
         <!--  <div id="auto_play_link"></div>-->
-      </div>
-      
-  </div>  
+    </div>
 
-  <div id="pages_area">
+</div>
+
+<div id="pages_area">
     <div id="nav">
         <a id="prev"> </a>
         <a id="next"></a>
@@ -173,10 +174,10 @@
 
     <div id="book">
     </div>
-   
+
     <div id="menu">
         <div id="main_menu_link"></div>
-        <div id="play_link" class="play" ></div>
+        <div id="play_link" class="play"></div>
         <div id="story_board_link"></div>
 
     </div>
@@ -184,24 +185,24 @@
     <div id="menu_trigger">
 
     </div>
-    
-</div>   
-      <script type='text/javascript' src='js/phonegap/ios/phonegap-1.3.0.js'></script>
-      <script type='text/javascript' src='js/phonegap/ios/actions.js'></script>   
 
-    <script type='text/javascript' src='js/vendor/jquery-1.6.min.js'></script>
-    <script type='text/javascript' src="js/vendor/jquery.ui.ipad.js"></script>
-    <script type="text/javascript" src="js/jquery.jflip.js"></script>
-   <script type='text/javascript' src='js/vendor/jquery.mobile-1.0.min.js'></script>
-    <script type="text/javascript" src="js/vendor/ui.core.js"></script>
-    <script type="text/javascript" src="js/vendor/ui.js"></script>
-    <script type="text/javascript" src="js/vendor/effects.js"></script>
-    <script type="text/javascript" src="js/vendor/ui.coverflow.js"></script>
-    <script type="text/javascript" src="js/vendor/modernizr-1.7.min.js"></script>
-  <script type="text/javascript" src="js/players.js"></script>
-    <script type='text/javascript' src="js/info.js"></script>
-    <script type='text/javascript' src="js/main.js"></script>
-    <script type='text/javascript' src="js/menu.js"></script>
+</div>
+<script type='text/javascript' src='js/phonegap/ios/phonegap-1.3.0.js'></script>
+<script type='text/javascript' src='js/phonegap/ios/actions.js'></script>
+
+<script type='text/javascript' src='js/vendor/jquery-1.6.min.js'></script>
+<script type='text/javascript' src="js/vendor/jquery.ui.ipad.js"></script>
+<script type="text/javascript" src="js/jquery.jflip.js"></script>
+<script type='text/javascript' src='js/vendor/jquery.mobile-1.0.min.js'></script>
+<script type="text/javascript" src="js/vendor/ui.core.js"></script>
+<script type="text/javascript" src="js/vendor/ui.js"></script>
+<script type="text/javascript" src="js/vendor/effects.js"></script>
+<script type="text/javascript" src="js/vendor/ui.coverflow.js"></script>
+<script type="text/javascript" src="js/vendor/modernizr-1.7.min.js"></script>
+<script type="text/javascript" src="js/players.js"></script>
+<script type='text/javascript' src="js/info.js"></script>
+<script type='text/javascript' src="js/main.js"></script>
+<script type='text/javascript' src="js/menu.js"></script>
 
 
 </body>
