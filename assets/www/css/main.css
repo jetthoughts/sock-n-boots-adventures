@@ -314,8 +314,8 @@ body{
 }
 
 .story_book{
-  background: -webkit-linear-gradient(top, #7db9e8 0%,#2989d8 50%,#7db9e8 100%);
-  background: linear-gradient(top, #7db9e8 0%,#2989d8 50%,#7db9e8 100%);
+  background: -webkit-linear-gradient(top, #98d6e9 0%,#97d4e8 50%,#c3e8f3 100%);
+  background: linear-gradient(top, #98d6e9 0%,#97d4e8 50%,#c3e8f3 100%);
 }
 .story_book .page_header{
   background: -webkit-linear-gradient(top, #2989d8 0%,#7db9e8 50%,#2989d8 100%); /* Chrome10+,Safari5.1+ */
