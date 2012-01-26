@@ -12,25 +12,25 @@ var Player = function(src, finished_handler, position_handler) {
             );
 
 
-    this.stopTimer = function() {
+    var stopTimer = function() {
         if (timer == null) return;
 
         clearInterval(timer);
         timer = null;
     };
 
-    this.startTimer = function() {
-        this.stopTimer();
+    var startTimer = function() {
+        stopTimer();
         var self = this;
         timer = setInterval(function() {
             if (self.current_audio == null) {
-                self.stopTimer();
+                stopTimer();
             }
             else {
                 self.current_audio.getCurrentPosition(function(position) {
                     if (position < 0) {
 
-                        self.stopTimer();
+                        stopTimer();
                         self.audioFinishedHandler();
                     }
                     else {
@@ -44,12 +44,12 @@ var Player = function(src, finished_handler, position_handler) {
     this.play = function(src) {
         this.stop();
         this.current_audio.play();
-        this.startTimer();
+        startTimer();
 
     };
 
     this.stop = function() {
-        this.stopTimer();
+        stopTimer();
 
         if (this.current_audio != null) {
             this.current_audio.stop();
@@ -64,7 +64,7 @@ var Player = function(src, finished_handler, position_handler) {
 
     this.pause = function() {
         if (this.current_audio == null) return false;
-        this.stopTimer();
+        stopTimer();
         this.current_audio.pause();
         return true;
     };
@@ -73,7 +73,7 @@ var Player = function(src, finished_handler, position_handler) {
         if (this.current_audio == null) return false;
         else {
             this.current_audio.play();
-            this.startTimer();
+            startTimer();
             return true;
         }
     };
