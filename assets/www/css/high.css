@@ -47,7 +47,7 @@
 
 /* STORY LIST */
 .coverflow .hproducts {
-    height: 200px;
+    height: 350px;
     padding: 30px;
 }
 
@@ -58,6 +58,7 @@
 .coverflow .info {
     top: 400px;
     font-size: 300%;
+    font-size:30pt;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {

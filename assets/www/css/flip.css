@@ -17,7 +17,7 @@ strong {
 
 .coverflow .hproducts {
   position: absolute;
-  top: 20px;
+  top: 30px;
   left: 0px;
   width: 100%;
 }
@@ -25,7 +25,7 @@ strong {
 .coverflow .bd2 {
   -webkit-perspective: 500px;
   margin: 0;
-  height: 70%;
+  height: 90%;
   border: none;
   overflow: hidden;
   width: 100%;
@@ -45,7 +45,7 @@ strong {
 }
 
 .coverflow .hproduct img {
-  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(rgba(50, 50, 50, 0.7)));
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.1, transparent), to(rgba(50, 50, 50, 0.7)));
 }
 
 .coverflow .fn, .coverflow .pricing {

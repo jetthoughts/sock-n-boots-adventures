@@ -70,13 +70,14 @@
 }
 
 .coverflow .info {
-    top: 150px;
+    top: 170px;
     font-size: 100%;
+    font-size:16pt;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .hproducts .hproduct {
-        height: 150px;
+        height: 200px;
     }
 }
 .hproducts .hproduct {

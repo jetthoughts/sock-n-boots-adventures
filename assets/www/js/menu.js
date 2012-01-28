@@ -19,7 +19,7 @@ function hideMainMenu(){
 function showMainMenu(){
   $("body").addClass("main_menu");
   $("#main_menu_area").show();
-  homeAudioTimeout = setTimeout("playHomeAudio()", 1000);
+  //homeAudioTimeout = setTimeout("playHomeAudio()", 1000);
 }
 
 function hideStorybook(){

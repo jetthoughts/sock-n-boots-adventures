@@ -24,25 +24,12 @@
 			});
 			this.itemWidth = this.items.outerWidth(true);
 			
-			$(document).bind("keydown", function(e) {
-					
-				if(e.keyCode == 39 && self.items.length > self.current+1) {
-						self.moveTo(self.current+1);
-						$("div.slider").slider("moveTo", self.current, null, true);
-				}
-				
-				if(e.keyCode == 37 && self.current-1 >= 0) {
-						self.moveTo(self.current-1);
-						$("div.slider").slider("moveTo", self.current, null, true);
-				}
-						
-			});
-			
 			document.ontouchend = function(e) {
+             if (self.isStoped()) return;
              self.isAnimating = false;
 			}
-			
-			document.ontouchmove = function(e){
+           document.ontouchmove = function(e){
+             if (self.isStoped()) return;
            self.isAnimating = true;
              
            self.updatePosition(e.touches[0].pageX);
@@ -54,6 +41,7 @@
 			}
 			
 			document.ontouchstart = function(e) {
+                if (self.isStoped()) return;
 				self.startX = e.touches[0].pageX;
 				self.swipe = false;
                 
@@ -80,7 +68,6 @@
 		},
              
              updatePosition: function(curX){
-             console.log(this.startX - curX);
                this.Delta+=( this.startX - curX);
                if (this.Delta<0) {
                  this.Delta =0;
@@ -100,7 +87,7 @@
              render: function(duration){
              var self = this;
              duration = duration || Math.abs(self.percentage - self.prevPercentage)*100;
-    
+
              self.items.each(function(i) {
                              
                              
@@ -118,27 +105,32 @@
                              
                              var angle =  (((angles[i][1] - angles[i][0])*self.percentage) + angles[i][0] )
                              
+                             var factors = [0.3, 1, 1.7];
+                             var leftOffset = ( (((positions[i][1] - positions[i][0])*Math.pow(self.percentage, factors[i])) + positions[i][0] ) ) + "px";
                              
-                             var leftOffset = ( (((positions[i][1] - positions[i][0])*self.percentage) + positions[i][0] ) ) + "px";
+                    
                              
                              var rotateTransform = (angle ) + "deg";
                              var scalCoff =  Math.abs(0.5*i - self.percentage);
                              
                              var scaleTransform = (1 +  Math.max(0.3-scalCoff,0));
                              
-                             
-                             $(this).animate({
-                                         rotate: rotateTransform,
-                                         scale: scaleTransform,
+
+                             $(this).css({
+                                         "-webkit-transform" : "scale("+scaleTransform+") rotateY("+rotateTransform+")",
                                          left: leftOffset,
                                          "z-index": i== self.current ? 2: -1
-                                             },  duration);
+                                             });
                              
                              
                              
                              
                              });
              
+             },
+             
+             isStoped: function(){
+             return $("body.story_book").length==0;
              },
 		moveTo: function(item) {
 			
