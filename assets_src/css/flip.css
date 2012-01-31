@@ -45,7 +45,7 @@ strong {
 }
 
 .coverflow .hproduct img {
-  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.1, transparent), to(rgba(50, 50, 50, 0.7)));
+  -webkit-box-reflect: below 5% -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.1, transparent), to(rgba(50, 50, 50, 0.7)));
 }
 
 .coverflow .fn, .coverflow .pricing {
