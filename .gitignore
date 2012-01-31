@@ -27,3 +27,6 @@ Android/out
 .bundle/
 Android/Android.iml
 xcuserdata/
+www/images/
+assets/www/gen/*
+*-debug.html

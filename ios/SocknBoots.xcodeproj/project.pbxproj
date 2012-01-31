@@ -130,6 +130,7 @@
 		847F370B14BEEA3100539FB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				847F372F14BEEA3100539FB6 /* PhoneGap.framework */,
 				847F370C14BEEA3100539FB6 /* Foundation.framework */,
 				847F370E14BEEA3100539FB6 /* UIKit.framework */,
 				847F371014BEEA3100539FB6 /* CoreGraphics.framework */,
@@ -150,7 +151,6 @@
 		847F372614BEEA3100539FB6 /* SocknBoots */ = {
 			isa = PBXGroup;
 			children = (
-				847F372F14BEEA3100539FB6 /* PhoneGap.framework */,
 				847F373114BEEA3100539FB6 /* Resources */,
 				847F374A14BEEA3100539FB6 /* Classes */,
 				847F374E14BEEA3100539FB6 /* Plugins */,
