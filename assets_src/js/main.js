@@ -169,6 +169,7 @@ function getStartTime() {
 function releasePlayer() {
     if (player != null) {
         player.release();
+        player = null;
     }
 }
 
