@@ -22,7 +22,7 @@ TEXTS = [
   [
    [{text:"Are you ever afraid of the dark at night?", time:3.5},
     
-    {text:"Sock wants to tell you how he got over his fear of the dark", time:9}],
+    {text:"Sock wants to tell you how he got over his fear of the dark", time:8.5}],
     [
       {text:"At 8 o'clock Sock's house gets dark", time:8+5},
 
@@ -67,16 +67,16 @@ TEXTS = [
       {text:"Sock says, \"there's a monster in my room,", time:92+3.5},
 
       {text:"and I know he'll try to eat me soon.\"", time:92+6},
-      {text:"All is quiet from celing to floor.", time:92+11},
-      {text:"Is there really a monster behind the door?", time:107}
+      {text:"All is quiet from celling to floor.", time:92+11},
+      {text:"Is there really a monster behind the door?", time:106}
     ],
 
     [
-      {text:"Sock is as curious as can be,", time:107+3},
+      {text:"Sock is as curious as can be,", time:107+2.5},
 
       {text:"so he hops out of bed to go and see.", time:107+6},
       {text:"He opens the close and turns on the light,", time:107+10},
-      {text:"and there are no monsters anywhere in sight.", time:121.3}
+      {text:"and there are no monsters anywhere in sight.", time:121}
     ],
 
     [
@@ -92,9 +92,9 @@ TEXTS = [
 
       {text:"he just checks his whole room when he turns on the light.", time:140+9},
       {text:"Now Sock can sleep without a care,", time:140+13},
-      {text:"because he knows there are no monsters there.", time:140+20}
+      {text:"because he knows there are no monsters there.", time:140+18}
     ],
-   [{text:"Now do you see how to get over", time:161},
+   [{text:"Now do you see how to get over", time:162},
     
     {text:"you fear of the dark", time:160+6}],
     [
@@ -106,9 +106,7 @@ TEXTS = [
     [
       {text:"Should you be careful where you play?", time:2.5},
 
-      {text:"Sock and Boots want to show you why you should be careful.", time:6.5},
-
-
+      {text:"Sock and Boots want to show you why you should be careful.", time:6}
     ],
 
     [
@@ -124,20 +122,20 @@ TEXTS = [
 
       {text:"It spins and spins to get things clean.", time:23+8},
       {text:"Sock says to Boots, \"let's get inside,", time:23+11.5},
-      {text:"it looks like fun... we can go for a ride.\"", time:39}
+      {text:"it looks like fun... we can go for a ride.\"", time:38.5}
     ],
 
     [
-      {text:"\"No,\" says Boots, \"we can't ride.\"", time:39+3},
+      {text:"\"No,\" says Boots, \"we can't ride.\"", time:39+3.5},
       {text:"\"We might get hurt if we get inside.\"", time:39+7},
       {text:"\"I think we should look for a different place\"", time:39+11},
       {text:"\"We should only play where we know it's safe\"", time:54}
     ],
 
     [
-      {text:"Sock says, \"I\ll get in and have all the fun,", time:54+4},
+      {text:"Sock says, \"I'll get in and have all the fun,", time:54+4},
 
-      {text:"and you can just watch until I'm done", time:54+7},
+      {text:"and you can just watch until I'm done", time:54+7.5},
       {text:"Boots starts to worry about his friend", time:54+12},
       {text:"\"Don't do it,\", says Boots, but Sock still climbs in", time:71}
     ],
@@ -146,13 +144,13 @@ TEXTS = [
       {text:"The washing machine locks as it rumbles and rumbles.", time:71+3.5},
 
       {text:"It fills up with water as Sock tumbles and tumbles.", time:71+8},
-      {text:"\"Help me Boots,\" Sock starts to scream,", time:71+11},
-      {text:"\"please get me out of this washing machine!\"", time:87}
+      {text:"\"Help me Boots,\" Sock starts to scream,", time:71+11.5},
+      {text:"\"please get me out of this washing machine!\"", time:86.4}
     ],
 
 
     [
-      {text:"Boots climbs up high and tugs on the door.", time:87+3.5},
+      {text:"Boots climbs up high and tugs on the door.", time:87+3.2},
 
       {text:"He tries and tries and tries some more.", time:87+7},
       {text:"The door won't open because it's locked.", time:87+11},
@@ -164,20 +162,20 @@ TEXTS = [
 
       {text:"\"please pull out the plug to the washing machine!\"", time:102+7},
       {text:"\"That's it!\" says Boots, \"but where is the plug?\"", time:102+11},
-      {text:"He looks all around even under the rug.", time:117}
+      {text:"He looks all around even under the rug.", time:118.3}
     ],
     [
       {text:"\"There it is\" Boots starts to shout.", time:118+3},
 
       {text:"He runs to the wall and yanks the plug out.", time:118+6},
-      {text:"The washing machine stops and the door unlocks.", time:118+12},
+      {text:"The washing machine stops and the door unlocks.", time:118+11.8},
       {text:"Boots has saved his best friend Sock.", time:134}
     ],
     [
 
-      {text:"Now Sock is safe, and he learned today,", time:134+3},
-      {text:"that he s hould only play where it is safe to play.", time:134+9},
-      {text:"Can you think of places that are not safe for you to play?", time:146.5},
+      {text:"Now Sock is safe, and he learned today,", time:134+3.5},
+      {text:"that he should only play where it is safe to play.", time:134+8.8},
+      {text:"Can you think of places that are not safe for you to play?", time:146.85}
 
     ],
     [
