@@ -29,3 +29,5 @@ Android/Android.iml
 xcuserdata/
 www/images/
 *-debug.html
+assets/www/gen/
+assets/www/images/

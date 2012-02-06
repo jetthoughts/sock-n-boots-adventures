@@ -327,7 +327,7 @@ function toggleMenu() {
     }
 
     var delta = dir + $("#menu").height() + "px";
-    $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
+    //$(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
     menuAnimating = true;
     setTimeout("menuAnimating=false", MENU_ANIMATION_DURATION * 2);
 }
