@@ -19,6 +19,8 @@ var pageAnimating = false;
 
 var player = null;
 
+var audioNeedRestore = true;
+
 function stopNarration() {
     if (player != null) player.stopNarration();
     _setPlayLink();
@@ -110,7 +112,7 @@ function init() {
     });
     $("#next").click(function() {
 
-        if (!autoplay_enabled) nextPage();
+        if (!autoplay_enabled) nextPage(true);
         return false;
     });
     $("#prev").click(function() {
@@ -178,6 +180,7 @@ function initPlayer() {
         player = new StoryPlayer(true, function() {
             return {start_time: getStartTime()};
         });
+        playNarration();
     }
 }
 
@@ -239,7 +242,12 @@ function showSubs() {
 }
 
 function setPage(p) {
-    stopNarration();
+
+    if (audioNeedRestore){
+      stopNarration();
+    }
+
+
     hideSubs();
     current_page = p;
     subIndex = 0;
@@ -252,10 +260,13 @@ function setPage(p) {
         clearTimeout(narTimeout);
     }
 
-    if (isNeedAudio()) {
-
+    if (!isNeedAudio()) {
+        stopNarration();
+    }
+    else if (audioNeedRestore){
        narTimeout = setTimeout("playNarration()", p ? NARRATION_START_DELAY : 0);
     }
+    audioNeedRestore = true;
 
 }
 
@@ -381,12 +392,21 @@ function prevPage() {
 
 }
 
-function nextPage() {
+function nextPage(withInterruptAudio) {
     if (pageAnimating) return;
 
-    stopNarration();
-    ttt.nextPage();
+    console.log(withInterruptAudio);
 
+    console.log("after="+withInterruptAudio);
+
+
+    if (withInterruptAudio){
+      stopNarration();
+    }
+
+    audioNeedRestore = withInterruptAudio;
+
+    ttt.nextPage();
     pageAnimating = true;
     setTimeout("pageAnimating=false", LIST_PAGE_DELAY);
 }
@@ -403,7 +423,7 @@ function positionDidChanged(position) {
     if (subIndex < 0 || subIndex >= pageSubs.length) return;
     if (position >= pageSubs[subIndex].time) {
         if (!nextSub()) {
-            nextPage();
+            nextPage(false);
         }
     }
 
