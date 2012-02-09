@@ -37,6 +37,9 @@
 
 /*  END MENU*/
 
+.subs{
+  bottom: 28%;
+}
 
 .subs span .txt{
     font-size:14pt;

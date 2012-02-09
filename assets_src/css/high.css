@@ -80,4 +80,7 @@ body.help{
   background: url('../images/high/help.jpg') 0 0 no-repeat;
 }
 
+.subs{
+  bottom: 24%;
+}
 /* HELP END*/
