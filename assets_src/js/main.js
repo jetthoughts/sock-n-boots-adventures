@@ -395,11 +395,6 @@ function prevPage() {
 function nextPage(withInterruptAudio) {
     if (pageAnimating) return;
 
-    console.log(withInterruptAudio);
-
-    console.log("after="+withInterruptAudio);
-
-
     if (withInterruptAudio){
       stopNarration();
     }

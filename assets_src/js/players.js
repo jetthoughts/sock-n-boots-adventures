@@ -38,7 +38,7 @@ var Player = function(src, finished_handler, position_handler) {
                     }
                 });
             }
-        }, 1000);
+        }, 500);
     };
 
     this.play = function(src) {

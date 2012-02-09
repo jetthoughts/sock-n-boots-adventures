@@ -70,7 +70,7 @@ $(document).ready(function() {
       $("div.hproducts").coverflow({onSelectedFunc: function(page){
                                    hideStorybook();
                                    showStoryMenu();
-                                   selectStory(Math.max(page,1));
+                                   selectStory(page);
                                    
                                    return false;
       }});
