@@ -435,6 +435,7 @@
 				ARCHS = (
 					armv6,
 					armv7,
+					i386,
 				);
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
