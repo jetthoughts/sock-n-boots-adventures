@@ -24,14 +24,16 @@ namespace :assets do
 
   desc 'Compress javascript'
   task :jam, [:lang] do | t, args |
-    Jammit.package!(:config_path => File.join(File.dirname(__FILE__), "..", "config", "assets.yml"))
+    lang = args[:lang]  || 'en'
+    lang = "en" unless LANGS.include? lang
+
+    Jammit.package!(:config_path => File.join(File.dirname(__FILE__), "..", "config", "assets.#{lang}.yml"))
   end
 
   desc 'Copy files'
   task :copy, [:lang] do | t, args |
       lang = args[:lang]  || 'en'
       lang = "en" unless LANGS.include? lang
-
       puts "Selected language...#{lang}"
 
       #copy app images
@@ -41,7 +43,7 @@ namespace :assets do
     end
 
       #copy selected lang audio
-    ["2", "3"].each do |num|
+    ["1", "2", "3"].each do |num|
 
       FileUtils.cp_r File.join(File.dirname(__FILE__), '..', 'assets_src', "stories", num, "audio", "#{lang}.wav"), File.join(File.dirname(__FILE__), '..', 'assets', 'www',  "stories", num, "audio", "with_music.wav")
     end
