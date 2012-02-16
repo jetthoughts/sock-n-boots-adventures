@@ -3,7 +3,7 @@ require 'haml'
 require "./lib/jammit"
 require 'fileutils'
 
-LANGS = ["en"]
+LANGS = %w(en es)
 
 namespace :assets do
 
@@ -15,8 +15,13 @@ namespace :assets do
   desc 'Clean up assets'
   task :clean, [:lang] do
     puts "remove generated files....."
-    (['gen', 'images']+ (1..3).to_a.map{|a| "stories/#{a}/audio/with_music.wav" }).each do |file_name|
-      puts file_name
+    files_to_remove = (['gen', 'images'] +
+        (1..3).to_a.map{|i| "stories/#{i}/audio/with_music.wav" } +
+        (1..3).to_a.map{|i| ["cover_thumb.jpg","cover.jpg"].map{|name| ["iphone", "ipad"].map {|pl|   "stories/#{i}/images/#{pl}/#{name}" }  } }.flatten <<
+        "stories/main_menu_bg.jpg"
+     )
+
+    files_to_remove.each do |file_name|
       FileUtils.rm_rf File.join(File.dirname(__FILE__), '..', 'assets', 'www', file_name)
     end
 
@@ -44,9 +49,24 @@ namespace :assets do
 
       #copy selected lang audio
     ["1", "2", "3"].each do |num|
-
       FileUtils.cp_r File.join(File.dirname(__FILE__), '..', 'assets_src', "stories", num, "audio", "#{lang}.wav"), File.join(File.dirname(__FILE__), '..', 'assets', 'www',  "stories", num, "audio", "with_music.wav")
     end
+
+    ["1", "2", "3"].each do |num|
+      ["iphone", "ipad"].each do |pl|
+        ["cover_thumb.jpg","cover.jpg"].each do |name|
+          lang_name =  name.sub(".", ".#{lang}.")
+          FileUtils.cp_r File.join(File.dirname(__FILE__), '..', 'assets_src', "stories", num, "images", pl, lang_name ), File.join(File.dirname(__FILE__), '..', 'assets', 'www',  "stories", num, "images", pl, name)
+        end
+      end
+
+    end
+
+    #copy main menu cover
+    name = "main_menu_bg.jpg"
+    lang_name =  name.sub(".", ".#{lang}.")
+    FileUtils.cp_r File.join(File.dirname(__FILE__), '..', 'assets_src', "stories", lang_name ), File.join(File.dirname(__FILE__), '..', 'assets', 'www',  "stories", name)
+
 
 
 

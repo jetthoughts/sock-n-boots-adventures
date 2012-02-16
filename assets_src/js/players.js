@@ -128,6 +128,8 @@ var StoryPlayer = function(with_music, info) {
 
     this.seekNarration = function(sec) {
         if (!this.player.pause()) return false;
+        if (this.audioStarting) return false;
+
         this.audioStarting = true;
         var self = this;
         setTimeout(function() {

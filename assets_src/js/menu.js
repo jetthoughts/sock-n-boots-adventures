@@ -67,7 +67,12 @@ $(document).ready(function() {
     hideMainMenu();
                             showStorybook();
     if (!$(".inventory-featured-default").hasClass("coverflow")) {
-      $("div.hproducts").coverflow({onSelectedFunc: function(page){
+
+     $("a[rel=product]").each(function(index, element){
+        $(this).text(TITLES[index]);
+     });
+
+     $("div.hproducts").coverflow({onSelectedFunc: function(page){
                                    hideStorybook();
                                    showStoryMenu();
                                    selectStory(page);

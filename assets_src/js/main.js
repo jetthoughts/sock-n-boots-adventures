@@ -139,11 +139,8 @@ function init() {
 
             if (subIndex >= 0 && subIndex < pageSubs.length - 1) {
                 requestNewTime(pageSubs[subIndex].time);
-
             }
             nextSub();
-
-
         }
         else {
 
@@ -264,7 +261,8 @@ function setPage(p) {
         stopNarration();
     }
     else if (audioNeedRestore){
-       narTimeout = setTimeout("playNarration()", p ? NARRATION_START_DELAY : 0);
+        playNarration();
+       //narTimeout = setTimeout("playNarration()", p ? NARRATION_START_DELAY : 0);
     }
     audioNeedRestore = true;
 

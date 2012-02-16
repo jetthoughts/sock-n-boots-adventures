@@ -1,8 +1,9 @@
+TITLES = ["Share", "Afraid of the dark", "Play it safe"];
+
 TEXTS = [
     [
         [
             {text:"Do you know why you should share?", time:2.5},
-
             {text:"Sock and his best friend Boots wants to show you.", time:7}
         ],
         [
@@ -43,9 +44,11 @@ TEXTS = [
         [
 
             {text:"Sock is happy now that there's lunch to eat.", time:91},
-            {text:"Boots even shares his Chocolate Cake, his favourite treat.", time:97},
+            {text:"Boots even shares his Chocolate Cake,", time:94.8},
+            {text:"his favourite treat.", time:97},
             {text:"Now Boots is very happy too.", time: 100},
-            {text:"Because sharing made Sock happy, and sharing is good to do.", time:106}
+            {text:"Because sharing made Sock happy,", time:102.5},
+            {text:"and sharing is good to do.", time:106}
         ],
         [
             {text:"Now do you see why you should share?", time:109}
@@ -59,8 +62,8 @@ TEXTS = [
     [
         [
             {text:"Are you ever afraid of the dark at night?", time:3.5},
-
-            {text:"Sock wants to tell you how he got over his fear of the dark", time:8.5}
+            {text:"Sock wants to tell you", time:5.7},
+            {text:"how he got over his fear of the dark", time:8.5}
         ],
         [
             {text:"At 8 o'clock Sock's house gets dark", time:8 + 5},
@@ -94,7 +97,7 @@ TEXTS = [
         ],
 
         [
-            {text:"Squeak.....squeak....... goes the floor.", time:75 + 5.5},
+            {text:"Squeak.....squeak....... goes the floor.", time:75 + 6},
 
             {text:"Is that a noise coming from the closet door?", time:76 + 8},
             {text:"The very thought gives Sock a really big scare.", time:88},
@@ -128,8 +131,8 @@ TEXTS = [
 
         [
             {text:"So when Sock is afraid of the dark at night,", time:140 + 3.5},
-
-            {text:"he just checks his whole room when he turns on the light.", time:149},
+            {text:"he just checks his whole room", time:146.5},
+            {text:"when he turns on the light.", time:149},
             {text:"Now Sock can sleep without a care,", time:153},
             {text:"because he knows there are no monsters there.", time:158}
         ],
@@ -147,7 +150,8 @@ TEXTS = [
         [
             {text:"Should you be careful where you play?", time:2.5},
 
-            {text:"Sock and Boots want to show you why you should be careful.", time:6}
+            {text:"Sock and Boots want to show you", time:4.5},
+            {text:"why you should be careful.", time:6}
         ],
 
         [
@@ -177,13 +181,13 @@ TEXTS = [
             {text:"Sock says, \"I'll get in and have all the fun,", time:58},
 
             {text:"and you can just watch until I'm done", time:54 + 7.5},
-            {text:"Boots starts to worry about his friend", time:54 + 12},
+            {text:"Boots starts to worry about his friend", time:54 + 11.5},
             {text:"\"Don't do it,\", says Boots, but Sock still climbs in", time:71}
         ],
 
         [
-            {text:"The washing machine locks as it rumbles and rumbles.", time:71 + 3.5},
-
+            {text:"The washing machine locks", time:73},
+            {text:"as it rumbles and rumbles.", time:74.5},
             {text:"It fills up with water as Sock tumbles and tumbles.", time:79},
             {text:"\"Help me Boots,\" Sock starts to scream,", time:71 + 11.5},
             {text:"\"please get me out of this washing machine!\"", time:86.4}
@@ -192,7 +196,6 @@ TEXTS = [
 
         [
             {text:"Boots climbs up high and tugs on the door.", time:87 + 3.2},
-
             {text:"He tries and tries and tries some more.", time:87 + 7},
             {text:"The door won't open because it's locked.", time:87 + 11},
             {text:"So how will Boots get to poor little Sock?", time:102}
@@ -200,7 +203,6 @@ TEXTS = [
 
         [
             {text:"Sock lets out another scream,", time:102 + 2.5},
-
             {text:"\"please pull out the plug to the washing machine!\"", time:102 + 7},
             {text:"\"That's it!\" says Boots, \"but where is the plug?\"", time:102 + 11},
             {text:"He looks all around even under the rug.", time:118.3}
@@ -216,7 +218,8 @@ TEXTS = [
 
             {text:"Now Sock is safe, and he learned today,", time:134 + 3.5},
             {text:"that he should only play where it is safe to play.", time:134 + 8.8},
-            {text:"Can you think of places that are not safe for you to play?", time:146.85}
+            {text:"Can you think of places", time:145},
+            {text:"that are not safe for you to play?", time:146.85}
 
         ],
         [

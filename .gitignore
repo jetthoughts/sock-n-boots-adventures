@@ -32,3 +32,5 @@ www/images/
 assets/www/gen/
 assets/www/images/
 assets/www/stories/*/audio/
+assets/www/stories/*/images/*/cover**
+assets/www/stories/main_menu_bg.jpg

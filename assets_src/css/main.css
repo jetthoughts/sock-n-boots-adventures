@@ -52,9 +52,9 @@ body{
 
 .subs {
     position: absolute;
-    width: 90%;
+    width: 96%;
     text-align:center; 
-    margin-left: 5%;
+    margin-left: 2%;
     height: 2%;
     z-index: 111;
     vertical-align: middle;
