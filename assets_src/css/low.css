@@ -27,7 +27,7 @@
 /*  MENU*/
 
 #menu > *{
-  padding:0;
+  /*padding:0;*/
 }
 
 #play_link{
@@ -81,3 +81,34 @@ body.help{
 }
 
 /* HELP END*/
+
+/*Buttons*/
+
+#storybook_menu > .button, #story_menu > .button{
+  width: auto;
+  height: auto;
+}
+
+.button{
+  min-width: 113px;
+  height: 40px;
+  border-radius: 10px;
+  line-height: 40px;
+  font-size: 28px;
+  -webkit-box-shadow: inset 0px 3px 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0px 3px 3px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#menu > a{
+  margin: 0 10px;
+}
+
+#menu .button{
+  font-size: 20px;
+  height: 24px;
+  line-height: 24px;
+  min-width: 80px;
+}
+
+/*End Buttons*/
