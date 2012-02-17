@@ -11,7 +11,7 @@ function stopAudioCover() {
     }
 }
 
-function playCover(src) {
+function playCover(src, delay) {
     if (cover_audio != null) {
         stopAudioCover();
     }
@@ -22,17 +22,17 @@ function playCover(src) {
             cover_audio = null;
         });
         cover_audio.play();
-    }, 2000);
+    }, delay);
 
 }
 
 function playHomeAudio() {
-    playCover("home_page_music.wav");
+    playCover("home_page_music.wav", 2000);
 }
 
 
 function playStoryCover(index) {
-    playCover("stories/" + index + "/cover.wav");
+    playCover("stories/" + index + "/cover.wav", 1000);
 }
 
 function hideMainMenu() {
