@@ -1,203 +1,209 @@
 var screenSize;
 var options = { audio_enabled: false, music_enabled:false};
 var cover_audio = null;
-var homeAudioTimeout = null; 
+var audioCoverTimeout = null;
 
-function stopAudioCover(){
-  if (cover_audio!=null) {
-      cover_audio.stop();
-      cover_audio.release();
-  }
-}  
+function stopAudioCover() {
+    clearTimeout(audioCoverTimeout);
+    if (cover_audio != null) {
+        cover_audio.stop();
+        cover_audio.release();
+    }
+}
 
-function playCover(src){
-  if (cover_audio!=null){
+function playCover(src) {
+    if (cover_audio != null) {
+        stopAudioCover();
+    }
+
+    audioCoverTimeout = setTimeout(function() {
+        cover_audio = new Media(_getRoot() + src, function() {
+        }, function() {
+            cover_audio = null;
+        });
+        cover_audio.play();
+    }, 1000);
+
+}
+
+function playHomeAudio() {
+    playCover("home_page_music.wav");
+}
+
+
+function playStoryCover(index) {
+    playCover("stories/" + index + "/cover.wav");
+}
+
+function hideMainMenu() {
     stopAudioCover();
-  }
-  cover_audio = new Media(_getRoot() + src, function() {
-   }, function() {
-      cover_audio = null;
-   });
-  cover_audio.play();
+    $("#main_menu_area").hide();
+    $("body").removeClass("main_menu");
 }
 
-function playHomeAudio(){
-  playCover("home_page_music.wav");
+function showMainMenu() {
+    $("body").addClass("main_menu");
+    $("#main_menu_area").show();
+    playHomeAudio();
 }
 
-
-function playStoryCover(index){
-  playCover("stories/" + index + "/cover.wav");
-}
-
-function hideMainMenu(){
-  clearTimeout(homeAudioTimeout);
-  stopAudioCover();
-  $("#main_menu_area").hide();
-  $("body").removeClass("main_menu");
-}  
-
-function showMainMenu(){
-  $("body").addClass("main_menu");
-  $("#main_menu_area").show();
-  homeAudioTimeout = setTimeout("playHomeAudio()", 1000);
-}
-
-function hideStorybook(){
+function hideStorybook() {
     $("#menu_area").hide();
     $("body").removeClass("story_book");
-}  
+}
 
-function showStorybook(){
+function showStorybook() {
     $("body").addClass("story_book");
     $("#menu_area").show();
 }
 
-function  hideStoryMenu(){
+function hideStoryMenu() {
     stopAudioCover();
     $("#story_area").hide();
     $("body").removeClass("story_menu");
 }
 
-function showStoryMenu(){
+function showStoryMenu() {
     $("body").addClass("story_menu");
     $("#story_area").show();
     playStoryCover(current_story + 1);
 
 }
 
-function  hideHelp(){
+function hideHelp() {
     $("#help_area").hide();
     $("body").removeClass("help");
 }
 
-function showHelp(){
+function showHelp() {
     $("body").addClass("help");
     $("#help_area").show();
 }
 
 
 $(document).ready(function() {
-  var w = $(window).width();
-  var h = $(window).height();
-  screenSize = {width:w, height:h};
+    var w = $(window).width();
+    var h = $(window).height();
+    screenSize = {width:w, height:h};
 
 
-  //------------- Main menu
-  
-                  
-                  
-  $("#storybook_link").bind("click", function() {
-    hideMainMenu();
-                            showStorybook();
-    if (!$(".inventory-featured-default").hasClass("coverflow")) {
-
-     $("a[rel=product]").each(function(index, element){
-        $(this).text(TITLES[index]);
-     });
-
-     $("div.hproducts").coverflow({onSelectedFunc: function(page){
-                                   hideStorybook();
-                                   selectStory(page);
-                                   showStoryMenu();
-                                   return false;
-      }});
-    }
-    return false;
-  });
+    //------------- Main menu
 
 
-  $("#help_link").bind("click", function() {
-    hideMainMenu();
-    showHelp();
+    $("#storybook_link").bind("click", function() {
+        hideMainMenu();
+        showStorybook();
+        if (!$(".inventory-featured-default").hasClass("coverflow")) {
 
-    return false;
-  });
-  //------------- Main menu end
+            $("a[rel=product]").each(function(index, element) {
+                $(this).text(TITLES[index]);
+            });
 
-
-  //----- Story list
-
-  $(".hproduct").each(function() {
-
-    $(this).find("img:first").attr('src', "stories/" + (parseInt($(this).attr('rel')) + 1) + "/images/" + _device() + "/cover_thumb.jpg");
-  });
+            $("#page_header").text(HEADER_TITLE);
 
 
-  $("#s_main_menu_link").bind("click", function() {
-                              hideStorybook();
-                              showMainMenu();
-
-    return false;
-  });
-
-
-  $("#s_options_link").bind("click", function() {
-    $("#menu_area").hide();
-    $("#options_area").show();
+            $("div.hproducts").coverflow({onSelectedFunc: function(page) {
+                hideStorybook();
+                selectStory(page);
+                showStoryMenu();
+                return false;
+            }});
+        }
+        return false;
+    });
 
 
-    return false;
-  });
+    $("#help_link").bind("click", function() {
+        hideMainMenu();
+        showHelp();
 
-  $("#s_buy_link").bind("click", function() {
-    console.log("s_buy_link clicked");
-    return false;
-  });
-                  
-  $("#m_story_board_link").bind("click", function() {
-                                hideStoryMenu();
-                                showStorybook();
-    removeStory();
-    return false;
-  });
+        return false;
+    });
+    //------------- Main menu end
 
-  $("#option_audio").change(function() {
-    options.audio_enabled = $(this).is(":checked");
-  });
-  $("#option_music").change(function() {
-    options.music_enabled = $(this).is(":checked");
-  });
-  $("#options_ok").bind("click", function() {
-    $("#options_area").hide();
-    $("#menu_area").show();
-  });
 
-  //----- Story list end
+    //----- Story list
 
-   $("body.help").live("click", function(){
-                       hideHelp();
-                       showMainMenu();
-                       });                 
+    $(".hproduct").each(function() {
 
-  //------ Story menu
-  $("#with_audio_link").bind("click", function() {
-    hideStoryMenu();
+        $(this).find("img:first").attr('src', "stories/" + (parseInt($(this).attr('rel')) + 1) + "/images/" + _device() + "/cover_thumb.jpg");
+    });
 
-    audio_enabled = true;
-    autoplay_enabled = false;
 
-    showPages();
-    return false;
-  });
+    $("#s_main_menu_link").bind("click", function() {
+        hideStorybook();
+        showMainMenu();
 
-  $("#without_audio_link").bind("click", function() {
-    hideStoryMenu();
+        return false;
+    });
 
-    audio_enabled = false;
-    autoplay_enabled = false;
-    showPages();
-    return false;
-  });
 
-  $("#auto_play_link").bind("click", function() {
-    hideStoryMenu();
+    $("#s_options_link").bind("click", function() {
+        $("#menu_area").hide();
+        $("#options_area").show();
 
-    autoplay_enabled = true;
-    showPages();
-    return false;
-  });
 
-  //----- Story menu end
+        return false;
+    });
+
+    $("#s_buy_link").bind("click", function() {
+        console.log("s_buy_link clicked");
+        return false;
+    });
+
+    $("#m_story_board_link").bind("click", function() {
+        hideStoryMenu();
+        showStorybook();
+        removeStory();
+        return false;
+    });
+
+    $("#option_audio").change(function() {
+        options.audio_enabled = $(this).is(":checked");
+    });
+    $("#option_music").change(function() {
+        options.music_enabled = $(this).is(":checked");
+    });
+    $("#options_ok").bind("click", function() {
+        $("#options_area").hide();
+        $("#menu_area").show();
+    });
+
+    //----- Story list end
+
+    $("body.help").live("click", function() {
+        hideHelp();
+        showMainMenu();
+    });
+
+    //------ Story menu
+    $("#with_audio_link").bind("click", function() {
+        hideStoryMenu();
+
+        audio_enabled = true;
+        autoplay_enabled = false;
+
+        showPages();
+        return false;
+    });
+
+    $("#without_audio_link").bind("click", function() {
+        hideStoryMenu();
+
+        audio_enabled = false;
+        autoplay_enabled = false;
+        showPages();
+        return false;
+    });
+
+    $("#auto_play_link").bind("click", function() {
+        hideStoryMenu();
+
+        autoplay_enabled = true;
+        showPages();
+        return false;
+    });
+
+    //----- Story menu end
 
 });

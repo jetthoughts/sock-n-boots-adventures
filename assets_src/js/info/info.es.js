@@ -1,3 +1,4 @@
+HEADER_TITLE = "Libro de cuentos";
 TITLES = ["Compartir", "Miedo a la oscuridad", "Jugar con seguridad"];
 PAGE_NUMBERS = [
     [1,2,3,4,5,6,7,8,9],

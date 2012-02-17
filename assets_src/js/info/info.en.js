@@ -1,3 +1,5 @@
+HEADER_TITLE = "Story Book";
+
 TITLES = ["Share", "Afraid of the dark", "Play it safe"];
 
 PAGE_NUMBERS = [
