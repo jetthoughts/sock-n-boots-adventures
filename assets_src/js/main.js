@@ -276,14 +276,14 @@ function setupPages(pagesLoadedHandler) {
 
     for (var i = 0; i < getPageCount(); i++) {
         images[i] = new Image();
-        images[i].src = _pageImage(i + 1);
+        images[i].src = _pageImage(i);
         images[i].onload = function() {
             imagesLoadedCount++;
             if (imagesLoadedCount == getPageCount()) {
 
 
                 for (var i = 0; i < getPageCount(); i++) {
-                    var page = $("<img />").attr("src", _pageImage(i + 1));
+                    var page = $("<img />").attr("src", _pageImage(i));
                     $(pages).append($("<li id='" + _pageId(i) + "' />").append(page));
                 }
 
@@ -441,7 +441,7 @@ function _pageId(index) {
 }
 
 function _pageImage(index) {
-    return "stories/" + (current_story + 1) + "/images/" + _device() + "/" + index + ".jpg";
+    return "stories/" + (current_story + 1) + "/images/" + _device() + "/" + (PAGE_NUMBERS[current_story][index] || index ) + ".jpg";
 }
 
 function _getAudioRoot() {

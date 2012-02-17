@@ -1,5 +1,9 @@
 TITLES = ["Compartir", "Miedo a la oscuridad", "Jugar con seguridad"];
-
+PAGE_NUMBERS = [
+    [1,2,3,4,5,6,7,8,9],
+    [1,2,3,4,5,6,8,9,10,11,12],
+    [1,2,3,4,5,6,7,8,9,10,11]
+];
 TEXTS = [
     [
         [
@@ -79,13 +83,15 @@ TEXTS = [
 
             {text:"El reloj marca las 8 y es hora de dormir para Medias", time:26 + 10},
             {text:"El se alista para la cama, luego el apaga la luz,", time:42},
-            {text:"Pero Medias le tiene miedo a la oscuridad por la noche.", time:46}
+            {text:"Pero Medias le tiene miedo", time:43.7},
+            {text:"a la oscuridad por la noche.", time:46}
         ],
 
         [
             {text:"El tira de sus colchas hasta cubrir su cabeza,", time:49},
             {text:"Y se queda temblando en su cama", time:53},
-            {text:"“Tengo miedo,  tengo miedo”, Medias comienza a gritar", time:57},
+            {text:"“Tengo miedo,  tengo miedo”,", time:55},
+            {text:"“Medias comienza a gritar", time:57},
             {text:"“No me gusta cuando se apagan las luces.”", time:62}
         ],
 
@@ -106,7 +112,7 @@ TEXTS = [
         ],
 
         [
-            {text:"Medias es tan curioso cómo puede ser,", time:92 + 2.5},
+            {text:"Medias es tan curioso cómo puede ser,", time:95},
 
             {text:"Así que salta de la cama para ir a mirar", time:98},
             {text:"El abre el armario y enciende la luz", time:102},
@@ -115,22 +121,25 @@ TEXTS = [
 
         [
             {text:"Solo para estar seguro Medias mira por todas partes,", time:112},
-            {text:"luego vuelve a saltar a su cama para dormir sano y salvo.", time:117},
-            {text:"Me alegro de haber comprobado por mí mismo”", time:120},
+            {text:"luego vuelve a saltar a su cama", time:114},
+            {text:"para dormir sano y salvo.", time:117},
+            {text:"Me alegro de haber comprobado por mí mismo”", time:119.5},
             {text:"dice Medias.", time:121},
-            {text:"“Ahora no tendré miedo a las 8 de la noche.”", time:124.5}
+            {text:"“Ahora no tendré miedo a las 8 de la noche.”", time:123.5}
         ],
 
         [
-            {text:"Así que cuando Medias tiene miedo", time:123 + 1.5},
-            {text:"a la oscuridad en la noche,", time:123 + 3.5},
-            {text:"Solamente revisa toda su habitación cuando enciende la luz.", time:131.5},
+            {text:"Así que cuando Medias tiene miedo", time:125},
+            {text:"a la oscuridad en la noche,", time:126.7},
+            {text:"Solamente revisa toda su habitación", time:129.5},
+            {text:"cuando enciende la luz.", time:131.2},
 
-            {text:"Ahora Medias puede dormir sin cuidado", time:133.5},
+            {text:"Ahora Medias puede dormir sin cuidado", time:133.8},
             {text:"Porque no hay monstruos allí", time:139}
         ],
         [
-            {text:"Ahora ves cómo puedes superar tu miedo a la obscuridad?", time:144}
+            {text:"Ahora ves cómo puedes superar", time:142.6},
+            {text:"tu miedo a la obscuridad?", time:144.3}
         ],
         [
         ]
@@ -195,8 +204,9 @@ TEXTS = [
         [
             {text:"Medias dio otro grito,", time:103 + 2.5},
             {text:"por favor desconecta el enchufe de la lavadora!", time:102 + 7},
-            {text:"Eso es! Dice Botas, pero ¿dónde está el enchufe?", time:102 + 11},
-            {text:"El busca por todas partes inclusive debajo de la alfombra.", time:118.3}
+            {text:"Eso es! Dice Botas, pero ¿dónde está el enchufe?", time:113.2},
+            {text:"El busca por todas partes", time:116},
+            {text:"inclusive debajo de la alfombra.", time:118.3}
         ],
         [
             {text:"Aquí esta! Empieza a gritar Botas.", time:118 + 4.5},
@@ -207,9 +217,11 @@ TEXTS = [
         ],
         [
 
-            {text:"Ahora medias esta seguro y aprendió hoy", time:134 + 3.5},
-            {text:"que sólo debería jugar donde él sabe que es seguro jugar.", time:144.5},
-            {text:"Puedes pensar en lugares que no son seguros para jugar?", time:147}
+            {text:"Ahora medias esta seguro y aprendió hoy", time:138},
+            {text:"que sólo debería jugar donde él sabe", time:141.5},
+            {text:"que es seguro jugar.", time:144},
+            {text:"Puedes pensar en lugares que", time:145},
+            {text:"no son seguros para jugar?", time:147.1}
 
         ],
         [
