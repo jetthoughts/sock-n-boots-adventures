@@ -184,8 +184,9 @@ TEXTS = [
         [
             {text:"Medias dice, “Yo entraré y me divertiré,", time:58},
             {text:"Y tú puedes mirar hasta que yo termine.", time:54 + 7.5},
-            {text:"Botas empieza a preocuparse por su amigo,", time:54 + 11.5},
-            {text:"“No lo hagas,” dice Botas, pero Medias sigue trepando.", time:71}
+            {text:"Botas empieza a preocuparse por su amigo,", time:65.5},
+            {text:"“No lo hagas,” dice Botas,", time:68},
+            {text:"“pero Medias sigue trepando.", time:71}
         ],
 
         [

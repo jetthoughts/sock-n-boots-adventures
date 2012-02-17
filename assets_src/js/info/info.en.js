@@ -1,5 +1,5 @@
 HEADER_TITLE = "Story Book";
-
+BUTTONS = {"help" : "Help", "main_menu" : "Main Menu", "story_book" : "Story Book", "read_myself" : "Read Myself", "read_to_me" : "Read to Me", "story_menu" : "Story Menu"};
 TITLES = ["Share", "Afraid of the dark", "Play it safe"];
 
 PAGE_NUMBERS = [
