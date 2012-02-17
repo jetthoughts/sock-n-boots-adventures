@@ -1,17 +1,38 @@
 var screenSize;
 var options = { audio_enabled: false, music_enabled:false};
-var home_audio = null;
+var cover_audio = null;
 var homeAudioTimeout = null; 
-function stopHomeAudio(){
-  if (home_audio!=null) home_audio.stop();
+
+function stopAudioCover(){
+  if (cover_audio!=null) {
+      cover_audio.stop();
+      cover_audio.release();
+  }
 }  
+
+function playCover(src){
+  if (cover_audio!=null){
+    stopAudioCover();
+  }
+  cover_audio = new Media(_getRoot() + src, function() {
+   }, function() {
+      cover_audio = null;
+   });
+  cover_audio.play();
+}
+
 function playHomeAudio(){
-  if (home_audio!=null) home_audio.play();
-} 
+  playCover("home_page_music.wav");
+}
+
+
+function playStoryCover(index){
+  playCover("stories/" + index + "/cover.wav");
+}
 
 function hideMainMenu(){
   clearTimeout(homeAudioTimeout);
-  stopHomeAudio();
+  stopAudioCover();
   $("#main_menu_area").hide();
   $("body").removeClass("main_menu");
 }  
@@ -33,6 +54,7 @@ function showStorybook(){
 }
 
 function  hideStoryMenu(){
+    stopAudioCover();
     $("#story_area").hide();
     $("body").removeClass("story_menu");
 }
@@ -40,6 +62,8 @@ function  hideStoryMenu(){
 function showStoryMenu(){
     $("body").addClass("story_menu");
     $("#story_area").show();
+    playStoryCover(current_story + 1);
+
 }
 
 function  hideHelp(){
@@ -74,9 +98,8 @@ $(document).ready(function() {
 
      $("div.hproducts").coverflow({onSelectedFunc: function(page){
                                    hideStorybook();
-                                   showStoryMenu();
                                    selectStory(page);
-                                   
+                                   showStoryMenu();
                                    return false;
       }});
     }
@@ -149,6 +172,7 @@ $(document).ready(function() {
 
   //------ Story menu
   $("#with_audio_link").bind("click", function() {
+    hideStoryMenu();
 
     audio_enabled = true;
     autoplay_enabled = false;
@@ -158,6 +182,7 @@ $(document).ready(function() {
   });
 
   $("#without_audio_link").bind("click", function() {
+    hideStoryMenu();
 
     audio_enabled = false;
     autoplay_enabled = false;
@@ -166,6 +191,8 @@ $(document).ready(function() {
   });
 
   $("#auto_play_link").bind("click", function() {
+    hideStoryMenu();
+
     autoplay_enabled = true;
     showPages();
     return false;

@@ -94,7 +94,7 @@ function init() {
 
     $("#story_board_link").click(function() {
         hidePages();
-        $("#story_area").show();
+        showStoryMenu();
         return false;
 
 
@@ -121,10 +121,8 @@ function init() {
     });
 
     $("#main_menu_link").click(function() {
-
         hidePages();
-
-        $("#main_menu_area").show();
+        showMainMenu();
         return false;
     });
 
@@ -193,8 +191,6 @@ function hidePages() {
 function showPages() {
 
     ttt.setDisabled(autoplay_enabled);
-
-    $("#story_area").hide();
     $("#pages_area").show();
     initPlayer();
     setPage(0);

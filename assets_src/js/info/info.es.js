@@ -21,7 +21,7 @@ TEXTS = [
         [
             {text:"Una vez que llegan al parque.", time:23 + 2.5},
             {text:"Dejan su almuerzo sobre la mesa", time:23 + 5},
-            {text:"Medias dice, “ahora es tiempo de divertirnos.”", time:23 + 8.2},
+            {text:"Medias dice, “ahora es tiempo de divertirnos.”", time:23 + 8.8},
             {text:"Juegan a las escondidas y ríen y corren", time:36}
         ],
 
@@ -34,8 +34,9 @@ TEXTS = [
 
         ],
         [
-            {text:"Tengo hambre”, dice Botas, “vamos a comer.”", time:52 + 4.5},
-            {text:"Botas sabe que su almuerzo tiene una golosina especial.", time:52 + 9},
+            {text:"Tengo hambre”, dice Botas, “vamos a comer.”", time:56.5},
+            {text:"Botas sabe que su almuerzo", time:58.5},
+            {text:"tiene una golosina especial.", time:61},
             {text:"Ellos han jugado durante horas, y son las  12 del día.", time:52 + 13},
             {text:"“Regresemos  la mesa,” le die Botas a Medias.", time:69}
         ],
@@ -49,11 +50,12 @@ TEXTS = [
         ],
         [
 
-            {text:"Medias está contento ahora que hay almuerzo para comer.", time:91.3},
+            {text:"Medias está contento", time:89.8},
+            {text:"ahora que hay almuerzo para comer.", time:91.3},
             {text:"Botas  comparte inclusive su torta de Chocolate,", time:94.8},
             {text:"su golosina favorita.", time:97},
-            {text:"Ahora Botas también está contento.", time:102},
-            {text:"Porque el compartir hizo feliz", time:104},
+            {text:"Ahora Botas también está contento.", time:100.5},
+            {text:"Porque el compartir hizo feliz", time:102},
             {text:"a Medias y compartir es bueno.", time:106}
         ],
         [
