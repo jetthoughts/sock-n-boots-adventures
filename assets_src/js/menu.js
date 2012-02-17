@@ -22,7 +22,7 @@ function playCover(src) {
             cover_audio = null;
         });
         cover_audio.play();
-    }, 1000);
+    }, 2000);
 
 }
 
@@ -88,7 +88,9 @@ $(document).ready(function() {
 
 
     //------------- Main menu
-
+    $(".button span").each(function(index, element) {
+                $(this).text(BUTTONS[$(this).attr("rel")]);
+            });
 
     $("#storybook_link").bind("click", function() {
         hideMainMenu();
@@ -98,6 +100,7 @@ $(document).ready(function() {
             $("a[rel=product]").each(function(index, element) {
                 $(this).text(TITLES[index]);
             });
+
 
             $("#page_header").text(HEADER_TITLE);
 

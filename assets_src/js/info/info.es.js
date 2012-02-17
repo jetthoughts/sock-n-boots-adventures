@@ -5,6 +5,10 @@ PAGE_NUMBERS = [
     [1,2,3,4,5,6,8,9,10,11,12],
     [1,2,3,4,5,6,7,8,9,10,11]
 ];
+
+BUTTONS = {"help" : "Ayude", "main_menu" : "Menú Principal", "story_book" : "Libro",
+    "read_myself" : "Lea mi auto", "read_to_me" : "Leer para mí", "story_menu" : "Menú Historia"};
+
 TEXTS = [
     [
         [
