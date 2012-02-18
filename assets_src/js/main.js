@@ -77,31 +77,39 @@ function init() {
             event = document.createEvent("MouseEvents");
             touch = originalEvent.changedTouches[0];
             event.initMouseEvent(mouseEventTypes[originalEvent.type], true, true,
-                    window, 0, touch.screenX, touch.screenY, touch.clientX,
-                    touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
-                    touch.metaKey, 0, null);
+                window, 0, touch.screenX, touch.screenY, touch.clientX,
+                touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
+                touch.metaKey, 0, null);
             originalEvent.target.dispatchEvent(event);
         });
     }
 
     $("#play_link.play").live("click", function() {
+        if (!isMenuVisible()) return;
+
         resumeNarration();
     });
 
     $("#play_link.pause").live("click", function() {
+        if (!isMenuVisible()) return;
+
+        console.log("oause");
         pauseNarration();
     });
 
     $("#story_board_link").click(function() {
+      if (!isMenuVisible()) return;
+
         hidePages();
         showStoryMenu();
         return false;
-
-
     });
-    $("#menu_trigger").click(function() {
 
-        toggleMenu();
+    $("#main_menu_link").click(function() {
+       if (!isMenuVisible()) return;
+
+        hidePages();
+        showMainMenu();
         return false;
     });
 
@@ -110,6 +118,7 @@ function init() {
         toggleMenu();
         return false;
     });
+
     $("#next").click(function() {
 
         if (!autoplay_enabled) nextPage(true);
@@ -117,12 +126,6 @@ function init() {
     });
     $("#prev").click(function() {
         if (!autoplay_enabled) prevPage();
-        return false;
-    });
-
-    $("#main_menu_link").click(function() {
-        hidePages();
-        showMainMenu();
         return false;
     });
 
@@ -205,9 +208,9 @@ function selectStory(index) {
 
         setupPages(function() {
             $("#book ul").jFlip(screenSize.width, screenSize.height, {background:"green", cornersTop:false}).
-                    bind("flip.jflip", function(event, index, total) {
-                pageDidChanged(index);
-            });
+                bind("flip.jflip", function(event, index, total) {
+                    pageDidChanged(index);
+                });
 
             setupSubs();
         });
@@ -236,8 +239,8 @@ function showSubs() {
 
 function setPage(p) {
 
-    if (audioNeedRestore){
-      stopNarration();
+    if (audioNeedRestore) {
+        stopNarration();
     }
 
 
@@ -245,9 +248,9 @@ function setPage(p) {
     current_page = p;
     subIndex = 0;
     showSubs();
-    
+
     (getPageCount() - 1 - p) ? $("#next").show() : $("#next").hide();
-     p ? $("#prev").show() : $("#prev").hide();
+    p ? $("#prev").show() : $("#prev").hide();
 
     if (narTimeout != null) {
         clearTimeout(narTimeout);
@@ -256,9 +259,9 @@ function setPage(p) {
     if (!isNeedAudio()) {
         stopNarration();
     }
-    else if (audioNeedRestore){
+    else if (audioNeedRestore) {
         playNarration();
-       //narTimeout = setTimeout("playNarration()", p ? NARRATION_START_DELAY : 0);
+        //narTimeout = setTimeout("playNarration()", p ? NARRATION_START_DELAY : 0);
     }
     audioNeedRestore = true;
 
@@ -317,12 +320,16 @@ function setMenuOpacity(val, dur) {
     $("#nav a").animate({opacity:val}, dur);
 }
 
+function isMenuVisible() {
+   return $("#menu").css("opacity") == 1;
+}
+
 function toggleMenu() {
     if (menuAnimating) return;
 
     var dir;
 
-    if ($("#menu").css("opacity") == 1) {
+    if (isMenuVisible()) {
         setMenuOpacity(0, MENU_ANIMATION_DURATION);
         dir = "+=";
     }
@@ -332,13 +339,17 @@ function toggleMenu() {
     }
 
     var delta = dir + $("#menu").height() + "px";
-    //$(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
+
+    if (isNotIpad()){
+      $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
+    }
+
     menuAnimating = true;
     setTimeout("menuAnimating=false", MENU_ANIMATION_DURATION * 2);
 }
 
-function getPageCount(){
-  return TEXTS[current_story].length;
+function getPageCount() {
+    return TEXTS[current_story].length;
 }
 
 function isNeedAudio() {
@@ -389,8 +400,8 @@ function prevPage() {
 function nextPage(withInterruptAudio) {
     if (pageAnimating) return;
 
-    if (withInterruptAudio){
-      stopNarration();
+    if (withInterruptAudio) {
+        stopNarration();
     }
 
     audioNeedRestore = withInterruptAudio;
@@ -448,6 +459,10 @@ function _getAudioRoot() {
 function _getAudioPath() {
     var res = _getAudioRoot() + (current_page + 1) + '.wav';
     return res;
+}
+
+function isNotIpad(){
+    return screenSize.width < 1024;
 }
 
 function _device() {

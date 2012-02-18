@@ -17,7 +17,7 @@ TEXTS = [
             {text:"Medias y su mejor amigo desean mostrartelo", time:7}
         ],
         [
-            {text:"Un día Medias y Botas van a jugar.", time:6 + 5.2},
+            {text:"Un día Medias y Botas van a jugar.", time:11.4},
             {text:"Envuelven su almuerzo y se van", time:6 + 9},
             {text:"Medias dice, “vamos a jugar en el parque.”", time:6 + 13},
             {text:"Botas dice, “regresemos antes que oscurezca.”", time:23}
@@ -31,23 +31,23 @@ TEXTS = [
         ],
 
         [
-            {text:"Los pájaros llegan volando y se comen", time:36 + 2},
-            {text:"el almuerzo de Medias.", time:36 + 3.6},
-            {text:"Comian y comian y masticaban y masticaban.", time:36 + 7},
+            {text:"Los pájaros llegan volando y se comen", time:36 + 2.8},
+            {text:"el almuerzo de Medias.", time: 40.4},
+            {text:"Comian y comian y masticaban y masticaban.", time:36 + 7.4},
             {text:"Medias y Botas regresaran mas tarde.", time:36 + 11},
-            {text:"Pero qué hará Medias? Su almuerzo desapareció.", time:52}
+            {text:"Pero qué hará Medias? Su almuerzo desapareció.", time:52.4}
 
         ],
         [
             {text:"Tengo hambre”, dice Botas, “vamos a comer.”", time:56.5},
-            {text:"Botas sabe que su almuerzo", time:58.5},
+            {text:"Botas sabe que su almuerzo", time:58.7},
             {text:"tiene una golosina especial.", time:61},
             {text:"Ellos han jugado durante horas, y son las  12 del día.", time:52 + 13},
-            {text:"“Regresemos  la mesa,” le die Botas a Medias.", time:69}
+            {text:"“Regresemos  la mesa,” le die Botas a Medias.", time:69.4}
         ],
         [
 
-            {text:"Oh no! Dice Medias con gran sorpresa.", time:74},
+            {text:"Oh no! Dice Medias con gran sorpresa.", time:74.4},
             {text:"Mi almuerzo desapareció, mientras empieza a llorar.", time:80},
             {text:"No te preocupes, dice Botas. Yo tengo bastante,", time:84},
             {text:"Nosotros podemos compartir mi almuerzo.", time:88}
@@ -106,14 +106,14 @@ TEXTS = [
             {text:"A  Medias no le gusta apagar las luces", time:65},
 
             {text:"Porque la casa hace un ruido de miedo en la noche.", time:68.5},
-            {text:"Ahora está oscuro dentro de la habitación de Medias,", time:73.5},
+            {text:"Ahora está oscuro dentro de la habitación de Medias,", time:72},
             {text:"Excepto por la brillante luz de la luna.", time:76}
         ],
 
         [
-            {text:"Cric… Cric… suena el piso", time:75 + 8},
+            {text:"Cric… Cric… suena el piso", time:82.5},
             {text:"Está viniendo ese ruido de la puerta del armario?", time:85.5},
-            {text:"El solo pensamiento le da a Medias", time:87.5},
+            {text:"El solo pensamiento le da a Medias", time:86.5},
             {text:"un  miedo realmente grande", time:89},
             {text:"Podría estar algo escondido allí?", time:92}
         ],
@@ -131,7 +131,7 @@ TEXTS = [
             {text:"luego vuelve a saltar a su cama", time:114},
             {text:"para dormir sano y salvo.", time:117},
             {text:"Me alegro de haber comprobado por mí mismo”", time:119.5},
-            {text:"dice Medias.", time:121},
+            {text:"dice Medias.", time:120.5},
             {text:"“Ahora no tendré miedo a las 8 de la noche.”", time:123.5}
         ],
 
@@ -178,10 +178,10 @@ TEXTS = [
         ],
 
         [
-            {text:"“No!. Dice Botas, “no podemos pasear.”", time:39 + 3.5},
+            {text:"“No! Dice Botas, “no podemos pasear.”", time:39 + 3.6},
             {text:"“Podríamos lastimarnos si entramos.”", time:46},
             {text:"“Creo que nosotros deberíamos buscar un lugar diferente.”", time:50},
-            {text:"“Nosotros solo deberíamos jugar", time:52.5},
+            {text:"“Nosotros solo deberíamos jugar", time:52.2},
             {text:"donde sabemos que es seguro.”", time:54.5}
         ],
 
@@ -205,19 +205,19 @@ TEXTS = [
             {text:"Botas trepa a lo alto y tira de la puerta,", time:87 + 3.2},
             {text:"el trata,  y trata y trata más.", time:95},
             {text:"La puerta no se abrirá porque está cerrada", time:98},
-            {text:"así que como podría Botas alcanzar al", time:101},
+            {text:"así que como podría Botas alcanzar al", time:100.5},
             {text:"pequeño y pobre Medias?", time:103}
         ],
 
         [
-            {text:"Medias dio otro grito,", time:103 + 2.5},
+            {text:"Medias dio otro grito,", time:105},
             {text:"por favor desconecta el enchufe de la lavadora!", time:102 + 7},
-            {text:"Eso es! Dice Botas, pero ¿dónde está el enchufe?", time:113.2},
+            {text:"Eso es! Dice Botas, pero ¿dónde está el enchufe?", time:113.4},
             {text:"El busca por todas partes", time:116},
             {text:"inclusive debajo de la alfombra.", time:118.3}
         ],
         [
-            {text:"Aquí esta! Empieza a gritar Botas.", time:118 + 4.5},
+            {text:"Aquí esta! Empieza a gritar Botas.", time:118 + 3.6},
 
             {text:"El corre a la pared y arranca el enchufe", time:118 + 6.2},
             {text:"La lavadora se detiene y la puerta se abre.", time:118 + 11.8},

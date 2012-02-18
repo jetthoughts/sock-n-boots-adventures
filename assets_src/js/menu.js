@@ -89,8 +89,8 @@ $(document).ready(function() {
 
     //------------- Main menu
     $(".button span").each(function(index, element) {
-                $(this).text(BUTTONS[$(this).attr("rel")]);
-            });
+        $(this).text(BUTTONS[$(this).attr("rel")]);
+    });
 
     $("#storybook_link").bind("click", function() {
         hideMainMenu();
