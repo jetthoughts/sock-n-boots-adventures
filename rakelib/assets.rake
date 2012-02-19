@@ -42,9 +42,12 @@ namespace :assets do
       puts "Selected language...#{lang}"
 
       #copy app images
-    ['images'].each do |file_name|
+    ['images/low', 'images/middle', 'images/high'].each do |file_name|
+      dir_path = File.join(File.dirname(__FILE__), '..', 'assets', 'www', file_name)
+      FileUtils.mkdir_p dir_path unless File.exists?(dir_path)
 
-      FileUtils.cp_r File.join(File.dirname(__FILE__), '..', 'assets_src', file_name), File.join(File.dirname(__FILE__), '..', 'assets', 'www', file_name)
+      FileUtils.cp_r  Dir.glob(File.join(File.dirname(__FILE__), '..', 'assets_src', file_name,"*.*")), dir_path
+      FileUtils.cp_r  Dir.glob(File.join(File.dirname(__FILE__), '..', 'assets_src', file_name,lang, "*.*")), dir_path
     end
 
       #copy selected lang audio

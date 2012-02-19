@@ -18,15 +18,15 @@ TEXTS = [
         ],
         [
             {text:"Un día Medias y Botas van a jugar.", time:11.4},
-            {text:"Envuelven su almuerzo y se van", time:6 + 9},
+            {text:"Envuelven su almuerzo y se van", time:6 + 9.4},
             {text:"Medias dice, “vamos a jugar en el parque.”", time:6 + 13},
-            {text:"Botas dice, “regresemos antes que oscurezca.”", time:23}
+            {text:"Botas dice, “regresemos antes que oscurezca.”", time:23.2}
         ],
 
         [
-            {text:"Una vez que llegan al parque.", time:23 + 2.5},
-            {text:"Dejan su almuerzo sobre la mesa", time:23 + 5},
-            {text:"Medias dice, “ahora es tiempo de divertirnos.”", time:23 + 8.8},
+            {text:"Una vez que llegan al parque.", time:23 + 2.7},
+            {text:"Dejan su almuerzo sobre la mesa", time:23 + 5.2},
+            {text:"Medias dice, “ahora es tiempo de divertirnos.”", time:32},
             {text:"Juegan a las escondidas y ríen y corren", time:36}
         ],
 
@@ -60,7 +60,7 @@ TEXTS = [
             {text:"Botas  comparte inclusive su torta de Chocolate,", time:94.8},
             {text:"su golosina favorita.", time:97},
             {text:"Ahora Botas también está contento.", time:100.5},
-            {text:"Porque el compartir hizo feliz", time:102},
+            {text:"Porque el compartir hizo feliz", time:102.4},
             {text:"a Medias y compartir es bueno.", time:106}
         ],
         [
@@ -123,7 +123,7 @@ TEXTS = [
 
             {text:"Así que salta de la cama para ir a mirar", time:98},
             {text:"El abre el armario y enciende la luz", time:102},
-            {text:"Y no hay ningún monstruo a la vista.", time:106}
+            {text:"Y no hay ningún monstruo a la vista.", time:106.2}
         ],
 
         [
