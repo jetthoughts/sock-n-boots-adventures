@@ -4,7 +4,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;"/>
     <meta charset="utf-8">
-  <!--  <link type="text/css" href="css/jquery.mobile-1.0.min.css" rel="stylesheet" media="screen"/>-->
+    <!--  <link type="text/css" href="css/jquery.mobile-1.0.min.css" rel="stylesheet" media="screen"/>-->
 
     <link type="text/css" href="gen/all.css" rel="stylesheet" media="screen"/>
     <!--iphone-->
@@ -27,8 +27,7 @@
          for more details -jm */
         function onDeviceReady() {
             init();
-            showMainMenu();
-
+             showMainMenu();
         }
 
     </script>
@@ -37,8 +36,14 @@
 
 <div id="main_menu_area">
     <div>
-        <div id="storybook_link"></div>
-        <div id="help_link"></div>
+
+        <a id="storybook_link" class="button purple" href="#">
+            <span rel="story_book"></span>
+        </a>
+
+        <a id="help_link" class="button yellow" href="#">
+            <span rel="help"></span>
+        </a>
     </div>
 </div>
 
@@ -47,8 +52,7 @@
 
 <div id="menu_area">
 
-    <div class='page_header'>
-        Story Book
+    <div id="page_header" class='page_header'>
     </div>
 
     <div class="mod inventory-featured-default type-1">
@@ -66,7 +70,7 @@
                                                    "#"><img class="photo thumb"/></a>
                                     </div>
 
-                                    <h1 class="fn h3"><a href = "#" rel = "product" class="url">Share</a></h1>
+                                    <h1 class="fn h3"><a href="#" rel="product" class="url">Share</a></h1>
 
 
                                 </div>
@@ -114,20 +118,26 @@
     </div>
 
     <div id="storybook_menu">
-        <div id="s_main_menu_link"></div>
-        <!--   <div id="s_options_link"></div>
-        <div id="s_buy_link"></div>-->
-
+        <a id="s_main_menu_link" class="button blue" href="#">
+            <span rel="main_menu"></span>
+        </a>
     </div>
 
 </div>
 
 <div id="story_area">
     <div id="story_menu">
-        <div id="m_story_board_link"></div>
-        <div id="without_audio_link"></div>
-        <div id="with_audio_link"></div>
-        <!--  <div id="auto_play_link"></div>-->
+        <a id="m_story_board_link" class="button purple" href="#">
+            <span rel="story_book"></span>
+        </a>
+
+        <a id="without_audio_link" class="button orange" href="#">
+            <span rel = "read_myself"></span>
+        </a>
+        <a id="with_audio_link" class="button purple" href="#">
+            <span rel = "read_to_me"></span>
+        </a>
+
     </div>
 
 </div>
@@ -142,9 +152,15 @@
     </div>
 
     <div id="menu">
-        <div id="main_menu_link"></div>
-        <div id="play_link" class="play"></div>
-        <div id="story_board_link"></div>
+
+         <a id="main_menu_link" class="button small blue" href="#">
+            <span rel="main_menu"></span>
+        </a>
+
+        <a id="play_link" class="play"></a>
+         <a id="story_board_link" class="button small blue" href="#">
+            <span rel="story_menu"></span>
+        </a>
 
     </div>
 
@@ -159,7 +175,6 @@
 
 <script type='text/javascript' src="gen/phonegap_android.js"></script>
 <script type='text/javascript' src="gen/all.js"></script>
-
 
 
 </body>
