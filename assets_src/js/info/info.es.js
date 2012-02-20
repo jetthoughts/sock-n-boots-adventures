@@ -19,7 +19,7 @@ TEXTS = [
         [
             {text:"Un día Medias y Botas van a jugar.", time:11.4},
             {text:"Envuelven su almuerzo y se van", time:6 + 9.4},
-            {text:"Medias dice, “vamos a jugar en el parque.”", time:6 + 13},
+            {text:"Medias dice, “vamos a jugar en el parque.”", time:6 + 13.2},
             {text:"Botas dice, “regresemos antes que oscurezca.”", time:23.2}
         ],
 
@@ -60,8 +60,8 @@ TEXTS = [
             {text:"Botas  comparte inclusive su torta de Chocolate,", time:94.8},
             {text:"su golosina favorita.", time:97},
             {text:"Ahora Botas también está contento.", time:100.5},
-            {text:"Porque el compartir hizo feliz", time:102.4},
-            {text:"a Medias y compartir es bueno.", time:106}
+            {text:"Porque el compartir hizo feliz a Medias", time:103},
+            {text:"y compartir es bueno.", time:106}
         ],
         [
             {text:"Ahora ves porque deberías compartir?", time:109}
@@ -88,7 +88,7 @@ TEXTS = [
         [
             {text:"Tic….toc….tic…toc", time:26 + 6},
 
-            {text:"El reloj marca las 8 y es hora de dormir para Medias", time:26 + 10},
+            {text:"El reloj marca las 8 y es hora de dormir para Medias", time:26 + 10.2},
             {text:"El se alista para la cama, luego el apaga la luz,", time:42},
             {text:"Pero Medias le tiene miedo", time:43.7},
             {text:"a la oscuridad por la noche.", time:46}
@@ -119,7 +119,7 @@ TEXTS = [
         ],
 
         [
-            {text:"Medias es tan curioso cómo puede ser,", time:95},
+            {text:"Medias es tan curioso cómo puede ser,", time:95.2},
 
             {text:"Así que salta de la cama para ir a mirar", time:98},
             {text:"El abre el armario y enciende la luz", time:102},

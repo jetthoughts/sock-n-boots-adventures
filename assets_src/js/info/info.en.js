@@ -78,7 +78,7 @@ TEXTS = [
             {text:"At 8 o'clock Sock's house gets dark", time:8 + 5},
 
             {text:"The birds don't sing, and the dogs don't bark", time:8 + 11},
-            {text:"<b>T</b>he whole neigborhood turns out their lights,", time:8 + 14},
+            {text:"<b>T</b>he whole neigborhood turns out their lights,", time:8 + 14.4},
             {text:"and they all go to sleep at night.", time:26}
         ],
 
