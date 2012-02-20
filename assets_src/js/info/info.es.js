@@ -165,7 +165,7 @@ TEXTS = [
             {text:"Hay tantos lugares para jugar en la casa.", time:11},
 
             {text:"Inclusive debajo de la cama, como un pequeño ratón.", time:7 + 8},
-            {text:"Medias quiere encontrar un nuevo lugar para jugar.", time:7 + 11.5},
+            {text:"Medias quiere encontrar un nuevo lugar para jugar.", time:7 + 11.8},
             {text:"Dónde puede jugar sus juegos hoy?", time:23}
         ],
 
@@ -180,23 +180,24 @@ TEXTS = [
         [
             {text:"“No! Dice Botas, “no podemos pasear.”", time:39 + 3.6},
             {text:"“Podríamos lastimarnos si entramos.”", time:46},
-            {text:"“Creo que nosotros deberíamos buscar un lugar diferente.”", time:50},
+            {text:"“Creo que nosotros deberíamos buscar", time:48.5},
+            {text:"un lugar diferente.”", time:50},
             {text:"“Nosotros solo deberíamos jugar", time:52.2},
             {text:"donde sabemos que es seguro.”", time:54.5}
         ],
 
         [
-            {text:"Medias dice, “Yo entraré y me divertiré,", time:58},
-            {text:"Y tú puedes mirar hasta que yo termine.", time:54 + 7.5},
+            {text:"Medias dice, “Yo entraré y me divertiré,", time:58.4},
+            {text:"Y tú puedes mirar hasta que yo termine.", time:54 + 8},
             {text:"Botas empieza a preocuparse por su amigo,", time:65.5},
             {text:"“No lo hagas,” dice Botas,", time:68},
             {text:"“pero Medias sigue trepando.", time:71}
         ],
 
         [
-            {text:"La lavadora se cierra, mientras suena y suena.", time:74.5},
+            {text:"La lavadora se cierra, mientras suena y suena.", time:75},
             {text:"Esta se llena de agua mientras Medias  gira y gira.", time:79},
-            {text:"“Ayúdame Botas,” Empieza a gritar Medias,", time:71 + 11.5},
+            {text:"“Ayúdame Botas,” Empieza a gritar Medias,", time:71 + 11.8},
             {text:"“por favor sácame de la lavadora.”", time:86.4}
         ],
 
@@ -218,7 +219,6 @@ TEXTS = [
         ],
         [
             {text:"Aquí esta! Empieza a gritar Botas.", time:118 + 3.6},
-
             {text:"El corre a la pared y arranca el enchufe", time:118 + 6.2},
             {text:"La lavadora se detiene y la puerta se abre.", time:118 + 11.8},
             {text:"Botas ha salvado a su mejor amigo Medias.", time:134}
