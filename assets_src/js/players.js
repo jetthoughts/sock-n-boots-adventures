@@ -5,7 +5,6 @@ var Player = function(src, finished_handler, position_handler) {
     var timer = null;
 
     this.current_audio = new Media(src, function() {
-
     }, function() {
         console.log("fail");
     }
@@ -29,9 +28,8 @@ var Player = function(src, finished_handler, position_handler) {
             else {
                 self.current_audio.getCurrentPosition(function(position) {
                     if (position < 0) {
-
-                        self.stopTimer();
-                        self.audioFinishedHandler();
+                        //self.stopTimer();
+                        //self.audioFinishedHandler();
                     }
                     else {
                         self.positionHandler(position);
@@ -57,7 +55,7 @@ var Player = function(src, finished_handler, position_handler) {
     };
 
     this.release = function() {
-        this.current_audio.stop();
+        this.stop();
         this.current_audio.release();
         this.current_audio = null;
     };

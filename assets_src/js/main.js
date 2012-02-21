@@ -93,7 +93,6 @@ function init() {
     $("#play_link.pause").live("click", function() {
         if (!isMenuVisible()) return;
 
-        console.log("oause");
         pauseNarration();
     });
 
