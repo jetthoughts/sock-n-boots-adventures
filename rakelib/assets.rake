@@ -16,7 +16,7 @@ namespace :assets do
   task :clean, [:lang] do
     puts "remove generated files....."
     files_to_remove = (['gen', 'images'] +
-        (1..3).to_a.map{|i| "stories/#{i}/audio/with_music.wav" } +
+        (1..3).to_a.map{|i| "stories/#{i}/with_music.wav" } +
         (1..3).to_a.map{|i| ["cover_thumb.jpg","cover.jpg"].map{|name| ["iphone", "ipad"].map {|pl|   "stories/#{i}/images/#{pl}/#{name}" }  } }.flatten <<
         "stories/main_menu_bg.jpg"
      )
@@ -52,7 +52,7 @@ namespace :assets do
 
       #copy selected lang audio
     ["1", "2", "3"].each do |num|
-      FileUtils.cp_r File.join(File.dirname(__FILE__), '..', 'assets_src', "stories", num, "audio", "#{lang}.wav"), File.join(File.dirname(__FILE__), '..', 'assets', 'www',  "stories", num, "audio", "with_music.wav")
+      FileUtils.cp_r File.join(File.dirname(__FILE__), '..', 'assets_src', "stories", num, "audio", "#{lang}.wav"), File.join(File.dirname(__FILE__), '..', 'assets', 'www',  "stories", num, "with_music.wav")
     end
 
     ["1", "2", "3"].each do |num|

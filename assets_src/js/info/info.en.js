@@ -16,7 +16,7 @@ TEXTS = [
             {text:"Sock and his best friend Boots wants to show you.", time:7}
         ],
         [
-            {text:"One day Sock and Boots go aut to play", time:6 + 5},
+            {text:"One day Sock and Boots go out to play", time:6 + 5},
             {text:"They pack their lunches and go on their way", time:6 + 9},
             {text:"Sock says, \"let's go play in the park.\"", time:6 + 13},
             {text:"Boots say's. \"let's be back before it's dark.\"", time:23}

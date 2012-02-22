@@ -451,7 +451,7 @@ function _pageImage(index) {
 }
 
 function _getAudioRoot() {
-    var res = _getRoot() + 'stories/' + (current_story + 1) + '/audio/';
+    var res = _getRoot() + 'stories/' + (current_story + 1) + '/';
     return res;
 }
 
