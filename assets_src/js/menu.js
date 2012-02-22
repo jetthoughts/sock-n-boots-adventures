@@ -210,3 +210,19 @@ $(document).ready(function() {
     //----- Story menu end
 
 });
+
+function onAppPause() {
+    console.log("pause");
+    if ($("body").hasClass("pages")) {
+        if ($("#play_link.pause").length) {
+            pauseNarration();
+        }
+    }
+    else {
+        stopAudioCover();
+    }
+}
+
+function onAppResume() {
+    console.log("resume");
+}

@@ -188,11 +188,12 @@ function hidePages() {
     current_page = 0;
     ttt.toFirstPage();
     $("#pages_area").hide();
+    $("body").removeClass("pages");
 }
 
 function showPages() {
-
     ttt.setDisabled(autoplay_enabled);
+    $("body").addClass("pages");
     $("#pages_area").show();
     initPlayer();
     setPage(0);

@@ -26,6 +26,8 @@
          see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
          for more details -jm */
         function onDeviceReady() {
+            document.addEventListener("pause", onAppPause, false);
+            document.addEventListener("resume", onAppResume, false);
             init();
              showMainMenu();
         }
