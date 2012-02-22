@@ -42,7 +42,7 @@
 }
 
 .subs span .txt{
-    font-size:14pt;
+    font-size:12pt;
 }
 
 /* STORY LIST */
@@ -63,7 +63,7 @@
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .hproducts .hproduct {
-        height: 200px;
+        height: 10px;
     }
 }
 .hproducts .hproduct {
