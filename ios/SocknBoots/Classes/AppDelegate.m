@@ -78,11 +78,7 @@
 }
 
 + (NSString*) startPage{ 
-if ([[[NSProcessInfo processInfo] environment] objectForKey:@"DEBUG_ASSETS"])
-    return @"index-ios-debug.html";
-else
     return @"index.html";
-
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)theWebView 

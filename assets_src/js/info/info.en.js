@@ -16,7 +16,7 @@ TEXTS = [
             {text:"Sock and his best friend Boots wants to show you.", time:7}
         ],
         [
-            {text:"One day Sock and Boots go aut to play", time:6 + 5},
+            {text:"One day Sock and Boots go out to play", time:6 + 5},
             {text:"They pack their lunches and go on their way", time:6 + 9},
             {text:"Sock says, \"let's go play in the park.\"", time:6 + 13},
             {text:"Boots say's. \"let's be back before it's dark.\"", time:23}
@@ -78,7 +78,7 @@ TEXTS = [
             {text:"At 8 o'clock Sock's house gets dark", time:8 + 5},
 
             {text:"The birds don't sing, and the dogs don't bark", time:8 + 11},
-            {text:"<b>T</b>he whole neigborhood turns out their lights,", time:8 + 14},
+            {text:"<b>T</b>he whole neigborhood turns out their lights,", time:8 + 14.4},
             {text:"and they all go to sleep at night.", time:26}
         ],
 

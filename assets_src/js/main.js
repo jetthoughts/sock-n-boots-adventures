@@ -93,7 +93,6 @@ function init() {
     $("#play_link.pause").live("click", function() {
         if (!isMenuVisible()) return;
 
-        console.log("oause");
         pauseNarration();
     });
 
@@ -189,11 +188,12 @@ function hidePages() {
     current_page = 0;
     ttt.toFirstPage();
     $("#pages_area").hide();
+    $("body").removeClass("pages");
 }
 
 function showPages() {
-
     ttt.setDisabled(autoplay_enabled);
+    $("body").addClass("pages");
     $("#pages_area").show();
     initPlayer();
     setPage(0);
@@ -452,7 +452,7 @@ function _pageImage(index) {
 }
 
 function _getAudioRoot() {
-    var res = _getRoot() + 'stories/' + (current_story + 1) + '/audio/';
+    var res = _getRoot() + 'stories/' + (current_story + 1) + '/';
     return res;
 }
 

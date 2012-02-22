@@ -1,6 +1,8 @@
 package com.jetthoughts.socksboots;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
 import com.phonegap.*;
 
 public class MainFrame extends DroidGap
@@ -10,6 +12,12 @@ public class MainFrame extends DroidGap
     {
         super.onCreate(savedInstanceState);
         super.loadUrl("file:///android_asset/www/index_android.html");
+        super.appView.setVerticalScrollBarEnabled(false);
+        super.appView.setVerticalScrollbarOverlay(false);
+        super.appView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN |
+                    WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);*/
     }
 }
 
