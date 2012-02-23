@@ -55,7 +55,8 @@ TEXTS = [
         [
 
             {text:"Chaussette est heureux, puisqu’il a de nouveau à déjeuner.", time:60 + 32},
-            {text:"Bottines partage même son gâteau au chocolat, son mets favori.", time:60 + 37},
+            {text:"Bottines partage même son gâteau au chocolat", time:60 + 35},
+	          {text:"son mets favori.", time:60 + 37},
             {text:"Bottines se sent très heureux aussi maintenant.", time:60 + 40},
             {text:"Parce que Chaussette a retrouvé le sourire,", time:60 + 42},
 	          {text:"et que partager fait du bien.", time:60 + 44}
