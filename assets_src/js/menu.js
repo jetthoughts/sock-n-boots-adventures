@@ -32,7 +32,7 @@ function playHomeAudio() {
 
 
 function playStoryCover(index) {
-    playCover("stories/" + index + "/cover.wav", 1000);
+    playCover("stories/" + index + "/cover.mp3", 1000);
 }
 
 function hideMainMenu() {
