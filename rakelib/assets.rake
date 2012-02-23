@@ -3,7 +3,7 @@ require 'haml'
 require "./lib/jammit"
 require 'fileutils'
 
-LANGS = %w(en es jp ar ch fr)
+LANGS = %w(en es jp ar ch fr it)
 
 namespace :assets do
 
