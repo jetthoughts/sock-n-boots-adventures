@@ -32,7 +32,6 @@
 		847F374D14BEEA3100539FB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847F374C14BEEA3100539FB6 /* AppDelegate.m */; };
 		847F375614BEEA8800539FB6 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 847F375514BEEA8800539FB6 /* www */; };
 		93025EA614C970EB007F090D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 93025EA514C970EB007F090D /* Default-Landscape~ipad.png */; };
-		93025EA914C9711D007F090D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93025EA814C9711D007F090D /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +65,6 @@
 		847F374F14BEEA3100539FB6 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		847F375514BEEA8800539FB6 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../assets/www; sourceTree = "<group>"; };
 		93025EA514C970EB007F090D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		93025EA814C9711D007F090D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9308C65E14F4D5E000E44AB0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +103,6 @@
 		847F36FA14BEEA3100539FB6 = {
 			isa = PBXGroup;
 			children = (
-				93025EA814C9711D007F090D /* icon.png */,
 				93025EA514C970EB007F090D /* Default-Landscape~ipad.png */,
 				847F375514BEEA8800539FB6 /* www */,
 				847F372614BEEA3100539FB6 /* SocknBoots */,
@@ -275,7 +272,6 @@
 				847F374914BEEA3100539FB6 /* PhoneGap.plist in Resources */,
 				847F375614BEEA8800539FB6 /* www in Resources */,
 				93025EA614C970EB007F090D /* Default-Landscape~ipad.png in Resources */,
-				93025EA914C9711D007F090D /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
