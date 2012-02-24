@@ -30,7 +30,7 @@ TEXTS = [
         [
             {text:"Una volta arrivati ​​al parco,", time:25.4},
             {text:"lasciano il pranzo al sacco sul tavolo.", time:28},
-            {text:'Calzino dice. “E’ ora del divertimento."', time:32},
+            {text:'Calzino dice. “E’ora del divertimento."', time:32},
             {text:"Giocano a nascondino, ridono e corrono.", time:36.2}
         ],
 
@@ -55,7 +55,7 @@ TEXTS = [
             {text:'"Il mio pranzo non c’è più", e così inzia a piangere.', time:60+19.4},
             {text:'"Non ti preoccupare", dice Stivali,', time:60+22.3},
             {text:'"io ho tanto da mangiare,', time:60+25},
-            {text:'"possiamo entrambi condividere il mio pranzo."', time:60+28}
+            {text:'possiamo entrambi condividere il mio pranzo."', time:60+28}
 
         ],
         [
