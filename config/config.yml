@@ -1,0 +1,12 @@
+defaults: &defaults
+  version:
+    market: "4.1"
+  certificate: "iPhone Distribution: DAMON SMITH"
+  sdk: "iphoneos4.3"
+
+adhoc:
+  <<: *defaults
+
+release:
+  <<: *defaults
+  sdk: "iphoneos4.3"

@@ -8,8 +8,10 @@ LANGS = %w(en es)
 namespace :assets do
 
 
-  task :generate, [:lang] => [:clean, :jam, :copy] do
+  task :generate, [:lang] => [:clean, :jam, :copy] do | t, args |
     puts "Generate resources"
+    lang = args[:lang]  || 'en'
+    Rake::Task["ios:set_ident"].invoke(lang)
   end
 
   desc 'Clean up assets'
