@@ -1,8 +1,7 @@
-package com.jetthoughts.socksboots;
+package com.jetthoughts.socknboots;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import com.phonegap.*;
 
 public class MainFrame extends DroidGap
