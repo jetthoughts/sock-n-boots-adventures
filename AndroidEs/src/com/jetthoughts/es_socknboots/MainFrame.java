@@ -1,4 +1,4 @@
-package com.jetthoughts.socknboots_es;
+package com.jetthoughts.es_socknboots;
 
 import android.os.Bundle;
 import android.view.View;
