@@ -1,6 +1,6 @@
-HEADER_TITLE = "Story Book";
-BUTTONS = {"help" : "Help", "main_menu" : "Main Menu", "story_book" : "Story Book",
-    "read_myself" : "Read Myself", "read_to_me" : "Read to Me", "story_menu" : "Story Menu"};
+HEADER_TITLE = "Bibliothèque";
+BUTTONS = {"help" : "Aider", "main_menu" : "Menu principal", "story_book" : "Bibliothèque",
+    "read_myself" : "lu moi-même", "read_to_me" : "Lisez-moi", "story_menu" : "Menu histoire"};
 TITLES = ["Share", "Afraid of the dark", "Play it safe"];
 
 PAGE_NUMBERS = [
@@ -55,7 +55,8 @@ TEXTS = [
         [
 
             {text:"Chaussette est heureux, puisqu’il a de nouveau à déjeuner.", time:60 + 32},
-            {text:"Bottines partage même son gâteau au chocolat, son mets favori.", time:60 + 37},
+            {text:"Bottines partage même son gâteau au chocolat", time:60 + 35},
+	          {text:"son mets favori.", time:60 + 37},
             {text:"Bottines se sent très heureux aussi maintenant.", time:60 + 40},
             {text:"Parce que Chaussette a retrouvé le sourire,", time:60 + 42},
 	          {text:"et que partager fait du bien.", time:60 + 44}
