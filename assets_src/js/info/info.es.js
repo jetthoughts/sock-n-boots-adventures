@@ -1,4 +1,4 @@
-HEADER_TITLE = "Libro de cuentos";
+HEADER_TITLE = "Livro da história";
 TITLES = ["Compartir", "Miedo a la oscuridad", "Jugar con seguridad"];
 PAGE_NUMBERS = [
     [1,2,3,4,5,6,7,8,9],
@@ -6,7 +6,7 @@ PAGE_NUMBERS = [
     [1,2,3,4,5,6,7,8,9,10,11]
 ];
 
-BUTTONS = {"help" : "Ayude", "main_menu" : "Menú Principal", "story_book" : "Libro",
+BUTTONS = {"help" : "Ayude", "main_menu" : "Menú Principal", "story_book" : "Livro",
     "read_myself" : "Lea mi auto", "read_to_me" : "Leer para mí", "story_menu" : "Menú Historia"};
 
 TEXTS = [

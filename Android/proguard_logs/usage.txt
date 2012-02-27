@@ -1,0 +1,8 @@
+com.jetthoughts.socknboots.R
+com.jetthoughts.socknboots.R$attr
+com.jetthoughts.socknboots.R$drawable
+com.jetthoughts.socknboots.R$layout
+com.jetthoughts.socknboots.R$string
+com.jetthoughts.socknboots.R$xml
+com.phonegap.DroidGap$LinearLayoutSoftKeyboardDetect:
+    private static final java.lang.String TAG
