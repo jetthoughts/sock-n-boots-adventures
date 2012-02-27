@@ -447,7 +447,14 @@ function _pageId(index) {
     return "page_" + current_story + "_" + index;
 }
 
+function _endImage(){
+  var resolution =  _device() == "iphone" ? "low" : "high";
+  return "images/" + resolution + "/end.jpg";
+}
+
 function _pageImage(index) {
+    if (index == getPageCount()-1) return _endImage();
+
     return "stories/" + (current_story + 1) + "/images/" + _device() + "/" + (PAGE_NUMBERS[current_story][index] || index ) + ".jpg";
 }
 
