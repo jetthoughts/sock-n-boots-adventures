@@ -1,66 +1,62 @@
 HEADER_TITLE = "قصة كتاب";
-BUTTONS = {"help" : "مساعدة", "main_menu" : "القائمة الرئيسية", "story_book" : "قصة كتاب",
-    "read_myself" : "قراءة نفسي", "read_to_me" : "قراءة في البيانات", "story_menu" : "قصة القائمة"};
-TITLES = ["حصة", "يخاف من الظلام", "لعب المضمون"];
-
+TITLES = ["جورب وحذاء – التقاسم", "الخوف من الظلام", "إلعب بشكل آمن"];
 PAGE_NUMBERS = [
     [1,2,3,4,5,6,7,8,9],
-    [1,2,3,4,5,6,7,8,9,10,11,12],
+    [1,2,3,4,5,6,8,9,10,11,12],
     [1,2,3,4,5,6,7,8,9,10,11]
 ];
+
+BUTTONS = {"help" : "مساعدة", "main_menu" : "القائمة الرئيسية", "story_book" : "قصة كتاب",
+    "read_myself" : "قراءة نفسي", "read_to_me" : "قراءة لي", "story_menu" : "قصة القائمة"};
 
 TEXTS = [
     [
         [
-            {text: "هل تعلم لماذا ينبغي عليك أن تتقاسم مع الغير؟", time:4},
-            {text:"يرغب جورب وصديقه العزيز حذاء في أن يظهرا لك كيف يكون ذلك.", time:8}
+            {text:"هل تعلم لماذا ينبغي عليك أن تتقاسم مع الغير؟", time:2.6},
+
+            {text:"يرغب جورب وصديقه العزيز حذاء", time:5},
+            {text:"في أن يظهرا لك كيف يكون ذلك.", time:7.2}
         ],
         [
-            {text:"ذات يوم، خرج جورب وحذاء للعب", time:6+5},
-            {text:"جهزا غدائهما ومضيا في طريقهما", time:6+9},
-            {text:'يقول جورب، "هيا بنا نلعب في المتنزه"', time:6+13},
-            {text:'فيقول حذاء، "فالنرجع إذا قبل أن يحل الظلام', time:23}
+            {text:"ذات يوم، خرج جورب وحذاء للعب.", time:9.5},
+            {text:"جهزا غدائهما ومضيا في طريقهما.", time:12},
+            {text:"يقول جورب، \"هيا بنا نلعب في المتنزه.\"", time:14.2},
+            {text:"فيقول حذاء، \"فالنرجع إذا قبل أن يحل الظلام.", time:16}
+        ],
+        [
+            {text:"بمجرد وصولهما إلى المنتزه،", time:25.4},
+            {text:"وضعا غدائهما فوق الطاولة.", time:28},
+            {text:'يقول جورب "حان الآن وقت المتعة."', time:32},
+            {text:"فيلعبان لعبة الغميضة، ويضحكون ويركضون.", time:36.2}
         ],
 
         [
-            {text:"Once they get to the park,", time:23 + 2.5},
-            {text:"they lay their lunches on the table.", time:23 + 5},
-            {text:"Sock says, \"now it's time for fun.\"", time:23 + 8.2},
-            {text:"They play hide and seek, and laugh and run.", time:36}
-        ],
-
-        [
-            {text:"The birds fly in and eat Sock's lunch.", time:36 + 3.6},
-            {text:"They eat and eat and munch and munch.", time:36 + 7},
-            {text:"Sock and Boots will come back later on.", time:36 + 11},
-            {text:"But what will Sock do? His lunch is gone.", time:52}
-
+            {text:"طارت طيور وأكلت غداء جورب.", time:38},
+            {text:"الطيور أكلت ثم أكلت، ومضغت ثم مضغت.", time:40.2},
+            {text:"جورب وحذاء سيرجعان فيما بعد.", time: 41.5},
+            {text:"لكن ما عسى جورب أن يفعل؟ لقد اختفى غدائه.", time: 43.5}
         ],
         [
-            {text:"\"I'm hungry,\" says Boots, \"let's go eat.\"", time:52 + 4.5},
-            {text:"Boots knows that his lunch has a special treat.", time:52 + 9},
-            {text:"They have played for hours, and it's 12 o'clock.", time:52 + 13},
-            {text:"\"Let's got back to the table,\" says Boots to Sock.", time:69}
+            {text:'"أنا جائع،" يقول حذاء، "هيا بنا نأكل."', time:56.7},
+            {text:"يعلم حذاء أن في غدائه هدية خاصة.", time:58.4},
+            {text:'لقد لعب الإثنان لساعات، والوقت الآن الساعة 12.', time:61.3},
+            {text:'"هيا بنا نرجع إلى الطاولة،" يقول جورب وحذاء.', time:64.5}
         ],
         [
 
-            {text:"\"Oh no!\" says Sock with great surprise,", time:74},
-            {text:"\"my lunch is gone\" as he starts to cry.", time:80},
-            {text:"Don't worry,\" says Boots, \"I have a lunch,", time:84},
-            {text:"we can both share my lunch.\"", time:88}
-
+            {text:'آه لا! يقول جورب بدهشة شديدة،', time:60+13.8},
+            {text:'إن غدائي قد اختفى، وانفجر جورب بالبكاء', time:60+19.4},
+            {text:'لا تقلق، يقول حذاء، فلدي الكثير من الغداء،', time:60+22.3},
+            {text:'يمكن أن نتقاسم غدائي نحن الإثنان', time:60+25}
         ],
         [
-
-            {text:"Sock is happy now that there's lunch to eat.", time:91},
-            {text:"Boots even shares his Chocolate Cake,", time:94.8},
-            {text:"his favourite treat.", time:97},
-            {text:"Now Boots is very happy too.", time: 100},
-            {text:"Because sharing made Sock happy,", time:102.5},
-            {text:"and sharing is good to do.", time:106}
+            {text:"جورب سعيد الآن لوجود غداء يأكله.", time:60+32},
+            {text:"يتقاسم حذاء حتى كعكة الشوكولاته مع جورب، وهي متعته المفضلة.", time:60+36.2},
+            {text:"والآن حذاء سعيد أيضا.", time:60+37.4},
+            {text:"لأن تقاسمه الغداء مع جورب جعله سعيدا، والتقاسم شيء جيد فعله.", time:60+39.4}
         ],
         [
-            {text:"Now do you see why you should share?", time:109}
+            {text:"الآن هل تدرك لماذا ينبغي عليك التقاسم؟", time:60+50}
 
         ],
         []
@@ -70,85 +66,70 @@ TEXTS = [
     /* Story 2*/
     [
         [
-            {text:"Are you ever afraid of the dark at night?", time:3.5},
-            {text:"Sock wants to tell you", time:5.7},
-            {text:"how he got over his fear of the dark", time:8.5}
+            {text:"هل تخاف من الظلام في الليل؟", time:3},
+            {text:"يرغب جورب في أن يخبرك عن كيفية", time:5},
+            {text:"تغلبه على خوفه من الظلام.", time:8.5}
         ],
         [
-            {text:"At 8 o'clock Sock's house gets dark", time:8 + 5},
-
-            {text:"The birds don't sing, and the dogs don't bark", time:8 + 11},
-            {text:"<b>T</b>he whole neigborhood turns out their lights,", time:8 + 14.4},
-            {text:"and they all go to sleep at night.", time:26}
-        ],
-
-        [
-            {text:"Tick..tock...tick...tock.", time:26 + 5.5},
-
-            {text:"The clock strikes 8 and its bedtime for Sock", time:26 + 10},
-            {text:"He'll get ready for bed, then he'll turn out his light,", time:40},
-            {text:"but Sock is afraid of the dark at night", time:45}
+            {text:"في الساعة 8 يحل الظلام في منزل جورب.", time:12},
+            {text:"تتوقف الطيور عن التغريد، وتتوقف الكلاب عن النباح.", time:13.6},
+            {text:"يطفئ الحي كله الأنوار في منازلهم.", time:16},
+            {text:"ويذهب كلهم للنوم في الليل. ", time:18.2}
         ],
 
         [
-            {text:"He pulls his covers up to his head,", time:48},
-            {text:"and lies there shaking in his bed.", time:45 + 6.5},
-            {text:"\"I'm scared, I'm scared\" Sock begins to shout.", time:56.5},
-            {text:"\"I don't like when the lights go out\"", time:60}
+            {text:"تيك...توك....تيك...توك", time:28.5},
+
+            {text:"دقت الساعة الثامنة، وحان وقت نوم جورب. ", time:30.5},
+            {text:"إنه سيتجهز للنوم، وسيطفئ الأنوار بعد ذلك،", time:33.5},
+            {text:"لكن جورب خائف من الظلام.", time:36}
         ],
 
         [
-            {text:"Sock doesn't like to turn out the light,", time:64},
-
-            {text:"because the house makes scary noise at night.", time:68},
-            {text:"Now it's dark inside Sock's room,", time:71},
-            {text:"except for the light from the shining moon", time:75}
+            {text:"إنه يسحب غطائه حتى رأسه،", time:44},
+            {text:"ويستلقي وهو يرتعد فوق سريره.", time:47.6},
+            {text:'"أنا خائف، أنا خائف" يبدأ جورب بالصراخ.', time:52.7},
+            {text:'"أنا لا أحب إطفاء الأنوار."', time:56.2}
         ],
 
         [
-            {text:"Squeak.....squeak....... goes the floor.", time:75 + 6},
+            {text:"لا يريد جورب إطفاء الانوار،", time:58.5},
 
-            {text:"Is that a noise coming from the closet door?", time:76 + 8},
-            {text:"The very thought gives Sock a really big scare.", time:88},
-            {text:"Could it be something hiding in there?", time:92}
-        ],
-
-
-        [
-            {text:"Sock says, \"there's a monster in my room,", time:92 + 3.5},
-
-            {text:"and I know he'll try to eat me soon.\"", time:98},
-            {text:"All is quiet from celling to floor.", time:103},
-            {text:"Is there really a monster behind the door?", time:106}
+            {text:"لأن هناك أصوات مخيفة تصدر من البيت في الليل.", time:60.2},
+            {text:"حل الظلام الآن في غرفة جورب، ", time:63},
+            {text:"والضوء الوحيد هو ضوء القمر الساطع.", time:74}
         ],
 
         [
-            {text:"Sock is as curious as can be,", time:107 + 2.5},
-
-            {text:"so he hops out of bed to go and see.", time:113},
-            {text:"He opens the close and turns on the light,", time:117},
-            {text:"and there are no monsters anywhere in sight.", time:121}
+            {text:"صرير.... صرير....إنه صوت الأرضية", time:60+19},
+            {text:"هل هذا ضجيج يصدر من باب الخزانة؟", time:60+20.5},
+            {text:"إن مجرد التفكير في هذا يجعل من جورب مذعورا جدا.", time:60+23},
+            {text:"هل يمكن أن يكون هناك شيء يختبئ في الداخل؟", time:60+25}
         ],
 
         [
-            {text:"Just to be sure Sock looks all around,", time:125},
-
-            {text:"then he hops back in bed to sleep safe and sound.", time:131},
-            {text:"\"I'm glad I checked for myself,\" says Sock.", time:135},
-            {text:"\"Now I won't be afraid when it turns 8 o'clock. \"", time:140}
+            {text:"يملؤ الفضول جورب للغاية،", time:60+40},
+            {text:"فيقفز من السرير وذهب ليرى ماذا هناك.", time:60+45.4},
+            {text:"إنه يفتح باب الخزانة ويضيء الأنوار،", time:60+50},
+            {text:"ولا يجد أثرا لوحش في أي مكان.", time:60+55}
         ],
 
         [
-            {text:"So when Sock is afraid of the dark at night,", time:140 + 3.5},
-            {text:"he just checks his whole room", time:146.5},
-            {text:"when he turns on the light.", time:149},
-            {text:"Now Sock can sleep without a care,", time:153},
-            {text:"because he knows there are no monsters there.", time:158}
+            {text:"وليتأكد أكثر، يلتفت جورب يمينا ويسارا،", time:60+58.7},
+            {text:"ويقفز في سريره مرة أخرى لينام آمنا سليما.", time:121.2},
+            {text:'"أنا سعيد بأنني تأكدت بنفسي،" يقول جورب.', time:123.6},
+            {text:'"لن أخاف بعد الآن عند الساعة 8."', time:128.3}
+        ],
+
+        [
+            {text:"كلما خاف جورب من الظلام أثناء الليل", time:120+19},
+            {text:"يتحقق من الغرفة كلها بعد أن يضيء الأنوار", time:120+22.4},
+            {text:"يمكن لجورب الآن النوم خالي البال،", time:120+26},
+            {text:"لأنه لا توجد وحوش في الغرفة.", time:120+33}
         ],
         [
-            {text:"Now do you see how to get over", time:162},
-
-            {text:"you fear of the dark", time:166}
+            {text:"هل رأيت الآن كيف يمكنك", time:120+35},
+            {text:"التغلب على خوفك من الظلام؟", time:120+37}
         ],
         [
         ]
@@ -157,81 +138,73 @@ TEXTS = [
     /* Story 3*/
     [
         [
-            {text:"Should you be careful where you play?", time:2.5},
+            {text:"هل يجب عليك أن تكون حذرا فيما يتعلق بمكان لعبك؟", time:3.2},
 
-            {text:"Sock and Boots want to show you", time:4.5},
-            {text:"why you should be careful.", time:6}
+            {text:" يرغب جورب وحذاء في أن يظهرا لك لماذا عليك الحذر.", time:8}
         ],
 
         [
-            {text:"There are so many places to play in the house.", time:7 + 3.5},
-
-            {text:"Even under the bed like a tiny mouse.", time:7 + 8},
-            {text:"Sock wants to find a new place to play.", time:7 + 11.5},
-            {text:"Just where will he play his games today?", time:23}
+            {text:"هناك أماكن كثيرة في البيت يمكنك اللعب فيها.", time:11.5},
+            {text:"حتى تحت السرير مثل فأر صغير.", time:15.5},
+            {text:"يرغب جورب في العثور على مكان يلعب فيه.", time:20.3},
+            {text:"ببساطة أين سيلعب ألعابه اليوم؟", time:23.5}
         ],
 
         [
-            {text:"Sock wants to play in the washing machine.", time:26},
-
-            {text:"It spins and spins to get things clean.", time:23 + 8},
-            {text:"Sock says to Boots, \"let's get inside,", time:23 + 11.5},
-            {text:"it looks like fun... we can go for a ride.\"", time:38.5}
+            {text:"يرغب جورب في اللعب داخل الغسالة.", time:27.2},
+            {text:"إنها تدور وتدور وتجعل الأشياء نظيفة.", time:29},
+            {text:'يقول جورب لحذاء، "هيا بنا ندخل فيها،', time:32},
+            {text:' إنه أمر يبدو ممتعا....يمكننا أن نذهب في رحلة."', time:34.7}
         ],
 
         [
-            {text:"\"No,\" says Boots, \"we can't ride.\"", time:39 + 3.5},
-            {text:"\"We might get hurt if we get inside.\"", time:46},
-            {text:"\"I think we should look for a different place\"", time:50},
-            {text:"\"We should only play where we know it's safe\"", time:54}
+            {text:'"لا،" يقول حذاء، "لا يمكننا الذهاب في رحلة."', time:43},
+            {text:'"فمن الممكن أن نصاب بأذى إذا دخلنا فيها."', time:46.5},
+            {text:'"أنا أعتقد أنه ينبغي علينا البحث عن مكان آخر."', time:50},
+            {text:'"يجب علينا أن نلعب في مكان نعرف أنه آمن."', time:55}
         ],
 
         [
-            {text:"Sock says, \"I'll get in and have all the fun,", time:58},
-
-            {text:"and you can just watch until I'm done", time:54 + 7.5},
-            {text:"Boots starts to worry about his friend", time:54 + 11.5},
-            {text:"\"Don't do it,\", says Boots, but Sock still climbs in", time:71}
+            {text:'يقول جورب، "أنا سأدخل فيها لأستمتع كل الإستمتاع،', time:59},
+            {text:'ويمكنك المراقبة ببساطة حتى أنتهي."', time:60.7},
+            {text:'يبدأ حذاء بالقلق على صديقه.', time:62.5},
+            {text:'"لا تفعل ذلك،" يقول حذاء، لكن مع ذلك يمضي جورب متسلقا الغسالة.', time:66}
         ],
 
         [
-            {text:"The washing machine locks", time:73},
-            {text:"as it rumbles and rumbles.", time:74.5},
-            {text:"It fills up with water as Sock tumbles and tumbles.", time:79},
-            {text:"\"Help me Boots,\" Sock starts to scream,", time:71 + 11.5},
-            {text:"\"please get me out of this washing machine!\"", time:86.4}
+            {text:"تنغلق الغسالة، وهي تقعقع وتقعقع.", time:60+15.5},
+            {text:"تمتلئ الغسالة بالمياه بينما يتشقلب جورب ويدور.", time:60+20},
+            {text:'"ساعدني يا حذاء،" يبدأ جورب في الصراخ،', time:60+23},
+            {text:'"الرجاء إخراجي من هذه الغسالة."', time:60+27}
         ],
 
 
         [
-            {text:"Boots climbs up high and tugs on the door.", time:87 + 3.2},
-            {text:"He tries and tries and tries some more.", time:87 + 7},
-            {text:"The door won't open because it's locked.", time:87 + 11},
-            {text:"So how will Boots get to poor little Sock?", time:102}
+            {text:"يتسلق حذاء الغسالة ويسحب الباب،", time:60+31},
+            {text:"إنه يحاول ويحاول ويحاول.", time:60+34},
+            {text:"إن الباب لا ينفتح لأنه مغلق،", time:60+38},
+            {text:"فكيف يمكن لحذاء الوصول إلى المسكين جورب الصغير؟", time:60+43}
         ],
 
         [
-            {text:"Sock lets out another scream,", time:102 + 2.5},
-            {text:"\"please pull out the plug to the washing machine!\"", time:102 + 7},
-            {text:"\"That's it!\" says Boots, \"but where is the plug?\"", time:102 + 11},
-            {text:"He looks all around even under the rug.", time:118.3}
+            {text:"يُصدر جورب صرخة أخرى،", time:60+45.4},
+            {text:'أرجوك إسحب سلك الكهرباء من الغسالة!', time:60+50},
+            {text:'فكرة رائعة! يقول حذاء، ولكن أين السلك؟', time:60+54.5},
+            {text:"إنه يبحث عنه في كل مكان حتي تحت السجاد.", time:60+58.5}
         ],
         [
-            {text:"\"There it is\" Boots starts to shout.", time:118 + 3},
-
-            {text:"He runs to the wall and yanks the plug out.", time:118 + 6},
-            {text:"The washing machine stops and the door unlocks.", time:118 + 11.8},
-            {text:"Boots has saved his best friend Sock.", time:134}
+            {text:'إنه هناك! يصرخ حذاء.', time:121.6},
+            {text:"إنه يجري نحو الجدار ويسحب القابس.", time:125},
+            {text:"تتوقف الغسالة وينفتح الباب.", time:129.5},
+            {text:"لقد أنقذ حذاء صديقه المفضل جورب.", time:120+14}
         ],
         [
 
-            {text:"Now Sock is safe, and he learned today,", time:134 + 3.5},
-            {text:"that he should only play where it is safe to play.", time:134 + 8.8},
-            {text:"Can you think of places", time:145},
-            {text:"that are not safe for you to play?", time:146.85}
-
+            {text:"جورب في مأمن الآن، وقد تعلم اليوم", time:120+16.5},
+            {text:"أنه ينبغي أن يلعب فقط في مكان يعرف أنه آمن اللعب فيه.", time:120+20},
+            {text:"هل بإمكانك أن تفكر في أمكان غير آمنة للعب فيها؟", time:120+22}
         ],
         [
         ]
     ]
-]
+];
