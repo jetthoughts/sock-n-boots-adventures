@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.jetthoughts.es_socknboots;
+package com.jetthoughts.it_socknboots;
 
 public final class R {
     public static final class attr {
