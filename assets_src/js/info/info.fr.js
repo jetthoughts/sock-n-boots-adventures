@@ -1,7 +1,7 @@
 HEADER_TITLE = "Bibliothèque";
 BUTTONS = {"help" : "Aider", "main_menu" : "Menu principal", "story_book" : "Bibliothèque",
     "read_myself" : "lu moi-même", "read_to_me" : "Lisez-moi", "story_menu" : "Menu histoire"};
-TITLES = ["Share", "Afraid of the dark", "Play it safe"];
+TITLES = ["Partager", "Peur de l’obscurité", "Joue en toute sécurité"];
 
 PAGE_NUMBERS = [
 		[1,2,3,4,5,6,7,8,9],
