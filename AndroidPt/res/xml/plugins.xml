@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugins>
+    <plugin name="App" value="com.phonegap.App"/>
+    <plugin name="Device" value="com.phonegap.Device"/>
+    <plugin name="Media" value="com.phonegap.AudioHandler"/>
+
+</plugins>
