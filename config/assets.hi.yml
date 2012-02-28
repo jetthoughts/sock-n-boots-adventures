@@ -24,6 +24,7 @@ stylesheets:
      -  assets_src/css/flip.css
   low:
     -  assets_src/css/low.css
+    -  assets_src/css/hi-low.css
   high:
     -  assets_src/css/high.css
   middle:
