@@ -77,6 +77,8 @@
 		847F374C14BEEA3100539FB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		847F374F14BEEA3100539FB6 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		847F375514BEEA8800539FB6 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../assets/www; sourceTree = "<group>"; };
+		847F539314FCF5DF000F7EEB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		847F539414FCF644000F7EEB /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84ABCB3914F9328800927E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84ABCB3A14F9867300927E34 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84ABCB3B14F9870900927E34 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -278,6 +280,8 @@
 				fr,
 				hi,
 				it,
+				"zh-Hant",
+				ar,
 			);
 			mainGroup = 847F36FA14BEEA3100539FB6;
 			productRefGroup = 847F370914BEEA3100539FB6 /* Products */;
@@ -361,6 +365,8 @@
 				84ABCB3A14F9867300927E34 /* fr */,
 				84ABCB3B14F9870900927E34 /* hi */,
 				84BE511F14FB80B000192554 /* it */,
+				847F539314FCF5DF000F7EEB /* zh-Hant */,
+				847F539414FCF644000F7EEB /* ar */,
 			);
 			name = InfoPlist.strings;
 			path = SocknBoots;
