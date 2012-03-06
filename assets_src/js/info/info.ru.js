@@ -1,238 +1,212 @@
 HEADER_TITLE = "Оглавление";
-TITLES = ["Делиться", "", ""];
+TITLES = ["Делиться", "Бояться темноты", "Играйте осторожно"];
 PAGE_NUMBERS = [
-    [1,2,3,4,5,6,7,8,9],
-    [1,2,3,4,5,6,8,9,10,11,12],
-    [1,2,3,4,5,6,7,8,9,10,11]
+  [1,2,3,4,5,6,7,8,9],
+  [1,2,3,4,5,6,8,9,10,11,12],
+  [1,2,3,4,5,6,7,8,9,10,11]
 ];
 
 BUTTONS = {"help" : "Справка", "main_menu" : "Главное меню", "story_book" : "Оглавление",
-    "read_myself" : "Без звука", "read_to_me" : "Со звуком", "story_menu" : "Меню рассказа"};
+  "read_myself" : "Читать", "read_to_me" : "Слушать", "story_menu" : "Меню рассказа"};
 
 TEXTS = [
+  [
     [
-        [
-            {text:"Знаете ли вы, почему нужно делиться?", time:3},
+      {text:"Знаете ли вы, почему нужно делиться?", time:3.2},
 
-            {text:"Носок и его лучший друг Ботинок расскажут вам об этом.", time:7}
-        ],
-        [
-            {text:"Un día Medias y Botas van a jugar.", time:11.4},
-            {text:"Envuelven su almuerzo y se van", time:6 + 9.4},
-            {text:"Medias dice, “vamos a jugar en el parque.”", time:6 + 13.2},
-            {text:"Botas dice, “regresemos antes que oscurezca.”", time:23.2}
-        ],
-
-        [
-            {text:"Однажды Носок и Ботинки пошли поиграть.", time:23 + 2.7},
-            {text:"Собрали обеды, и вышли гулять.", time:23 + 5.2},
-            {text:"Носок говорит: «В парке играть веселее».", time:32},
-            {text:"Ботинки ответили: «Давай играть, пока не стемнеет».", time:36}
-        ],
-
-        [
-            {text:"Как только они в парк пришли,", time:36 + 2.8},
-            
-            {text:"Достали обеды и играть пошли.", time:36 + 7.4},
-            {text:"Носок говорит: «Давай развлекаться!", time:36 + 11},
-            {text:"Бегать, в прятки играть и смеяться».", time:52.4}
-
-        ],
-        [
-            {text:"Птицы прилетели, на обед Носка сели,", time:56.5},
-            {text:"Жевали-жевали, ели и ели.", time:58.7},
-            
-            {text:"Носок и Ботинки захотят пообедать.", time:52 + 13},
-            {text:"Но что без обеда Носок будет делать?", time:69.4}
-        ],
-        [
-
-            {text:"Oh no! Dice Medias con gran sorpresa.", time:74.4},
-            {text:"Mi almuerzo desapareció, mientras empieza a llorar.", time:80},
-            {text:"No te preocupes, dice Botas. Yo tengo bastante,", time:84},
-            {text:"Nosotros podemos compartir mi almuerzo.", time:88}
-
-        ],
-        [
-
-            {text:"Medias está contento", time:89.8},
-            {text:"ahora que hay almuerzo para comer.", time:91.3},
-            {text:"Botas  comparte inclusive su torta de Chocolate,", time:94.8},
-            {text:"su golosina favorita.", time:97},
-            {text:"Ahora Botas también está contento.", time:100.5},
-            {text:"Porque el compartir hizo feliz a Medias", time:103},
-            {text:"y compartir es bueno.", time:106}
-        ],
-        [
-            {text:"Ahora ves porque deberías compartir?", time:109}
-
-        ],
-        []
-
-
+      {text:"Носок и его лучшие друзья Ботинки", time:6.4},
+      {text:"расскажут вам об этом.", time:8.8}
     ],
-    /* Story 2*/
     [
-        [
-            {text:"Tienes miedo a la obscuridad en la noche?", time:3.5},
-            {text:"Medias quiere decirte cómo logró", time:6},
-            {text:"superar su miedo ala obscuridad.", time:8.5}
-        ],
-        [
-            {text:"A las 8 de la noche la casa de Medias se pone oscura", time:8 + 6.5},
-            {text:"Los pájaros no cantan, y los perros no ladran", time:8 + 12.5},
-            {text:"Todo el vecindario apaga sus luces,", time:8 + 15.5},
-            {text:"Y todos van a dormir por la noche.", time:26.5}
-        ],
-
-        [
-            {text:"Tic….toc….tic…toc", time:26 + 6},
-
-            {text:"El reloj marca las 8 y es hora de dormir para Medias", time:26 + 10.2},
-            {text:"El se alista para la cama, luego el apaga la luz,", time:42},
-            {text:"Pero Medias le tiene miedo", time:43.7},
-            {text:"a la oscuridad por la noche.", time:46}
-        ],
-
-        [
-            {text:"El tira de sus colchas hasta cubrir su cabeza,", time:49},
-            {text:"Y se queda temblando en su cama", time:53},
-            {text:"“Tengo miedo,  tengo miedo”,", time:55},
-            {text:"“Medias comienza a gritar", time:57},
-            {text:"“No me gusta cuando se apagan las luces.”", time:62}
-        ],
-
-        [
-            {text:"A  Medias no le gusta apagar las luces", time:65},
-
-            {text:"Porque la casa hace un ruido de miedo en la noche.", time:68.5},
-            {text:"Ahora está oscuro dentro de la habitación de Medias,", time:72},
-            {text:"Excepto por la brillante luz de la luna.", time:76}
-        ],
-
-        [
-            {text:"Cric… Cric… suena el piso", time:82.5},
-            {text:"Está viniendo ese ruido de la puerta del armario?", time:85.5},
-            {text:"El solo pensamiento le da a Medias", time:86.5},
-            {text:"un  miedo realmente grande", time:89},
-            {text:"Podría estar algo escondido allí?", time:92}
-        ],
-
-        [
-            {text:"Medias es tan curioso cómo puede ser,", time:95.2},
-
-            {text:"Así que salta de la cama para ir a mirar", time:98},
-            {text:"El abre el armario y enciende la luz", time:102},
-            {text:"Y no hay ningún monstruo a la vista.", time:106.2}
-        ],
-
-        [
-            {text:"Solo para estar seguro Medias mira por todas partes,", time:112},
-            {text:"luego vuelve a saltar a su cama", time:114},
-            {text:"para dormir sano y salvo.", time:117},
-            {text:"Me alegro de haber comprobado por mí mismo”", time:119.5},
-            {text:"dice Medias.", time:120.5},
-            {text:"“Ahora no tendré miedo a las 8 de la noche.”", time:123.5}
-        ],
-
-        [
-            {text:"Así que cuando Medias tiene miedo", time:125},
-            {text:"a la oscuridad en la noche,", time:126.7},
-            {text:"Solamente revisa toda su habitación", time:129.5},
-            {text:"cuando enciende la luz.", time:131.2},
-
-            {text:"Ahora Medias puede dormir sin cuidado", time:133.8},
-            {text:"Porque no hay monstruos allí", time:139}
-        ],
-        [
-            {text:"Ahora ves cómo puedes superar", time:142.6},
-            {text:"tu miedo a la obscuridad?", time:144.3}
-        ],
-        [
-        ]
+      {text:"Однажды Носок и Ботинки пошли поиграть.", time:13.6},
+      {text:"Собрали обеды, и вышли гулять.", time:16.9},
+      {text:"Носок говорит: «В парке играть веселее».", time:21.4},
+      {text:"Ботинки ответили:", time:23.4},
+      {text:"«Давай играть, пока не стемнеет».", time:26.9}
     ],
 
-    /* Story 3*/
     [
-        [
-            {text:"Deberías tener cuidado donde juegas?", time:2.5},
+      {text:"Как только они в парк пришли,", time:29.6},
+      {text:"Достали обеды и играть пошли.", time:34.2},
+      {text:"Носок говорит: «Давай развлекаться!", time:37.4},
+      {text:"Бегать, в прятки играть и смеяться».", time:42}
 
-            {text:"Medias y botas desean mostrarte porque", time:4.5},
-            {text:"deberías ser cuidadoso", time:7}
-        ],
+    ],
+    [
+      {text:"Птицы прилетели, на обед Носка сели,", time:46.4},
+      {text:"Жевали-жевали, ели и ели.", time:51.3},
+      {text:"Носок и Ботинки захотят пообедать.", time:55.2},
+      {text:"Но что без обеда Носок будет делать?", time:59.7}
+    ],
+    [
+      {text:"Ботинки предложили: «Давай поедим,", time:64.2},
+      {text:"Вкусным обедом голод свой утолим».", time:68.3},
+      {text:"Они до полудня вместе играли.", time:60+11.2},
+      {text:"А птицы весь обед Носка склевали.", time:60+15.5}
+    ],
+    [
 
-        [
-            {text:"Hay tantos lugares para jugar en la casa.", time:11},
+      {text:"«О, нет!» - голодный Носок закричал.", time:60+20},
+      {text:"«Остался я без обеда» - и он заплакал.", time:60+25.3},
+      {text:"«Не волнуйся»,- Ботинки ему сказали,", time:60+29.5},
+      {text:"И половину своего обеда Носку отдали.", time:60+35}
 
-            {text:"Inclusive debajo de la cama, como un pequeño ratón.", time:7 + 8},
-            {text:"Medias quiere encontrar un nuevo lugar para jugar.", time:7 + 11.8},
-            {text:"Dónde puede jugar sus juegos hoy?", time:23}
-        ],
+    ],
+    [
 
-        [
-            {text:"Medias quiere jugar en la lavadora de ropa.", time:26},
+      {text:"Носок обрадовался", time:60+36.5},
+      {text:"тому что он не останется голодным.", time:60+39.4},
+      {text:"Ботинки с ним поделились", time:60+40.6},
+      {text:"даже своим любимым Шоколадным тортом.", time:60+44.4},
+      {text:"Ботинки улыбались, и они поняли одно -", time:60+49},
+      {text:"Делиться – это очень хорошо!", time:60+53}
+    ],
+    [
+      {text:"Теперь вы понимаете", time:60+54.8},
+      {text:"почему вы должны делиться?", time:60+57.7}
 
-            {text:"Esta gira y gira para lavar las cosas.", time:23 + 8.3},
-            {text:"Medias le dice a Botas, “vamos a entrar,", time:23 + 11.8},
-            {text:"parece divertido…. Podemos dar un paseo.”", time:38.5}
-        ],
-
-        [
-            {text:"“No! Dice Botas, “no podemos pasear.”", time:39 + 3.6},
-            {text:"“Podríamos lastimarnos si entramos.”", time:46},
-            {text:"“Creo que nosotros deberíamos buscar", time:48.5},
-            {text:"un lugar diferente.”", time:50},
-            {text:"“Nosotros solo deberíamos jugar", time:52.2},
-            {text:"donde sabemos que es seguro.”", time:54.5}
-        ],
-
-        [
-            {text:"Medias dice, “Yo entraré y me divertiré,", time:58.4},
-            {text:"Y tú puedes mirar hasta que yo termine.", time:54 + 8},
-            {text:"Botas empieza a preocuparse por su amigo,", time:65.5},
-            {text:"“No lo hagas,” dice Botas,", time:68},
-            {text:"“pero Medias sigue trepando.", time:71}
-        ],
-
-        [
-            {text:"La lavadora se cierra, mientras suena y suena.", time:75},
-            {text:"Esta se llena de agua mientras Medias  gira y gira.", time:79},
-            {text:"“Ayúdame Botas,” Empieza a gritar Medias,", time:71 + 11.8},
-            {text:"“por favor sácame de la lavadora.”", time:86.4}
-        ],
+    ],
+    []
 
 
-        [
-            {text:"Botas trepa a lo alto y tira de la puerta,", time:87 + 3.2},
-            {text:"el trata,  y trata y trata más.", time:95},
-            {text:"La puerta no se abrirá porque está cerrada", time:98},
-            {text:"así que como podría Botas alcanzar al", time:100.5},
-            {text:"pequeño y pobre Medias?", time:103}
-        ],
+  ],
+  /* Story 2*/
+  [
+    [
+      {text:"Вы никогда не боялись темноты ночью?", time:3.5},
+      {text:"Носок хочет рассказать вам,", time:6.4},
+      {text:"как он перестал бояться темноты.", time:10}
+    ],
+    [
+      {text:"Вечер наступил, в доме стало темно.", time:14.5},
+      {text:"Птицы не поют, они уснули давно.", time:19.6},
+      {text:"Соседи все свет в домах выключают,", time:23.4},
+      {text:"И ночью они в темноте засыпают.", time:28}
+    ],
 
-        [
-            {text:"Medias dio otro grito,", time:105},
-            {text:"por favor desconecta el enchufe de la lavadora!", time:102 + 7},
-            {text:"Eso es! Dice Botas, pero ¿dónde está el enchufe?", time:113.4},
-            {text:"El busca por todas partes", time:116},
-            {text:"inclusive debajo de la alfombra.", time:118.3}
-        ],
-        [
-            {text:"Aquí esta! Empieza a gritar Botas.", time:118 + 3.6},
-            {text:"El corre a la pared y arranca el enchufe", time:118 + 6.2},
-            {text:"La lavadora se detiene y la puerta se abre.", time:118 + 11.8},
-            {text:"Botas ha salvado a su mejor amigo Medias.", time:134}
-        ],
-        [
+    [
+      {text:"Тик-так, тик-так – Носку пора спать.", time:34.5},
+      {text:"Тик-так, тик-так – завтра рано вставать.", time:41},
+      {text:"Он ложится в кровать и свет выключает,", time:45.4},
+      {text:"Но Носка в темноте страх разбирает.", time:50}
+    ],
 
-            {text:"Ahora medias esta seguro y aprendió hoy", time:138},
-            {text:"que sólo debería jugar donde él sabe", time:141.5},
-            {text:"que es seguro jugar.", time:144},
-            {text:"Puedes pensar en lugares que", time:145},
-            {text:"no son seguros para jugar?", time:147.1}
+    [
+      {text:"Под одеялом с головой он лежит,", time:54},
+      {text:"От страха Носочек очень дрожит.", time:58.5},
+      {text:"«Я боюсь засыпать, очень страшно мне.", time:63.4},
+      {text:"Не могу находиться один в темноте».", time:68.4}
+    ],
 
-        ],
-        [
-        ]
+    [
+      {text:"Носок не любит свет выключать,", time:60+12.4},
+      {text:"Ночью дом может страшные звуки издавать.", time:60+18.5},
+      {text:"В комнате Носка очень темно,", time:60+23.4},
+      {text:"Только луна освещает его.", time:60+27.5}
+    ],
+
+    [
+      {text:"«Скрип... скрип ...", time:60+30.6},
+      {text:"Кто это там на полу?", time:60+33.8},
+      {text:"Или кто-то притаился в шкафу?", time:60+36.7},
+      {text:"А вдруг кто-то залез под кровать?»,-", time:60+40.4},
+      {text:"Страшные мысли не дают Носку спать.", time:60+45.2}
+    ],
+
+    [
+      {text:"Носку любопытно, что там может скрипеть,", time:60+50.5},
+      {text:"Он поднялся с кровати, чтоб посмотреть.", time:60+54.5},
+      {text:"Свет он включил и к шкафу подошел,", time:60+59.5},
+      {text:"Дверцу открыл – никого не нашел.", time:60+65.8}
+    ],
+    [
+      {text:"Чтобы убедиться, Носок все осмотрел,", time:120+11},
+      {text:"В кровать он залез, невредим и цел.", time:120+15.4},
+      {text:"«Я рад, что проверил все на себе.", time:120+19.4},
+      {text:"Теперь я не буду бояться спать в темноте».", time:120+24}
+    ],
+
+    [
+      {text:"Теперь, когда Носок слышит звук,", time:120+29.4},
+      {text:"С кровати встает и смотрит вокруг.", time:120+33.5},
+      {text:"Носку не страшно одному оставаться,", time:120+37.2},
+      {text:"Монстру к нему никогда не пробраться.", time:120+42.5}
+    ],
+    [
+      {text:"Теперь вы видите,", time:120+46.2},
+      {text:"как можно перестать бояться темноты?", time:120+49.7}
+    ],
+    [
     ]
+  ],
+
+  /* Story 3*/
+  [
+    [
+      {text:"Должны вы быть осторожны там, где играете?", time:3.6},
+      {text:"Носок и Ботинки расскажут вам,", time:6.6},
+      {text:"почему вы должны быть осторожны.", time:9.6}
+    ],
+    [
+      {text:"В доме много места, где можно поиграть.", time:14.5},
+      {text:"Как мышка, можно залезть под кровать.", time:18.2},
+      {text:"Носок для игры ищет новое место.", time:22},
+      {text:"Дом очень большой, но в нем играть тесно.", time:26.6}
+    ],
+    [
+      {text:"«Давай поиграем в стиральной машине.", time:30.4},
+      {text:"Там будем вертеться в порошке или в мыле»,-", time:34.7},
+      {text:"Носок предложил внутри покружиться,-", time:38.2},
+      {text:"«Тебе будет весело со мной прокатиться».", time:42.6}
+    ],
+    [
+      {text:"Ботинки сказали: «Нам нельзя там кататься!", time:47.4},
+      {text:"Ведь может случайно она поломаться.", time:50.8},
+      {text:"Давай мы с тобою дом обойдем,", time:53.7},
+      {text:"И безопасное место найдем».", time:57.7}
+    ],
+    [
+      {text:"Носок говорит: «Я внутри прокачусь,", time:62.5},
+      {text:"А ты стой и смотри, как я веселюсь».", time:66.4},
+      {text:"Ботинки сказали: «Носок, погоди!»", time:70.4},
+      {text:"Но он уже влез и сидел там внутри.", time:60+15.4}
+    ],
+
+    [
+      {text:"Машинка закрылась, барабан завращался,", time:60+20},
+      {text:"Вода полилась, и Носок испугался.", time:60+24.3},
+      {text:"Он вдруг закричал: «Скорей помогите!", time:60+27.7},
+      {text:"Стиральную машинку остановите!»", time:60+32.3}
+    ],
+
+
+    [
+      {text:"Ботинки забрались к дверце наверх,", time:60+35.5},
+      {text:"Ее открыть пытались из сил, изо всех.", time:60+40.5},
+      {text:"Но дверь не открылась – она заперта.", time:60+44.7},
+      {text:"Как же ботинкам добраться до Носка?", time:60+48.6}
+    ],
+
+    [
+      {text:"Носок из машинки кричит вдруг ещё:", time:60+52.5},
+      {text:"«Есть вилка в розетке – вынь скорее её!»", time:60+56.8},
+      {text:"Ботинки розетку не могут найти.", time:120.5},
+      {text:"Им нужно скорее Носок спасти.", time:123.6}
+    ],
+    [
+      {text:"«Вот же она!»,- закричали Ботинки.", time:128.4},
+      {text:"И из розетки вынули вилку.", time:120+11.2},
+      {text:"Стиральная машина остановилась.", time:120+14},
+      {text:"Ботинки спасли друга, и все получилось.", time:120+19.8}
+    ],
+    [
+      {text:"Теперь Носок спасен,", time:120+22.9},
+      {text:"и сегодня он понял,", time:120+24.9},
+      {text:"что должен играть только там,", time:120+28.2},
+      {text:"где это безопасно.", time:120+30},
+      {text:"Можете ли вы назвать места,", time:120+32.7},
+      {text:"в которых небезопасно играть?", time:120+35.4}
+    ],
+    []
+  ]
 ];

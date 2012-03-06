@@ -10,7 +10,7 @@ javascripts:
 
   all:
    - assets_src/js/vendor/*.js
-   - assets_src/js/info/info.pt.js
+   - assets_src/js/info/info.ru.js
    - assets_src/js/*.js
 
   phonegap_ios:
