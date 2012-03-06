@@ -6,8 +6,8 @@ PAGE_NUMBERS = [
     [1,2,3,4,5,6,7,8,9,10,11]
 ];
 
-BUTTONS = {"help" : "助け", "main_menu" : "メインメニュー", "story_book" : "絵本",
-    "read_myself" : "自分を読む", "read_to_me" : "私には読み", "story_menu" : "ストーリーメニュー"};
+BUTTONS = {"help" : "助け", "main_menu" : "始め ", "story_book" : "絵本",
+    "read_myself" : "物語を読みなさい ", "read_to_me" : "聞きなさい", "story_menu" : "ストーリーメニュー"};
 
 TEXTS = [
     [

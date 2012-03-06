@@ -1,3 +1,10 @@
 .subs span .txt{
     font-size:20pt;
 }
+
+#story_menu .button{
+  font-size: 24px;
+}
+#s_main_menu_link{
+  font-size: 38px;
+}
