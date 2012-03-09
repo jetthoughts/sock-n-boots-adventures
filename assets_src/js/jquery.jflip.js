@@ -117,6 +117,10 @@ var ttt;
       }).click(
       function() {
 
+      }).click(
+      function(e) {
+        el.trigger("flip.click", {x:e.pageX,y:e.pageY});
+        return false;
       }).mousedown(
       function(e) {
 
