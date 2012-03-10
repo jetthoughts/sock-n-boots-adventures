@@ -7,7 +7,7 @@ SOUNDS = [
         ],
         [
             {l:0.05, r:0.23, t:0.2, b:0.6, name:'sock_laughing_as_he_runs.mp3'},
-            {l:0.6, r:0.8, t:0.25, b:0.5, name:'individual_birds.mp3'}
+            {l:0.6, r:1, t:0.25, b:0.5, name:'individual_birds.mp3'}
             //{l:0.8, r:1, t:0.3, b:0.8, name:'boots_laughing_by_the_tree.mp3'}
         ],
          // Page 3
@@ -40,7 +40,7 @@ SOUNDS = [
         [
             {l:0.05, r:0.2, t:0.05, b:0.9, name:'brids_snore.mp3'},
             {l:0.21, r:0.4, t:0.4, b:0.75, name:'car_honk.mp3'},
-            {l:0.4, r:0.6, t:0.4, b:0.75, name:'dog.mp3'}
+            {l:0.35, r:0.65, t:0.35, b:0.75, name:'dog.mp3'}
         ],
          // Page 2
         [
