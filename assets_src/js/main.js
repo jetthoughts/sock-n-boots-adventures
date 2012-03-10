@@ -212,11 +212,8 @@ function selectStory(index) {
                 function(event, index, total) {
                     pageDidChanged(index);
                 }).bind("flip.click", function(e, pnt) {
-                    console.log("find");
                     var src = getSrcForArea(pnt);
-                    console.log(src);
                     if (src != null) {
-                        console.log(SinglePlayer);
                         SinglePlayer.play(src);
                     }
                 });
@@ -439,24 +436,20 @@ function positionDidChanged(position) {
 }
 
 function getSrcForArea(pnt) {
-     console.log(SOUNDS);
 
-    var availableAreas = SOUNDS[current_story][current_page];
-    console.log(availableAreas);
-    console.log(availableAreas);
+    var availableAreas = SOUNDS[current_story][PAGE_NUMBERS[current_story][current_page] - 1];
+
     var name = null;
 
     var rx = pnt.x / screenSize.width;
     var ry = pnt.y / screenSize.height;
-console.log("rx = " + rx + " ry =  " + ry);
+
     for (var i=0; i < availableAreas.length && name == null; i++){
         var area =  availableAreas[i];
         if ((rx >= area.l) && (area.r >= rx) && (ry >= area.t) && (area.b >= ry)){
             name = area.name;
         }
     }
-
-console.log('name = '+ name);
     if (name == null){
       return null;
     }

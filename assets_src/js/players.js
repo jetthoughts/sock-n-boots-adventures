@@ -2,13 +2,17 @@ var SinglePlayer = function() {
 
     var media = null;
 
+    var onFinish = function(){
+      media = null;
+    };
+
     return {
         play: function(src) {
-            if (media != null) return;
+            if (media != null){
+                return;
+            }
 
-            media = new Media(src, function() {
-                media = null;
-            });
+            media = new Media(src, onFinish, onFinish);
             media.play();
         }
     }
