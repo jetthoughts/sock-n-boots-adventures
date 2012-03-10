@@ -1,0 +1,32 @@
+compress_assets: on
+embed_assets: off
+gzip_assets: off
+package_assets: off
+rewrite_relative_paths: off
+
+package_path: ../assets/www/gen
+
+javascripts:
+
+  all:
+   - assets_src/js/vendor/*.js
+   - assets_src/js/info/info.ru.js
+   - assets_src/js/*.js
+
+  phonegap_ios:
+    - assets_src/js/phonegap/ios/*.js
+  phonegap_android:
+    - assets_src/js/phonegap/android/*.js
+
+stylesheets:
+  all:
+     -  assets_src/css/main.css
+     -  assets_src/css/flip.css
+  low:
+    -  assets_src/css/low.css
+    -  assets_src/css/ru-low.css
+  high:
+    -  assets_src/css/high.css
+    -  assets_src/css/ru-high.css
+  middle:
+    -  assets_src/css/middle.css

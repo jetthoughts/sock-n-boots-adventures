@@ -13,10 +13,10 @@ body {
 #menu_trigger {
     z-index: 20;
     position: absolute;
-    left: 25%;
-    top: 25%;
-    width: 50%;
-    height: 50%;
+    left: 37%;
+    top: 37%;
+    width: 25%;
+    height: 25%;
     background-color: red;
     opacity: 0;
 }

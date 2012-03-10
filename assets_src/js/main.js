@@ -97,7 +97,7 @@ function init() {
     });
 
     $("#story_board_link").click(function() {
-      if (!isMenuVisible()) return;
+        if (!isMenuVisible()) return;
 
         hidePages();
         showStoryMenu();
@@ -105,7 +105,7 @@ function init() {
     });
 
     $("#main_menu_link").click(function() {
-       if (!isMenuVisible()) return;
+        if (!isMenuVisible()) return;
 
         hidePages();
         showMainMenu();
@@ -208,8 +208,14 @@ function selectStory(index) {
 
         setupPages(function() {
             $("#book ul").jFlip(screenSize.width, screenSize.height, {background:"green", cornersTop:false}).
-                bind("flip.jflip", function(event, index, total) {
+                bind("flip.jflip",
+                function(event, index, total) {
                     pageDidChanged(index);
+                }).bind("flip.click", function(e, pnt) {
+                    var src = getSrcForArea(pnt);
+                    if (src != null) {
+                        SinglePlayer.play(src);
+                    }
                 });
 
             setupSubs();
@@ -321,7 +327,7 @@ function setMenuOpacity(val, dur) {
 }
 
 function isMenuVisible() {
-   return $("#menu").css("opacity") == 1;
+    return $("#menu").css("opacity") == 1;
 }
 
 function toggleMenu() {
@@ -340,8 +346,8 @@ function toggleMenu() {
 
     var delta = dir + $("#menu").height() + "px";
 
-    if (isNotIpad()){
-      $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
+    if (isNotIpad()) {
+        $(".subs span").animate({top:delta}, MENU_ANIMATION_DURATION);
     }
 
     menuAnimating = true;
@@ -429,6 +435,29 @@ function positionDidChanged(position) {
 
 }
 
+function getSrcForArea(pnt) {
+
+    var availableAreas = SOUNDS[current_story][PAGE_NUMBERS[current_story][current_page] - 1];
+
+    var name = null;
+
+    var rx = pnt.x / screenSize.width;
+    var ry = pnt.y / screenSize.height;
+
+    for (var i=0; i < availableAreas.length && name == null; i++){
+        var area =  availableAreas[i];
+        if ((rx >= area.l) && (area.r >= rx) && (ry >= area.t) && (area.b >= ry)){
+            name = area.name;
+        }
+    }
+    if (name == null){
+      return null;
+    }
+
+    var res = _getRoot() + "sounds/" + (current_story + 1) + '/' + name;
+    return res;
+}
+
 function _setPauseLink() {
     $("#play_link.play").removeClass('play').addClass('pause');
 }
@@ -447,13 +476,13 @@ function _pageId(index) {
     return "page_" + current_story + "_" + index;
 }
 
-function _endImage(){
-  var resolution =  _device() == "iphone" ? "low" : "high";
-  return "images/" + resolution + "/end.jpg";
+function _endImage() {
+    var resolution = _device() == "iphone" ? "low" : "high";
+    return "images/" + resolution + "/end.jpg";
 }
 
 function _pageImage(index) {
-    if (index == getPageCount()-1) return _endImage();
+    if (index == getPageCount() - 1) return _endImage();
 
     return "stories/" + (current_story + 1) + "/images/" + _device() + "/" + (PAGE_NUMBERS[current_story][index] || index ) + ".jpg";
 }
@@ -468,7 +497,7 @@ function _getAudioPath() {
     return res;
 }
 
-function isNotIpad(){
+function isNotIpad() {
     return screenSize.width < 1024;
 }
 

@@ -1,3 +1,23 @@
+var SinglePlayer = function() {
+
+    var media = null;
+
+    var onFinish = function() {
+        media = null;
+    };
+
+    return {
+        play: function(src) {
+            if (media != null) {
+                media.release();
+                media = null;
+            }
+            media = new Media(src, onFinish, onFinish);
+            media.play();
+        }
+    }
+}();
+
 var Player = function(src, finished_handler, position_handler) {
     this.audioFinishedHandler = finished_handler;
     this.positionHandler = position_handler;
@@ -5,10 +25,10 @@ var Player = function(src, finished_handler, position_handler) {
     var timer = null;
 
     this.current_audio = new Media(src, function() {
-    }, function() {
-        console.log("fail");
-    }
-            );
+        }, function() {
+            console.log("fail");
+        }
+    );
 
 
     this.stopTimer = function() {
@@ -91,11 +111,11 @@ var StoryPlayer = function(with_music, info) {
     var source = _getAudioRoot() + name;
     this.player = new Player(source, function() {
 
-    }, function(pos) {
-        positionDidChanged(pos);
-    }
+        }, function(pos) {
+            positionDidChanged(pos);
+        }
 
-            );
+    );
 
 
     this.playNarration = function(src) {

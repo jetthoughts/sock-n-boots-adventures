@@ -23,7 +23,7 @@ SocknBoots.xcodeproj/project.xcworkspace/xcuserdata/
 active_phonegap/
 xcuserdata/
 ios/www/
-Android/out
+Android*/out
 .bundle/
 Android/Android.iml
 xcuserdata/
@@ -34,3 +34,6 @@ assets/www/images/
 assets/www/stories/*/*.wav
 assets/www/stories/*/images/*/cover**
 assets/www/stories/main_menu_bg.jpg
+Android*/bin/**
+Android*/target/**
+proguard_logs/
